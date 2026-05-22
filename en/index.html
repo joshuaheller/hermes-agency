@@ -166,12 +166,16 @@
   <style>
     @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/SpaceGrotesk-latin.woff2') format('woff2')}
     @font-face{font-family:'Syne';font-style:normal;font-weight:400 800;font-display:swap;src:url('/assets/fonts/Syne-latin.woff2') format('woff2')}
+    @font-face{font-family:'Space Grotesk Fallback';src:local('Arial'),local('Liberation Sans'),local('Helvetica Neue'),local('Roboto');size-adjust:126.641%;ascent-override:77.700%;descent-override:23.057%;line-gap-override:0%}
+    @font-face{font-family:'Syne Fallback';src:local('Arial'),local('Liberation Sans'),local('Helvetica Neue'),local('Roboto');size-adjust:124.602%;ascent-override:74.237%;descent-override:22.070%;line-gap-override:0%}
+ 
+ 
   </style>
 
   <!-- Critical CSS inlined, full stylesheet deferred -->
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--c-bg:#0b0c10;--c-bg-2:#10111a;--c-surface:#1a1b28;--c-border:rgba(255,255,255,.07);--c-accent:#6d5efc;--c-accent-dim:rgba(109,94,252,.12);--c-accent-glow:rgba(109,94,252,.35);--c-text:#e8eaf0;--c-text-muted:#8892a4;--c-text-dim:#4a5568;--c-white:#fff;--f-heading:'Syne',sans-serif;--f-body:'Space Grotesk',sans-serif;--r-full:9999px;--r-md:12px;--r-lg:20px;--t-base:.3s ease}
+    :root{--c-bg:#0b0c10;--c-bg-2:#10111a;--c-surface:#1a1b28;--c-border:rgba(255,255,255,.07);--c-accent:#6d5efc;--c-accent-dim:rgba(109,94,252,.12);--c-accent-glow:rgba(109,94,252,.35);--c-text:#e8eaf0;--c-text-muted:#8892a4;--c-text-dim:#4a5568;--c-white:#fff;--f-heading:'Syne','Syne Fallback',sans-serif;--f-body:'Space Grotesk','Space Grotesk Fallback',sans-serif;--r-full:9999px;--r-md:12px;--r-lg:20px;--t-base:.3s ease}
     html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:var(--f-body);background:var(--c-bg);color:var(--c-text);line-height:1.65;font-size:1rem;overflow-x:hidden;-webkit-font-smoothing:antialiased}
     .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
     h1,h2,h3,h4{font-family:var(--f-heading);font-weight:700;line-height:1.1;letter-spacing:-.02em}
