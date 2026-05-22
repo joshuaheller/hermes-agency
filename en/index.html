@@ -159,14 +159,14 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/logo-hermes.svg" />
-  <link rel="icon" type="image/svg+xml" href="/assets/logo-hermes.svg" />
 
-  <!-- Fonts: preconnect + async load to avoid render-blocking -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" /></noscript>
+  <!-- Fonts: self-hosted, preloaded (no swap CLS) -->
+  <link rel="preload" href="/assets/fonts/Syne-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/SpaceGrotesk-latin.woff2') format('woff2')}
+    @font-face{font-family:'Syne';font-style:normal;font-weight:400 800;font-display:swap;src:url('/assets/fonts/Syne-latin.woff2') format('woff2')}
+  </style>
 
   <!-- Critical CSS inlined, full stylesheet deferred -->
   <style>
@@ -219,7 +219,6 @@
   <link rel="preload" as="style" href="/styles.min.css" />
   <link rel="stylesheet" href="/styles.min.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="/styles.min.css" /></noscript>
-  <script defer data-domain="hermes-agency.dev" src="http://plausible-rs8gs4c4www440g8k8wg48sg.91.99.162.11.sslip.io/js/script.js"></script>
   <script defer data-domain="hermes-agency.dev" src="https://analytics.taisc.de/js/script.js"></script>
 </head>
 <body>
@@ -272,7 +271,7 @@
     <div class="hero__video-bg">
       <video autoplay muted loop playsinline poster="/assets/hero-bg.webp" preload="none">
         <source src="/assets/hero-bg.mp4" type="video/mp4" />
-      </video>
+      <track kind="captions" /></video>
     </div>
 
     <div class="hero__content container">
@@ -1376,7 +1375,7 @@
       <div class="cta-banner__video">
         <video muted loop playsinline poster="/assets/cta-bg.webp" preload="none">
           <source data-src="/assets/cta-bg.mp4" type="video/mp4" />
-        </video>
+        <track kind="captions" /></video>
       </div>
     </div>
     <div class="container cta-banner__inner reveal">
