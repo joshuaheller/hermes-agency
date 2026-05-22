@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hermes Agent Enterprise Architektur: Sicherheit, Skalierung &amp; DSGVO | Hermes Agency</title>
+  <meta name="description" content="Technischer Leitfaden fuer Hermes Agent Enterprise: Architektur, Guardrails, Rollen, On-Premise, EU-Hosting, Audit-Logging und DSGVO fuer produktive KI-Agenten." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hermes-agency.dev/hermes-agent-enterprise-architektur-dsgvo.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://hermes-agency.dev/hermes-agent-enterprise-architektur-dsgvo.html" />
+  <meta property="og:title" content="Hermes Agent Enterprise Architektur: Sicherheit, Skalierung &amp; DSGVO" />
+  <meta property="og:description" content="Wie Unternehmen Hermes Agent sicher produktiv betreiben: Hosting, Rollen, Audit-Logs, Wissensbasis und Human-in-the-Loop." />
+  <meta property="og:image" content="https://hermes-agency.dev/assets/og-image.jpg" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Hermes Agent Enterprise Architektur: Sicherheit, Skalierung und DSGVO",
+    "description": "Technischer Artikel zu Hermes-Agent-Architektur, Datenschutz und Betriebsmodellen fuer Unternehmen.",
+    "mainEntityOfPage": "https://hermes-agency.dev/hermes-agent-enterprise-architektur-dsgvo.html",
+    "datePublished": "2026-04-15",
+    "dateModified": "2026-04-15",
+    "inLanguage": "de-DE",
+    "author": {
+      "@type": "Organization",
+      "name": "Hermes Agency"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hermes Agency",
+      "url": "https://hermes-agency.dev"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-hermes.svg" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-hermes.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" /></noscript>
+  <link rel="stylesheet" href="styles.min.css" />
+
+  <style>
+    .tech-page { padding: 7rem 0 4rem; min-height: 100vh; background: var(--c-bg); }
+    .tech-back { display: inline-flex; gap: 0.5rem; margin-bottom: 2rem; color: var(--c-text-muted); }
+    .tech-back:hover { color: var(--c-accent); }
+    .tech-hero, .tech-section, .tech-cta { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-lg); padding: 2rem; }
+    .tech-hero { margin-bottom: 1.5rem; }
+    .tech-hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); color: var(--c-white); margin-bottom: 1rem; }
+    .tech-hero p, .tech-section p { color: var(--c-text-muted); line-height: 1.75; }
+    .tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+    .tech-block { background: var(--c-bg); border: 1px solid var(--c-border); border-radius: var(--r-md); padding: 1.2rem; }
+    .tech-block h3 { color: var(--c-white); margin-bottom: 0.6rem; font-size: 1rem; }
+    .tech-section + .tech-section, .tech-cta { margin-top: 1.5rem; }
+    .tech-section h2, .tech-cta h2 { color: var(--c-white); margin-bottom: 0.8rem; }
+    .tech-section ul { padding-left: 1.2rem; color: var(--c-text-muted); line-height: 1.8; }
+    .tech-note { margin-top: 1rem; padding: 1rem 1.1rem; border-left: 3px solid var(--c-accent); background: var(--c-accent-dim); border-radius: 0 var(--r-md) var(--r-md) 0; color: var(--c-text); }
+    @media (max-width: 960px) { .tech-grid { grid-template-columns: 1fr; } }
+  </style>
+  <script defer data-domain="hermes-agency.dev" src="https://analytics.taisc.de/js/script.js"></script>
+</head>
+<body>
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logo-hermes.svg" alt="Hermes Agency Logo" class="nav__logo-img" width="64" height="64" />
+        <span class="nav__logo-text">Hermes Agency</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+        <li><a href="hermes-agent-fuer-unternehmen.html" class="nav__link">Leitfaden</a></li>
+        <li><a href="glossar.html" class="nav__link">Glossar</a></li>
+      </ul>
+      <a href="index.html#kontakt" class="btn btn--nav">Erstgespraech buchen</a>
+      <button class="nav__burger" id="navBurger" aria-label="Menue oeffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="tech-page">
+    <div class="container">
+      <a href="blog.html" class="tech-back">← Zurueck zum Content-Hub</a>
+
+      <section class="tech-hero">
+        <span class="section-tag">Technik &amp; DSGVO</span>
+        <h1>Hermes Agent Enterprise Architektur: Sicherheit, Skalierung und Datenschutz fuer produktive KI-Agenten</h1>
+        <p>
+          Unternehmen scheitern selten an der Idee eines KI-Agenten, sondern an Architekturfragen: Wer darf was?
+          Welche Daten werden wo verarbeitet? Wie werden Entscheidungen protokolliert? Und wann wird ein Mensch
+          eingebunden? Genau diese Punkte muessen vor dem Rollout sauber modelliert werden.
+        </p>
+      </section>
+
+      <section class="tech-section">
+        <h2>1. Die Grundarchitektur</h2>
+        <p>
+          Ein belastbares Enterprise-Setup trennt mindestens vier Ebenen: Nutzereingaben, Wissens- und Kontextzugriff,
+          Modellaufruf sowie Aktionsrechte in Zielsystemen. So vermeiden Unternehmen, dass ein Agent gleichzeitig alles
+          lesen, entscheiden und veraendern darf.
+        </p>
+        <div class="tech-grid">
+          <div class="tech-block">
+            <h3>Eingangs- und Governance-Schicht</h3>
+            <p>Authentifizierung, Rollen, Prompt-Policies, Logging und Freigaberegeln.</p>
+          </div>
+          <div class="tech-block">
+            <h3>Wissens- und Kontextschicht</h3>
+            <p>RAG, Wissensdatenbanken, SOPs, Produktdaten und Zugriff auf strukturierte Datenquellen.</p>
+          </div>
+          <div class="tech-block">
+            <h3>Agenten- und Modellschicht</h3>
+            <p>Modellrouter, Agentenlogik, Toolnutzung, Evaluationspunkte und Konfidenzsignale.</p>
+          </div>
+          <div class="tech-block">
+            <h3>Aktionsschicht</h3>
+            <p>API-Aufrufe in CRM, ERP, Ticketing, DMS oder Messaging-Systeme mit klaren Rechten.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tech-section">
+        <h2>2. Sicherheit entsteht durch Begrenzung, nicht durch Vertrauen</h2>
+        <ul>
+          <li>Toolrechte pro Agent und nicht global fuer alle Workflows vergeben.</li>
+          <li>Schreibrechte strikt von Leserechten trennen.</li>
+          <li>Kritische Aktionen nur nach Freigabe oder Schwellenwertpruefung ausfuehren.</li>
+          <li>Jeden Modellaufruf, jede Quelle und jede Aktion revisionssicher protokollieren.</li>
+          <li>Fallbacks definieren, wenn Quellen fehlen, Unsicherheit hoch ist oder externe APIs scheitern.</li>
+        </ul>
+        <div class="tech-note">
+          Die wichtigste Regel: Ein Agent darf nie mehr koennen als der Prozess organisatorisch tragen kann.
+        </div>
+      </section>
+
+      <section class="tech-section">
+        <h2>3. DSGVO: welche Architekturfragen frueh geklaert werden muessen</h2>
+        <p>
+          Datenschutz ist kein Add-on. Bereits vor dem Go-Live muessen Datenkategorien, Speicherorte, Aufbewahrungsfristen,
+          Loeschkonzepte und Rollen geklaert werden. Typische Fragen im Projektstart sind:
+        </p>
+        <ul>
+          <li>Welche personenbezogenen Daten sieht der Agent?</li>
+          <li>Wer ist Verantwortlicher und wo liegt die Auftragsverarbeitung?</li>
+          <li>Wer darf Outputs einsehen und wie lange werden Logs gespeichert?</li>
+          <li>Welche Modelle duerfen fuer sensible Daten ueberhaupt verwendet werden?</li>
+          <li>Ist EU-Hosting ausreichend oder ist On-Premise fachlich und rechtlich notwendig?</li>
+        </ul>
+      </section>
+
+      <section class="tech-section">
+        <h2>4. On-Premise, EU-Cloud oder Hybrid?</h2>
+        <p>
+          Es gibt kein pauschal richtiges Hosting-Modell. Ein hybrider Aufbau ist fuer viele Mittelstaendler am
+          praktikabelsten: sensible Datenquellen bleiben nahe am Unternehmen, weniger kritische Komponenten laufen in
+          einer EU-Cloud. Vollstaendiges On-Premise ist sinnvoll, wenn regulatorische oder vertragliche Anforderungen
+          es verlangen oder wenn Daten das Unternehmen nicht verlassen duerfen.
+        </p>
+        <p>
+          Wichtiger als das Label ist die operative Umsetzbarkeit: Monitoring, Updates, Secrets-Management,
+          Zugriffstrennung und Auditierbarkeit muessen im gewaehlten Modell robust funktionieren.
+        </p>
+      </section>
+
+      <section class="tech-section">
+        <h2>5. Skalierung heisst nicht nur mehr Last, sondern mehr Verantwortung</h2>
+        <p>
+          Sobald mehrere Agenten produktiv laufen, steigen die Anforderungen an Versionierung, Prompt-Management,
+          Testfaelle, Kostenkontrolle und Change-Freigaben. Deshalb sollte ein produktives Setup von Beginn an eine
+          Evaluations- und Release-Logik vorsehen: Welche Version eines Agenten laeuft wo? Wie werden Verschlechterungen
+          erkannt? Und wer entscheidet ueber neue Rechte oder neue Datenquellen?
+        </p>
+      </section>
+
+      <section class="tech-cta">
+        <h2>Sie brauchen ein belastbares Hermes-Agent-Setup fuer sensible Daten?</h2>
+        <p>
+          Wir entwerfen Architekturen, die nicht nur beeindruckend aussehen, sondern unter Datenschutz-, Sicherheits-
+          und Betriebsanforderungen auch wirklich bestehen.
+        </p>
+        <a href="index.html#kontakt" class="btn btn--primary" style="margin-top:1rem;">Architekturgespraech anfragen</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 Hermes Agency · <a href="mailto:hermes-agency@theaisoftwarecompany.com">hermes-agency@theaisoftwarecompany.com</a></p>
+        <p class="footer__credit">Ein Service von <a href="https://theaisoftwarecompany.com" target="_blank" rel="noopener">The AI Software Company</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('nav');
+      var burger = document.getElementById('navBurger');
+      burger && burger.addEventListener('click', function () {
+        nav.classList.toggle('mobile-open');
+      });
+    })();
+  </script>
+</body>
+</html>

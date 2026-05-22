@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hermes Agent Blog &amp; Content-Hub | Hermes Agency</title>
+  <meta name="description" content="Der Hermes Agent Content-Hub von Hermes Agency: Leitfäden, Vergleiche, Technikartikel, DSGVO-Wissen, Use Cases und Case Studies zu KI-Agenten im DACH-Markt." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hermes-agency.dev/blog.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hermes-agency.dev/blog.html" />
+  <meta property="og:title" content="Hermes Agent Blog &amp; Content-Hub | Hermes Agency" />
+  <meta property="og:description" content="Leitfäden, Vergleiche, DSGVO-Artikel, Use Cases und Case Studies zu Hermes Agent und KI-Agenten für Unternehmen im DACH-Raum." />
+  <meta property="og:image" content="https://hermes-agency.dev/assets/og-image.jpg" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Hermes Agent Blog & Content-Hub",
+    "url": "https://hermes-agency.dev/blog.html",
+    "description": "Zentrale Uebersichtsseite fuer Hermes-Agent-Artikel, Technik-Guides, Vergleiche und Case Studies.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hermes Agency",
+      "url": "https://hermes-agency.dev"
+    },
+    "hasPart": [
+      {
+        "@type": "Article",
+        "headline": "Hermes Agent fuer Unternehmen: Leitfaden fuer Entscheider im DACH-Markt",
+        "url": "https://hermes-agency.dev/hermes-agent-fuer-unternehmen.html"
+      },
+      {
+        "@type": "Article",
+        "headline": "Hermes Agent vs. n8n vs. Zapier",
+        "url": "https://hermes-agency.dev/hermes-agent-vs-n8n-zapier.html"
+      },
+      {
+        "@type": "Article",
+        "headline": "Hermes Agent Enterprise Architektur: Sicherheit, Skalierung und DSGVO",
+        "url": "https://hermes-agency.dev/hermes-agent-enterprise-architektur-dsgvo.html"
+      },
+      {
+        "@type": "Article",
+        "headline": "5 Hermes Agent Use Cases fuer den deutschen Mittelstand",
+        "url": "https://hermes-agency.dev/hermes-agent-use-cases-roi-mittelstand.html"
+      },
+      {
+        "@type": "Article",
+        "headline": "Case Study: Logistikunternehmen spart 35 Stunden pro Woche",
+        "url": "https://hermes-agency.dev/case-study-hermes-agent-logistik.html"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-hermes.svg" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-hermes.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" /></noscript>
+  <link rel="stylesheet" href="styles.min.css" />
+
+  <style>
+    .content-page { padding: 7rem 0 4rem; min-height: 100vh; background: var(--c-bg); }
+    .content-back { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--c-text-muted); margin-bottom: 2rem; }
+    .content-back:hover { color: var(--c-accent); }
+    .content-hero { margin-bottom: 3rem; max-width: 860px; }
+    .content-hero h1 { font-size: clamp(2.4rem, 5vw, 4.4rem); color: var(--c-white); margin-bottom: 1rem; }
+    .content-hero p { max-width: 760px; color: var(--c-text-muted); font-size: 1.08rem; line-height: 1.75; }
+    .content-highlight { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+    .content-card, .content-panel { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-lg); padding: 2rem; }
+    .content-card h2, .content-panel h2 { font-size: 1.5rem; color: var(--c-white); margin-bottom: 0.9rem; }
+    .content-card h3, .content-panel h3 { font-size: 1.1rem; color: var(--c-white); margin-bottom: 0.75rem; }
+    .content-card p, .content-panel p { color: var(--c-text-muted); line-height: 1.7; }
+    .content-card ul, .content-panel ul { padding-left: 1.1rem; color: var(--c-text-muted); line-height: 1.8; }
+    .content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0; }
+    .content-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .content-badge { display: inline-block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-accent); background: var(--c-accent-dim); border: 1px solid rgba(109,94,252,0.25); padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 0.9rem; }
+    .content-link { display: inline-flex; margin-top: 1.25rem; font-weight: 600; color: var(--c-accent); }
+    .content-link:hover { color: var(--c-white); }
+    .content-meta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; color: var(--c-text-dim); font-size: 0.82rem; }
+    .content-cta { margin-top: 3rem; }
+    @media (max-width: 960px) {
+      .content-highlight, .content-grid, .content-list { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script defer data-domain="hermes-agency.dev" src="https://analytics.taisc.de/js/script.js"></script>
+</head>
+<body>
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logo-hermes.svg" alt="Hermes Agency Logo" class="nav__logo-img" width="64" height="64" />
+        <span class="nav__logo-text">Hermes Agency</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html#hermes-agent" class="nav__link">Leistungen</a></li>
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+        <li><a href="case-studies.html" class="nav__link">Case Studies</a></li>
+        <li><a href="glossar.html" class="nav__link">Glossar</a></li>
+      </ul>
+      <a href="index.html#kontakt" class="btn btn--nav">Erstgespraech buchen</a>
+      <button class="nav__burger" id="navBurger" aria-label="Menue oeffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <ul>
+        <li><a href="index.html#hermes-agent" class="nav__link">Leistungen</a></li>
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+        <li><a href="case-studies.html" class="nav__link">Case Studies</a></li>
+        <li><a href="glossar.html" class="nav__link">Glossar</a></li>
+        <li><a href="index.html#kontakt" class="btn btn--primary" style="display:inline-block;margin-top:1rem;">Erstgespraech buchen</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="content-page">
+    <div class="container">
+      <a href="index.html" class="content-back">← Zurueck zur Startseite</a>
+
+      <header class="content-hero">
+        <span class="section-tag">Hermes Agent Content-Hub</span>
+        <h1>Der zentrale Wissens-Hub fuer Hermes Agent, KI-Agenten und DSGVO-konforme Automatisierung.</h1>
+        <p>
+          Diese Seite bildet die Content-Struktur fuer hermes-agency.dev: ein zentraler Pillar-Guide fuer Entscheider,
+          flankiert von Vergleichsartikeln, Technik-Deep-Dives, Use Cases und echten Fallstudien. So bauen wir
+          gezielt Topical Authority rund um Hermes Agent im DACH-Raum auf.
+        </p>
+      </header>
+
+      <section class="content-highlight">
+        <article class="content-card">
+          <span class="content-badge">Pillar Page</span>
+          <h2>Hermes Agent fuer Unternehmen</h2>
+          <p>
+            Der Leitfaden ordnet Hermes Agent strategisch ein: Datenhoheit, Architektur, Governance, Integrationen,
+            Einfuehrungsprozess und ROI fuer Unternehmen in Deutschland, Oesterreich und der Schweiz.
+          </p>
+          <div class="content-meta">
+            <span>Fokus: Hermes Agent</span>
+            <span>Zielgruppe: CTOs, GF, IT-Leitung</span>
+            <span>Format: Leitfaden</span>
+          </div>
+          <a href="hermes-agent-fuer-unternehmen.html" class="btn btn--primary" style="margin-top:1.25rem;">Leitfaden lesen</a>
+        </article>
+
+        <aside class="content-panel">
+          <span class="content-badge">Hub-and-Spoke</span>
+          <h2>Was Sie hier finden</h2>
+          <ul>
+            <li>Vergleichsartikel fuer Hermes Agent vs. Alternativen</li>
+            <li>Technik-Inhalte zu Architektur, Sicherheit und DSGVO</li>
+            <li>Use Cases und ROI-Inhalte fuer den Mittelstand</li>
+            <li>Case Studies und ein Glossar fuer interne Verlinkung</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="content-grid">
+        <article class="content-card">
+          <span class="content-badge">Cluster A</span>
+          <h3>Vergleich &amp; Markteinordnung</h3>
+          <p>
+            Fuer Unternehmen, die Hermes Agent gegen n8n, Zapier oder proprietaere Plattformen abwaegen.
+          </p>
+          <a href="hermes-agent-vs-n8n-zapier.html" class="content-link">Hermes Agent vs. n8n vs. Zapier lesen →</a>
+        </article>
+
+        <article class="content-card">
+          <span class="content-badge">Cluster B</span>
+          <h3>Implementierung &amp; Technik</h3>
+          <p>
+            Architektur, Datenschutz, Rollen, On-Premise, API-Integration und Skalierung fuer produktive Agenten.
+          </p>
+          <a href="hermes-agent-enterprise-architektur-dsgvo.html" class="content-link">Architektur-Guide lesen →</a>
+        </article>
+
+        <article class="content-card">
+          <span class="content-badge">Cluster C</span>
+          <h3>Use Cases &amp; ROI</h3>
+          <p>
+            Konkrete Einsatzbilder fuer Kundenservice, Operations, Vertrieb und interne Wissensarbeit im Mittelstand.
+          </p>
+          <a href="hermes-agent-use-cases-roi-mittelstand.html" class="content-link">Use-Case-Artikel lesen →</a>
+        </article>
+      </section>
+
+      <section class="content-list">
+        <article class="content-card">
+          <span class="content-badge">Vergleich</span>
+          <h2>Hermes Agent vs. n8n vs. Zapier</h2>
+          <p>Wann lohnt sich ein Agenten-Framework, wann genuegt ein Workflow-Tool und wo entstehen Lock-in-Risiken?</p>
+          <a href="hermes-agent-vs-n8n-zapier.html" class="content-link">Zum Vergleich →</a>
+        </article>
+
+        <article class="content-card">
+          <span class="content-badge">Technik</span>
+          <h2>Enterprise-Architektur, Sicherheit und DSGVO</h2>
+          <p>Wie Hermes Agent in sensible Systemlandschaften passt: Zugriff, Logging, Modellwahl, Hosting und Freigaben.</p>
+          <a href="hermes-agent-enterprise-architektur-dsgvo.html" class="content-link">Zum Technik-Guide →</a>
+        </article>
+
+        <article class="content-card">
+          <span class="content-badge">Use Cases</span>
+          <h2>5 Hermes Agent Use Cases fuer den Mittelstand</h2>
+          <p>Von Ticketautomatisierung bis Angebotsvorbereitung: typische Quick Wins mit nachvollziehbarem Business Case.</p>
+          <a href="hermes-agent-use-cases-roi-mittelstand.html" class="content-link">Zu den Use Cases →</a>
+        </article>
+
+        <article class="content-card">
+          <span class="content-badge">Case Study</span>
+          <h2>Logistikunternehmen spart 35 Stunden pro Woche</h2>
+          <p>Ein konkreter Blick auf Ausgangslage, Architektur, Rollout und den gemessenen Impact nach 90 Tagen.</p>
+          <a href="case-study-hermes-agent-logistik.html" class="content-link">Zur Fallstudie →</a>
+        </article>
+
+        <article class="content-card">
+          <span class="content-badge">Case Studies</span>
+          <h2>Alle Fallstudien im Ueberblick</h2>
+          <p>Die zentrale Uebersicht fuer Projektergebnisse, Referenzmuster und typische ROI-Korridore im DACH-Markt.</p>
+          <a href="case-studies.html" class="content-link">Zur Uebersicht →</a>
+        </article>
+
+        <article class="content-card">
+          <span class="content-badge">Glossar</span>
+          <h2>KI-Glossar fuer Entscheider und IT-Teams</h2>
+          <p>Definitionen zu KI-Agent, Agentic AI, Hermes Agent, Embeddings, RAG, Governance und Datenschutz.</p>
+          <a href="glossar.html" class="content-link">Zum Glossar →</a>
+        </article>
+      </section>
+
+      <section class="content-panel content-cta">
+        <span class="content-badge">Naechster Schritt</span>
+        <h2>Sie wollen Hermes Agent nicht nur verstehen, sondern produktiv einsetzen?</h2>
+        <p>
+          Dann starten Sie mit einem Erstgespraech. Wir priorisieren passende Use Cases, pruefen Datenschutz und
+          zeigen Ihnen, welches Agenten-Setup zu Ihrem Risiko- und Integrationsprofil passt.
+        </p>
+        <a href="index.html#kontakt" class="btn btn--primary" style="margin-top:1rem;">Hermes-Agent-Beratung anfragen</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 Hermes Agency · <a href="mailto:hermes-agency@theaisoftwarecompany.com">hermes-agency@theaisoftwarecompany.com</a></p>
+        <p class="footer__credit">Ein Service von <a href="https://theaisoftwarecompany.com" target="_blank" rel="noopener">The AI Software Company</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('nav');
+      var burger = document.getElementById('navBurger');
+      burger && burger.addEventListener('click', function () {
+        nav.classList.toggle('mobile-open');
+        burger.setAttribute('aria-label', nav.classList.contains('mobile-open') ? 'Menue schliessen' : 'Menue oeffnen');
+      });
+    })();
+  </script>
+</body>
+</html>
