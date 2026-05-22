@@ -68,7 +68,7 @@ Typische Ausgangssituationen:
 ## Contact
 
 - [Kontaktbereich](https://hermes-agency.dev/#kontakt): Erstgespraech und Projektanfrage
-- E-Mail: hermes-agency@theaisoftwarecompany.com
+- E-Mail: hermes@theaisoftwarecompany.com
 - [LinkedIn](https://www.linkedin.com/in/heller-joshua)
 - Unternehmen: TAISC - The AI Software Company GmbH
 

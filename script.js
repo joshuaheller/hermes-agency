@@ -502,3 +502,5 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 console.log('%cHermes Agency ⚡', 'color: #6d5efc; font-size: 1.5rem; font-weight: bold;');
 console.log('%cHermes-Agent-Experten für den DACH-Mittelstand', 'color: #8892a4;');
+
+(function(){var y=document.getElementById("copyright-year");if(y){y.textContent=new Date().getFullYear();}})();
