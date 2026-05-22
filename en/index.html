@@ -164,8 +164,8 @@
   <link rel="preload" href="/assets/fonts/Syne-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>
-    @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:optional;src:url('/assets/fonts/SpaceGrotesk-latin.woff2') format('woff2')}
-    @font-face{font-family:'Syne';font-style:normal;font-weight:400 800;font-display:optional;src:url('/assets/fonts/Syne-latin.woff2') format('woff2')}
+    @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/SpaceGrotesk-latin.woff2') format('woff2')}
+    @font-face{font-family:'Syne';font-style:normal;font-weight:400 800;font-display:swap;src:url('/assets/fonts/Syne-latin.woff2') format('woff2')}
   </style>
 
   <!-- Critical CSS inlined, full stylesheet deferred -->
@@ -216,9 +216,7 @@
     @media(max-width:900px){.nav__links{display:none}.nav__burger{display:flex}.btn--nav{display:none}}
     @media(max-width:768px){.hide-mobile{display:none}.hero__stats{padding:1rem}.hero__stat{padding:.5rem 1rem;min-width:100px}.hero__stat-divider{display:none}.hero__stat-num{font-size:1.5rem}.hero__content{padding:0 1rem}.hero__actions{width:100%;max-width:100%;box-sizing:border-box}.hero__actions .btn{width:100%;max-width:100%;min-width:0;box-sizing:border-box}}@media(max-width:480px){.hero__headline{font-size:2rem}.container{padding:0 1rem}}
   </style>
-  <link rel="preload" as="style" href="/styles.min.css" />
-  <link rel="stylesheet" href="/styles.min.css" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="/styles.min.css" /></noscript>
+  <link rel="stylesheet" href="/styles.min.css" />
   <script defer data-domain="hermes-agency.dev" src="https://analytics.taisc.de/js/script.js"></script>
 </head>
 <body>
