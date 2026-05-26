@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Redirect stubs at old EN slugs — already noindex, listed here to save crawl budget
+Disallow: /en/glossar.html
+Disallow: /en/case-study-hermes-agent-logistik.html
+Disallow: /en/hermes-agent-fuer-unternehmen.html
+Disallow: /en/hermes-agent-enterprise-architektur-dsgvo.html
+Disallow: /en/hermes-agent-use-cases-roi-mittelstand.html
+
+Sitemap: https://hermes-agency.dev/sitemap.xml

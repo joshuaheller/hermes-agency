@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepages -->
+  <url>
+    <loc>https://hermes-agency.dev/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/" />
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/en/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/" />
+  </url>
+
+  <!-- Blog hub -->
+  <url>
+    <loc>https://hermes-agency.dev/blog.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/blog.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/blog.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/blog.html" />
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/en/blog.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/blog.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/blog.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/blog.html" />
+  </url>
+
+  <!-- Case studies hub -->
+  <url>
+    <loc>https://hermes-agency.dev/case-studies.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/case-studies.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/case-studies.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/case-studies.html" />
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/en/case-studies.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/case-studies.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/case-studies.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/case-studies.html" />
+  </url>
+
+  <!-- Logistics case study -->
+  <url>
+    <loc>https://hermes-agency.dev/case-study-hermes-agent-logistik.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/case-study-hermes-agent-logistik.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/case-study-hermes-agent-logistics.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/case-study-hermes-agent-logistik.html" />
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/en/case-study-hermes-agent-logistics.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/case-study-hermes-agent-logistik.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/case-study-hermes-agent-logistics.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/case-study-hermes-agent-logistik.html" />
+  </url>
+
+  <!-- Pillar guide: Hermes Agent for businesses -->
+  <url>
+    <loc>https://hermes-agency.dev/hermes-agent-fuer-unternehmen.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/hermes-agent-fuer-unternehmen.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/hermes-agent-for-enterprises.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/hermes-agent-fuer-unternehmen.html" />
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/en/hermes-agent-for-enterprises.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/hermes-agent-fuer-unternehmen.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/hermes-agent-for-enterprises.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/hermes-agent-fuer-unternehmen.html" />
+  </url>
+
+  <!-- Architecture & compliance -->
+  <url>
+    <loc>https://hermes-agency.dev/hermes-agent-enterprise-architektur-dsgvo.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/hermes-agent-enterprise-architektur-dsgvo.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/hermes-agent-enterprise-architecture-compliance.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/hermes-agent-enterprise-architektur-dsgvo.html" />
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/en/hermes-agent-enterprise-architecture-compliance.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/hermes-agent-enterprise-architektur-dsgvo.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/hermes-agent-enterprise-architecture-compliance.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/hermes-agent-enterprise-architektur-dsgvo.html" />
+  </url>
+
+  <!-- Use cases & ROI -->
+  <url>
+    <loc>https://hermes-agency.dev/hermes-agent-use-cases-roi-mittelstand.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/hermes-agent-use-cases-roi-mittelstand.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/hermes-agent-use-cases-roi-business.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/hermes-agent-use-cases-roi-mittelstand.html" />
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/en/hermes-agent-use-cases-roi-business.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/hermes-agent-use-cases-roi-mittelstand.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/hermes-agent-use-cases-roi-business.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/hermes-agent-use-cases-roi-mittelstand.html" />
+  </url>
+
+  <!-- Hermes Agent vs. n8n vs. Zapier -->
+  <url>
+    <loc>https://hermes-agency.dev/hermes-agent-vs-n8n-zapier.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/hermes-agent-vs-n8n-zapier.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/hermes-agent-vs-n8n-zapier.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/hermes-agent-vs-n8n-zapier.html" />
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/en/hermes-agent-vs-n8n-zapier.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/hermes-agent-vs-n8n-zapier.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/hermes-agent-vs-n8n-zapier.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/hermes-agent-vs-n8n-zapier.html" />
+  </url>
+
+  <!-- Glossary -->
+  <url>
+    <loc>https://hermes-agency.dev/glossar.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/glossar.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/glossary.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/glossar.html" />
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/en/glossary.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/glossar.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/glossary.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/glossar.html" />
+  </url>
+
+  <!-- Legal (DE only — EN legal pages are still in German and intentionally excluded) -->
+  <url>
+    <loc>https://hermes-agency.dev/impressum.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/datenschutz.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/agb.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+</urlset>
