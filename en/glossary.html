@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI Glossary for Hermes Agent, AI Agents & Automation | Hermes Agency</title>
+  <meta name="description" content="The Hermes Agency AI glossary explains OpenClaw, AI agents, RAG, embeddings, GDPR &amp; CCPA and other key terms for companies in the US, EU and worldwide." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hermes-agency.dev/en/glossary.html" />
+  <link rel="alternate" hreflang="de" href="https://hermes-agency.dev/glossar.html" />
+  <link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/glossary.html" />
+  <link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/en/glossary.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hermes-agency.dev/en/glossary.html" />
+  <meta property="og:title" content="AI Glossary for Hermes Agent, AI Agents & Automation | Hermes Agency" />
+  <meta property="og:description" content="The key AI terms for businesses, explained simply: OpenClaw, AI agents, RAG, GDPR &amp; CCPA, Agentic AI and more." />
+  <meta property="og:image" content="https://hermes-agency.dev/assets/og-image.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "AI Glossary for OpenClaw and AI Agents",
+    "url": "https://hermes-agency.dev/en/glossary.html",
+    "description": "A glossary with definitions of OpenClaw, AI agents, RAG, data protection (GDPR &amp; CCPA) and related terms for companies worldwide.",
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hermes Agency",
+      "url": "https://hermes-agency.dev"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/assets/logo-hermes.svg" />
+
+    <link rel="preload" href="/assets/fonts/Syne-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/SpaceGrotesk-latin.woff2') format('woff2')}
+    @font-face{font-family:'Syne';font-style:normal;font-weight:400 800;font-display:swap;src:url('/assets/fonts/Syne-latin.woff2') format('woff2')}
+    @font-face{font-family:'Space Grotesk Fallback';src:local('Arial'),local('Liberation Sans'),local('Helvetica Neue'),local('Roboto');size-adjust:126.641%;ascent-override:77.700%;descent-override:23.057%;line-gap-override:0%}
+    @font-face{font-family:'Syne Fallback';src:local('Arial'),local('Liberation Sans'),local('Helvetica Neue'),local('Roboto');size-adjust:124.602%;ascent-override:74.237%;descent-override:22.070%;line-gap-override:0%}
+ 
+ 
+  </style>
+
+  <link rel="stylesheet" href="/styles.min.css" />
+
+  <style>
+    .glossary-page {
+      padding: 7rem 0 4rem;
+      min-height: 100vh;
+      background: var(--c-bg);
+    }
+
+    .glossary-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .glossary-header .section-tag { margin-bottom: 1.25rem; }
+
+    .glossary-header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--c-white);
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .glossary-header p {
+      font-size: 1.1rem;
+      color: var(--c-text-muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .glossary-toolbar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .glossary-search {
+      position: relative;
+    }
+
+    .glossary-search__icon {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--c-text-dim);
+      pointer-events: none;
+      width: 18px;
+      height: 18px;
+    }
+
+    .glossary-search__input {
+      width: 100%;
+      padding: 1rem 1.25rem 1rem 3.25rem;
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      color: var(--c-text);
+      font-family: var(--f-body);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color var(--t-base), box-shadow var(--t-base);
+    }
+
+    .glossary-search__input::placeholder {
+      color: var(--c-text-dim);
+    }
+
+    .glossary-search__input:focus {
+      border-color: var(--c-accent);
+      box-shadow: 0 0 0 3px var(--c-accent-dim);
+    }
+
+    .glossary-search__clear {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--c-text-dim);
+      cursor: pointer;
+      padding: 0.25rem;
+      display: none;
+      transition: color var(--t-fast);
+    }
+
+    .glossary-search__clear:hover { color: var(--c-accent); }
+    .glossary-search__clear.visible { display: block; }
+
+    .glossary-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .glossary-filter {
+      padding: 0.4rem 1rem;
+      border-radius: var(--r-full);
+      border: 1px solid var(--c-border);
+      background: transparent;
+      color: var(--c-text-muted);
+      font-family: var(--f-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--t-fast);
+      white-space: nowrap;
+    }
+
+    .glossary-filter:hover {
+      border-color: var(--c-border-2);
+      color: var(--c-text);
+    }
+
+    .glossary-filter.active {
+      background: var(--c-accent-dim);
+      border-color: rgba(109,94,252,0.3);
+      color: var(--c-accent);
+    }
+
+    .glossary-count {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--c-text-dim);
+      margin-bottom: 2rem;
+    }
+
+    .glossary-count span { color: var(--c-text-muted); }
+
+    .glossary-group {
+      margin-bottom: 2.5rem;
+    }
+
+    .glossary-group.hidden { display: none; }
+
+    .glossary-letter {
+      font-family: var(--f-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--c-accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .glossary-letter::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--c-border);
+    }
+
+    .glossary-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .glossary-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      transition: border-color var(--t-base), box-shadow var(--t-base);
+    }
+
+    .glossary-card.hidden { display: none; }
+
+    .glossary-card:hover {
+      border-color: var(--c-border-2);
+    }
+
+    .glossary-card.open {
+      border-color: var(--c-accent);
+      box-shadow: 0 0 24px var(--c-accent-dim);
+      grid-column: 1 / -1;
+    }
+
+    .glossary-card__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .glossary-card__header:hover .glossary-card__title {
+      color: var(--c-white);
+    }
+
+    .glossary-card__info { flex: 1; min-width: 0; }
+
+    .glossary-card__top {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .glossary-card__title {
+      font-family: var(--f-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--c-text);
+      transition: color var(--t-fast);
+      line-height: 1.3;
+    }
+
+    .glossary-card__tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--r-full);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .glossary-card__tag--concept {
+      background: rgba(96,165,250,0.12);
+      color: var(--c-blue);
+      border: 1px solid rgba(96,165,250,0.2);
+    }
+    .glossary-card__tag--model {
+      background: rgba(139,92,246,0.12);
+      color: #a78bfa;
+      border: 1px solid rgba(139,92,246,0.2);
+    }
+    .glossary-card__tag--workflow {
+      background: rgba(34,197,94,0.12);
+      color: var(--c-green);
+      border: 1px solid rgba(34,197,94,0.2);
+    }
+    .glossary-card__tag--infra {
+      background: rgba(245,158,11,0.12);
+      color: var(--c-yellow);
+      border: 1px solid rgba(245,158,11,0.2);
+    }
+    .glossary-card__tag--governance {
+      background: rgba(109,94,252,0.12);
+      color: var(--c-accent-2);
+      border: 1px solid rgba(109,94,252,0.2);
+    }
+
+    .glossary-card__short {
+      font-size: 0.88rem;
+      color: var(--c-text-muted);
+      line-height: 1.5;
+    }
+
+    .glossary-card__toggle {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
+      color: var(--c-text-dim);
+      font-size: 1.1rem;
+      transition: all var(--t-base);
+      margin-top: 0.2rem;
+    }
+
+    .glossary-card:hover .glossary-card__toggle {
+      border-color: var(--c-border-2);
+      color: var(--c-text-muted);
+    }
+
+    .glossary-card.open .glossary-card__toggle {
+      background: var(--c-accent-dim);
+      border-color: var(--c-accent);
+      color: var(--c-accent);
+      transform: rotate(45deg);
+    }
+
+    .glossary-card__detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glossary-card.open .glossary-card__detail {
+      max-height: 800px;
+    }
+
+    .glossary-card__detail-inner {
+      padding: 0 1.5rem 1.5rem;
+      border-top: 1px solid var(--c-border);
+      margin-top: 0;
+    }
+
+    .glossary-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .glossary-detail-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .glossary-detail-block__label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-accent);
+    }
+
+    .glossary-detail-block__text {
+      font-size: 0.88rem;
+      color: var(--c-text-muted);
+      line-height: 1.65;
+    }
+
+    .glossary-detail-block--full {
+      grid-column: 1 / -1;
+    }
+
+    .glossary-related {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--c-border);
+    }
+
+    .glossary-related__label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-text-dim);
+      margin-bottom: 0.6rem;
+    }
+
+    .glossary-related__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .glossary-related__tag {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--c-text-muted);
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all var(--t-fast);
+      text-decoration: none;
+    }
+
+    .glossary-related__tag:hover {
+      border-color: var(--c-accent);
+      color: var(--c-accent);
+      background: var(--c-accent-dim);
+    }
+
+    .glossary-empty {
+      text-align: center;
+      padding: 4rem 2rem;
+      display: none;
+    }
+
+    .glossary-empty.visible { display: block; }
+
+    .glossary-empty__icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.4;
+    }
+
+    .glossary-empty__title {
+      font-family: var(--f-heading);
+      font-size: 1.25rem;
+      color: var(--c-white);
+      margin-bottom: 0.5rem;
+    }
+
+    .glossary-empty__text {
+      font-size: 0.9rem;
+      color: var(--c-text-muted);
+    }
+
+    .glossary-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--c-text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+      transition: color 0.2s;
+    }
+    .glossary-back:hover { color: var(--c-accent); }
+
+    @media (max-width: 768px) {
+      .glossary-cards {
+        grid-template-columns: 1fr;
+      }
+      .glossary-card.open {
+        grid-column: 1;
+      }
+      .glossary-detail-grid {
+        grid-template-columns: 1fr;
+      }
+      .glossary-header h1 {
+        font-size: 2.25rem;
+      }
+      .glossary-toolbar {
+        padding: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .glossary-card__header {
+        padding: 1rem 1.25rem;
+      }
+      .glossary-card__detail-inner {
+        padding: 0 1.25rem 1.25rem;
+      }
+      .glossary-filters {
+        gap: 0.4rem;
+      }
+      .glossary-filter {
+        font-size: 0.78rem;
+        padding: 0.35rem 0.8rem;
+      }
+    }
+
+    .glossary-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: glossaryFadeIn 0.6s ease forwards;
+    }
+    .glossary-reveal--d1 { animation-delay: 0.1s; }
+    .glossary-reveal--d2 { animation-delay: 0.2s; }
+    .glossary-reveal--d3 { animation-delay: 0.3s; }
+
+    @keyframes glossaryFadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <script defer data-domain="hermes-agency.dev" src="https://analytics.taisc.de/js/script.js"></script>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="/assets/logo-hermes.svg" alt="Hermes Agency Logo" class="nav__logo-img" width="64" height="64" />
+        <span class="nav__logo-text">Hermes Agency</span>
+      </a>
+      <a class="nav__lang" href="/glossar.html" hreflang="de" aria-label="Switch to German">DE</a>
+      <ul class="nav__links">
+        <li><a href="index.html#agenten" class="nav__link">Agents</a></li>
+        <li><a href="index.html#prozess" class="nav__link">Process</a></li>
+        <li><a href="index.html#ergebnisse" class="nav__link">Results</a></li>
+        <li><a href="index.html#faq" class="nav__link">FAQ</a></li>
+      </ul>
+      <a href="index.html#kontakt" class="btn btn--nav">Book a call</a>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <ul>
+        <li><a href="index.html#agenten" class="nav__link">Agents</a></li>
+        <li><a href="index.html#prozess" class="nav__link">Process</a></li>
+        <li><a href="index.html#ergebnisse" class="nav__link">Results</a></li>
+        <li><a href="index.html#faq" class="nav__link">FAQ</a></li>
+        <li><a href="index.html#kontakt" class="btn btn--primary" style="display:inline-block;margin-top:1rem;">Book a call</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="glossary-page">
+    <div class="container">
+
+      <a href="index.html" class="glossary-back glossary-reveal">← Back to home</a>
+
+      <div class="glossary-header glossary-reveal glossary-reveal--d1">
+        <span class="section-tag">Knowledge</span>
+        <h1>AI glossary for OpenClaw and AI agents</h1>
+        <p>Understand the key building blocks of modern AI systems — from OpenClaw through Agentic AI and RAG to embeddings, governance and GDPR &amp; CCPA.</p>
+      </div>
+
+      <div class="glossary-toolbar glossary-reveal glossary-reveal--d2">
+        <div class="glossary-search">
+          <svg class="glossary-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="glossary-search__input" id="glossarySearch" placeholder="Search a term …" autocomplete="off" />
+          <button class="glossary-search__clear" id="glossaryClear" aria-label="Clear search">✕</button>
+        </div>
+        <div class="glossary-filters" id="glossaryFilters">
+          <button class="glossary-filter active" data-filter="all">All</button>
+          <button class="glossary-filter" data-filter="concept">Fundamentals</button>
+          <button class="glossary-filter" data-filter="model">Models</button>
+          <button class="glossary-filter" data-filter="workflow">Workflows</button>
+          <button class="glossary-filter" data-filter="infra">Infrastructure</button>
+          <button class="glossary-filter" data-filter="governance">Governance</button>
+        </div>
+      </div>
+
+      <div class="glossary-count glossary-reveal glossary-reveal--d3" id="glossaryCount"></div>
+
+      <div id="glossaryContent"></div>
+
+      <div class="glossary-empty" id="glossaryEmpty">
+        <div class="glossary-empty__icon">🔍</div>
+        <div class="glossary-empty__title">No results</div>
+        <div class="glossary-empty__text">Try a different search term or filter.</div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; <span id="copyright-year">2026</span> Hermes Agency · <a href="mailto:hermes@theaisoftwarecompany.com">hermes@theaisoftwarecompany.com</a></p>
+        <p class="footer__credit">A service by <a href="https://theaisoftwarecompany.com" target="_blank" rel="noopener">The AI Software Company</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var burger = document.getElementById('navBurger');
+    var mobileNav = document.getElementById('navMobile');
+    if (burger && mobileNav) {
+      burger.addEventListener('click', function () {
+        var open = mobileNav.style.display === 'block';
+        mobileNav.style.display = open ? 'none' : 'block';
+      });
+    }
+
+    var terms = [
+      {
+        id: 'hermes-agent',
+        term: 'Hermes Agent',
+        short: 'Open-source AI agent from Nous Research with an integrated learning loop.',
+        category: 'workflow',
+        categoryLabel: 'Workflow',
+        letter: 'H',
+        explanation: 'Hermes Agent is an open-source AI agent from Nous Research that has established itself in 2026 as one of the leading open-source alternatives to proprietary agent systems. Its unique selling point is an integrated learning loop that lets the agent build new capabilities from experience and continuously adapt to the user.',
+        howItWorks: 'Hermes Agent combines a powerful language model with tool use (including via MCP), its own skills and a learning loop. The agent plans sub-steps, calls tools and knowledge sources, executes actions and improves itself based on results.',
+        example: 'A company runs a self-hosted Hermes Agent that handles support tickets, pulls in internal documentation, drafts answers and becomes more precise with every case thanks to the learning loop.',
+        whyItMatters: 'For companies under GDPR and CCPA, Hermes Agent is especially interesting because it combines self-hosting, data protection and data sovereignty with state-of-the-art, self-learning agent technology — the foundation of Hermes Agency’s work.',
+        related: ['agentic-ai', 'openclaw', 'tool-function-calling', 'human-in-the-loop']
+      },
+      {
+        id: 'openclaw',
+        term: 'OpenClaw',
+        short: 'Open-source framework for agentic AI workflows in companies.',
+        category: 'workflow',
+        categoryLabel: 'Workflow',
+        letter: 'O',
+        explanation: 'OpenClaw is a framework for AI agents that solve tasks over multiple steps using context, tools and rules. It’s especially well-suited to companies that want to combine data sovereignty, integrations and controlled automation.',
+        howItWorks: 'OpenClaw stitches LLMs, knowledge sources, tool use and approval logic into an agentic flow. An agent can look up information, apply rules, trigger actions and escalate when uncertain.',
+        example: 'An OpenClaw agent reads support tickets, pulls in internal product documentation, drafts a reply and hands edge cases to a human.',
+        whyItMatters: 'OpenClaw sits between classic workflow automation and fully closed AI platforms — a sweet spot for many companies.',
+        related: ['agent', 'tool-function-calling', 'human-in-the-loop', 'dsgvo-datenschutz']
+      },
+      {
+        id: 'agentic-ai',
+        term: 'Agentic AI',
+        short: 'AI systems that pursue goals, plan sub-steps and use tools.',
+        category: 'workflow',
+        categoryLabel: 'Workflow',
+        letter: 'A',
+        explanation: 'Agentic AI describes systems that don’t just respond to a single input but actively pursue a multi-step workflow. They plan intermediate steps, gather information, use tools and evaluate results.',
+        howItWorks: 'A goal is broken down into sub-tasks. The system decides what information is missing, which tools to use and whether a result is confident enough or a human should step in.',
+        example: 'Instead of just drafting an email, an agentic system researches context, drafts a message, updates the CRM and plans the next step.',
+        whyItMatters: 'The term helps explain the difference between a simple chatbot and a productive AI agent with real process logic.',
+        related: ['agent', 'openclaw', 'tool-function-calling']
+      },
+      {
+        id: 'clawdbot-moltbot-openclaw',
+        term: 'Clawdbot / Moltbot / OpenClaw',
+        short: 'Terms that surface around the history and positioning of OpenClaw.',
+        category: 'concept',
+        categoryLabel: 'Fundamentals',
+        letter: 'C',
+        explanation: 'Clawdbot and Moltbot often show up in the market and in conversations as historical or colloquial names connected to OpenClaw. For companies, what matters is mapping these terms cleanly onto the current framework and its actual use cases.',
+        howItWorks: 'In SEO and content terms, related names are bundled so that search queries for older or alternative names still lead to the right explanation and offer.',
+        example: 'An IT lead searches for "Clawdbot alternative" and lands on a guide explaining OpenClaw, its architecture and how to position it today.',
+        whyItMatters: 'This family of terms matters for topical authority, internal linking and capturing fuzzy search intent in the market.',
+        related: ['openclaw', 'agentic-ai']
+      },
+      {
+        id: 'kuenstliche-intelligenz',
+        term: 'Artificial Intelligence (AI)',
+        short: 'Software that handles tasks that normally require human thinking.',
+        category: 'concept',
+        categoryLabel: 'Fundamentals',
+        letter: 'A',
+        explanation: 'Artificial Intelligence describes systems that automate human-like tasks such as understanding, deciding and communicating. Today, AI mostly means machine learning and generative models.',
+        howItWorks: 'AI systems learn from data, recognize patterns and make decisions based on them — without being explicitly programmed for every situation.',
+        example: 'A chatbot that understands customer questions and answers on its own, or a system that automatically processes invoices.',
+        whyItMatters: 'AI is the base technology behind every modern automation — from chatbots to autonomous agents.',
+        related: ['machine-learning', 'generative-ki', 'agent']
+      },
+      {
+        id: 'machine-learning',
+        term: 'Machine Learning (ML)',
+        short: 'Computers learn from data instead of being manually programmed.',
+        category: 'concept',
+        categoryLabel: 'Fundamentals',
+        letter: 'M',
+        explanation: 'Machine learning is a subfield of AI where algorithms learn from data on their own. Instead of defining rules manually, the system recognizes patterns and improves over time.',
+        howItWorks: 'An ML model is trained on large amounts of data. It finds statistical relationships and applies them to new, unseen data.',
+        example: 'Spam filters that learn which emails are unwanted, or product recommendations in online stores.',
+        whyItMatters: 'ML is the foundation of almost every modern AI application — from speech recognition to fraud detection.',
+        related: ['kuenstliche-intelligenz', 'training-vs-inferenz', 'llm']
+      },
+      {
+        id: 'generative-ki',
+        term: 'Generative AI (GenAI)',
+        short: 'AI that creates new content — text, images, code and more.',
+        category: 'concept',
+        categoryLabel: 'Fundamentals',
+        letter: 'G',
+        explanation: 'Generative AI refers to systems that can create new content instead of just analyzing existing data. Examples include ChatGPT, DALL-E and Claude.',
+        howItWorks: 'GenAI models learn the structure and patterns of their training data and can then generate similar but novel content — word by word, pixel by pixel.',
+        example: 'Automatic copywriting for marketing, code generation, document summaries or image creation.',
+        whyItMatters: 'GenAI has made AI accessible to millions of users and enables entirely new kinds of automation.',
+        related: ['llm', 'prompt', 'halluzination']
+      },
+      {
+        id: 'llm',
+        term: 'LLM (Large Language Model)',
+        short: 'Large language models that understand and produce human language.',
+        category: 'model',
+        categoryLabel: 'Models',
+        letter: 'L',
+        explanation: 'LLMs are neural networks with billions of parameters trained on huge amounts of text. They can understand, generate and translate language, and handle tasks like summarization or code writing.',
+        howItWorks: 'An LLM predicts, word by word, what should come next — based on the full context (the prompt). Training on billions of texts gives it broad knowledge.',
+        example: 'ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google) — the models behind modern AI chatbots and copilots.',
+        whyItMatters: 'LLMs power most current AI applications in companies — from customer service to document processing.',
+        related: ['generative-ki', 'prompt', 'token-kontextfenster']
+      },
+      {
+        id: 'training-vs-inferenz',
+        term: 'Training vs. Inference',
+        short: 'Training = AI learns. Inference = AI works.',
+        category: 'model',
+        categoryLabel: 'Models',
+        letter: 'T',
+        explanation: 'During training, a model learns from data and builds its knowledge. During inference, it applies that knowledge to answer requests. Training happens once (or rarely); inference runs constantly.',
+        howItWorks: 'Training: millions of texts are processed and the model adjusts its parameters. Inference: a user asks a question and the model generates an answer in real time.',
+        example: 'GPT-4 was trained for months (training). When you ask ChatGPT a question, it uses that training to answer (inference).',
+        whyItMatters: 'Helps explain why AI models are expensive to build but cheap to run.',
+        related: ['machine-learning', 'llm']
+      },
+      {
+        id: 'prompt',
+        term: 'Prompt',
+        short: 'The input or instruction you give to an AI model.',
+        category: 'concept',
+        categoryLabel: 'Fundamentals',
+        letter: 'P',
+        explanation: 'A prompt is the text you send to an AI model — a question, instruction or context. The quality of the prompt largely determines the quality of the answer.',
+        howItWorks: 'The model reads your prompt and generates the most likely continuation. The more precise and structured your prompt, the better the result.',
+        example: '"Summarize this contract in 3 bullet points" is a concrete prompt. "Tell me about the contract" is vague and produces worse results.',
+        whyItMatters: 'Prompt design is a core skill when working with AI — the right instruction makes the difference between useless and brilliant output.',
+        related: ['llm', 'token-kontextfenster', 'temperatur']
+      },
+      {
+        id: 'token-kontextfenster',
+        term: 'Tokens & context window',
+        short: 'The unit of text in AI models and the limit of what they can process at once.',
+        category: 'model',
+        categoryLabel: 'Models',
+        letter: 'T',
+        explanation: 'Tokens are the smallest units of text an LLM processes — roughly three quarters of a word. The context window defines how many tokens the model can "see" at once.',
+        howItWorks: 'Every text is broken into tokens. A model with a 128K context window can process about 100,000 words at once — roughly a full book.',
+        example: 'If you want a 50-page document analyzed, it has to fit into the context window. If it doesn’t, it has to be split (→ chunking).',
+        whyItMatters: 'The context window determines how much information a model can consider at once — and affects cost and quality.',
+        related: ['llm', 'prompt', 'chunking']
+      },
+      {
+        id: 'temperatur',
+        term: 'Temperature (sampling)',
+        short: 'Controls how creative or predictable the AI’s answers are.',
+        category: 'model',
+        categoryLabel: 'Models',
+        letter: 'T',
+        explanation: 'Temperature controls how "random" text generation is. Low temperature (0) = deterministic and focused. High temperature (1+) = more creative and variable.',
+        howItWorks: 'For each generated token, the model samples from a probability distribution. Temperature 0 always picks the most likely word; higher values increase the chance of surprising alternatives.',
+        example: 'For contract analysis: low temperature (precise). For creative marketing copy: higher temperature (more variation).',
+        whyItMatters: 'The right temperature setting matters — too high produces nonsense, too low produces rigid repetition.',
+        related: ['llm', 'prompt', 'halluzination']
+      },
+      {
+        id: 'halluzination',
+        term: 'Hallucination',
+        short: 'When AI generates confident-sounding but wrong information.',
+        category: 'concept',
+        categoryLabel: 'Fundamentals',
+        letter: 'H',
+        explanation: 'A hallucination happens when an AI model invents facts that sound plausible but aren’t true. It happens because the model is based on probabilities, not on truth.',
+        howItWorks: 'LLMs always generate the "most likely continuation." When the model doesn’t actually know an answer, it fills the gap with plausible-sounding text — without knowing it’s wrong.',
+        example: 'A chatbot invents a paragraph number in a law that doesn’t exist, or cites a research paper that doesn’t exist.',
+        whyItMatters: 'Hallucinations are the biggest trust risk when using AI. That’s why countermeasures like grounding and RAG are essential.',
+        related: ['grounding', 'rag', 'evaluation']
+      },
+      {
+        id: 'grounding',
+        term: 'Grounding',
+        short: 'Anchor AI answers in real, verifiable sources.',
+        category: 'concept',
+        categoryLabel: 'Fundamentals',
+        letter: 'G',
+        explanation: 'Grounding is the technique of tying AI answers to verifiable facts or sources. Instead of generating freely, the model answers only based on specific documents or data.',
+        howItWorks: 'The model gets relevant documents or data sources. It’s instructed to use only information from those sources and ideally to cite them.',
+        example: 'A customer-service bot that only answers based on the official FAQ and product documentation — not on its general training.',
+        whyItMatters: 'Grounding dramatically reduces hallucinations and makes AI answers reliable and auditable.',
+        related: ['rag', 'halluzination', 'vektordatenbank']
+      },
+      {
+        id: 'rag',
+        term: 'RAG (Retrieval Augmented Generation)',
+        short: 'The AI looks up relevant documents before answering.',
+        category: 'workflow',
+        categoryLabel: 'Workflows',
+        letter: 'R',
+        explanation: 'RAG combines information retrieval with text generation. Instead of answering only from training, the system first searches a knowledge base and uses the retrieved documents as the basis for the answer.',
+        howItWorks: '1) User asks a question → 2) System retrieves relevant documents from a vector database → 3) The retrieved texts are passed as context to the LLM → 4) The LLM generates an answer grounded in those documents.',
+        example: 'An internal AI assistant that answers questions about company policies by finding and citing the relevant policy documents.',
+        whyItMatters: 'RAG is the standard approach for equipping LLMs with company-specific knowledge — without expensive retraining.',
+        related: ['embeddings', 'vektordatenbank', 'chunking', 'grounding']
+      },
+      {
+        id: 'embeddings',
+        term: 'Embeddings',
+        short: 'Numerical representations of text that capture meaning.',
+        category: 'infra',
+        categoryLabel: 'Infrastructure',
+        letter: 'E',
+        explanation: 'Embeddings turn text into numeric vectors that capture semantic meaning. Similar concepts end up close together in vector space, regardless of exact wording.',
+        howItWorks: 'A specialized model reads a text and outputs a vector (e.g. 1536 numbers). "Dog" and "puppy" have similar vectors; "dog" and "car" do not.',
+        example: 'In a RAG pipeline, all documents are stored as embeddings. When a user asks a question, the question embedding is compared with the document embeddings.',
+        whyItMatters: 'Embeddings enable semantic search — the system finds relevant information even when different words are used.',
+        related: ['vektordatenbank', 'rag', 'chunking']
+      },
+      {
+        id: 'vektordatenbank',
+        term: 'Vector database',
+        short: 'A database optimized for fast similarity search across content.',
+        category: 'infra',
+        categoryLabel: 'Infrastructure',
+        letter: 'V',
+        explanation: 'A vector database stores embeddings and enables extremely fast similarity searches. It’s the central storage system for RAG applications and semantic search.',
+        howItWorks: 'Texts are stored as embedding vectors. When a search comes in, the database computes which stored vectors are most similar — in milliseconds.',
+        example: 'Pinecone, Weaviate or Qdrant as a vector database for a company chatbot that searches thousands of internal documents.',
+        whyItMatters: 'Without a vector database, RAG wouldn’t be practical. They’re the infrastructure behind any AI that works with your own data.',
+        related: ['embeddings', 'rag', 'chunking']
+      },
+      {
+        id: 'chunking',
+        term: 'Chunking',
+        short: 'Split large documents into smaller, meaningful sections.',
+        category: 'workflow',
+        categoryLabel: 'Workflows',
+        letter: 'C',
+        explanation: 'Chunking splits long texts into smaller pieces (chunks) so they can be stored as embeddings and retrieved effectively. Chunk size affects search quality.',
+        howItWorks: 'A 100-page manual is split, for example, into paragraphs or thematic blocks of 200–500 tokens. Each chunk is stored as its own embedding.',
+        example: 'A customer-service manual is split into individual FAQ entries so that on a question the system finds the exact relevant section.',
+        whyItMatters: 'Good chunking determines RAG quality. Too-large chunks dilute search; too-small chunks lose context.',
+        related: ['rag', 'embeddings', 'vektordatenbank', 'token-kontextfenster']
+      },
+      {
+        id: 'tool-function-calling',
+        term: 'Tool / function calling',
+        short: 'AI can call external tools and APIs to get things done.',
+        category: 'workflow',
+        categoryLabel: 'Workflows',
+        letter: 'T',
+        explanation: 'Function calling lets LLMs trigger structured actions — query a database, send an email, run a calculation — instead of only generating text.',
+        howItWorks: 'The model gets a list of available functions with descriptions. Based on the user’s request, it decides which function to call and with which parameters.',
+        example: 'An AI assistant that, asked "What’s the status of my order?", automatically calls the order API and returns the answer.',
+        whyItMatters: 'Function calling turns LLMs from pure text generators into action-capable systems that can plug into real business processes.',
+        related: ['agent', 'llm', 'rag']
+      },
+      {
+        id: 'agent',
+        term: 'Agent (agentic workflow)',
+        short: 'AI systems that autonomously plan and carry out tasks.',
+        category: 'workflow',
+        categoryLabel: 'Workflows',
+        letter: 'A',
+        explanation: 'An AI agent is a system that handles tasks autonomously across multiple steps. It plans, uses tools, makes decisions and corrects itself when it’s wrong.',
+        howItWorks: 'An agent gets a goal, breaks it into sub-steps, calls tools when needed, evaluates intermediate results and iterates until the task is done.',
+        example: 'A sales agent that researches leads, personalizes emails, schedules follow-ups and updates Salesforce records — all on its own.',
+        whyItMatters: 'Agents are the next step: from single AI answers to fully automated workflows.',
+        related: ['tool-function-calling', 'human-in-the-loop', 'llm']
+      },
+      {
+        id: 'human-in-the-loop',
+        term: 'Human-in-the-loop',
+        short: 'Humans review and steer AI decisions at the critical points.',
+        category: 'workflow',
+        categoryLabel: 'Workflows',
+        letter: 'H',
+        explanation: 'Human-in-the-loop means that humans are involved at important or uncertain decision points. The AI works autonomously, but at defined points a human gives sign-off.',
+        howItWorks: 'The AI agent handles routine work on its own. For cases that exceed defined thresholds (e.g. cost > $500 or confidence < 80%), it escalates to a human.',
+        example: 'A customer-service agent answers standard questions automatically but forwards complaints or edge cases to a human agent.',
+        whyItMatters: 'HITL is the key to trustworthy AI in production — automation with a safety net.',
+        related: ['agent', 'ai-governance', 'evaluation']
+      },
+      {
+        id: 'evaluation',
+        term: 'Evaluation / evals',
+        short: 'Systematically measuring and rating AI quality.',
+        category: 'workflow',
+        categoryLabel: 'Workflows',
+        letter: 'E',
+        explanation: 'Evals are tests and metrics used to measure AI output quality. They help detect whether a system works reliably and where it’s weak.',
+        howItWorks: 'You define test cases with expected outcomes and let the AI handle them. Automatic and manual scoring shows how correct and helpful the answers are.',
+        example: 'Define 100 typical customer questions as a test set. The AI agent answers them, and results are scored for correctness, tone and completeness.',
+        whyItMatters: 'Without evals you’re flying blind. Systematic evaluation is the foundation for continuous improvement and trust in AI systems.',
+        related: ['halluzination', 'grounding', 'ai-governance']
+      },
+      {
+        id: 'ai-governance',
+        term: 'AI Governance',
+        short: 'Rules and processes for responsible AI use.',
+        category: 'governance',
+        categoryLabel: 'Governance',
+        letter: 'A',
+        explanation: 'AI governance covers the policies, processes and controls that make sure AI is used responsibly, transparently and in compliance with the law (e.g. EU AI Act, US sectoral rules).',
+        howItWorks: 'Companies define AI usage policies, assess risk, document decisions and maintain audit trails. This includes ethical guardrails and compliance checks.',
+        example: 'A company writes an AI policy that defines which data can be used, who has to sign off on AI systems and how results are documented.',
+        whyItMatters: 'With the EU AI Act, growing US state-level rules and rising AI usage, governance is becoming mandatory. Companies need clear rules before going to production.',
+        related: ['dsgvo-datenschutz', 'human-in-the-loop', 'evaluation']
+      },
+      {
+        id: 'dsgvo-datenschutz',
+        term: 'GDPR &amp; CCPA / data protection (for AI)',
+        short: 'Data-protection requirements when using AI systems (EU & US).',
+        category: 'governance',
+        categoryLabel: 'Governance',
+        letter: 'G',
+        explanation: 'The EU GDPR and California’s CCPA both set clear requirements for handling personal data in AI systems. Companies must make sure their AI applications work in compliance with whichever regimes apply.',
+        howItWorks: 'Before going live: which data is processed? Where is it stored? Who has access? Is there a legal basis? Are retention/deletion rules defined? Are CCPA opt-out (GPC) signals honored?',
+        example: 'An AI chatbot that processes customer data must run on compliant infrastructure (US us-east or EU Frankfurt/Ireland), delete data on schedule and surface a privacy notice and CCPA opt-out where required.',
+        whyItMatters: 'GDPR fines can reach 4% of global revenue; CCPA can drive material per-violation penalties and class actions. Privacy must be designed in from the start — not bolted on.',
+        related: ['ai-governance', 'human-in-the-loop']
+      },
+      {
+        id: 'on-premise-hosting',
+        term: 'On-premise hosting',
+        short: 'Running AI components on your own infrastructure or in your own data center.',
+        category: 'infra',
+        categoryLabel: 'Infrastructure',
+        letter: 'O',
+        explanation: 'On-premise hosting means running the central components of an AI system inside your own infrastructure or in a controlled data-center environment. This is especially relevant for sensitive data and strict compliance requirements.',
+        howItWorks: 'Models, data sources, vector databases or agent orchestration don’t run in a third-party public cloud but in an environment with your own network, access and security rules.',
+        example: 'A company runs the knowledge base and agent orchestration for an internal support agent exclusively in its own infrastructure.',
+        whyItMatters: 'On-premise is a key decision criterion for companies that need data sovereignty, low vendor dependency and regulatory control.',
+        related: ['dsgvo-datenschutz', 'openclaw', 'ai-governance']
+      }
+    ];
+
+    var termMap = {};
+    terms.forEach(function (t) { termMap[t.id] = t; });
+
+    function groupByLetter(list) {
+      var groups = {};
+      list.forEach(function (t) {
+        if (!groups[t.letter]) groups[t.letter] = [];
+        groups[t.letter].push(t);
+      });
+      return groups;
+    }
+
+    var contentEl = document.getElementById('glossaryContent');
+    var countEl = document.getElementById('glossaryCount');
+    var emptyEl = document.getElementById('glossaryEmpty');
+    var searchInput = document.getElementById('glossarySearch');
+    var clearBtn = document.getElementById('glossaryClear');
+    var filtersEl = document.getElementById('glossaryFilters');
+
+    var activeFilter = 'all';
+    var searchQuery = '';
+    var openCardId = null;
+
+    function getFilteredTerms() {
+      return terms.filter(function (t) {
+        var matchCategory = activeFilter === 'all' || t.category === activeFilter;
+        if (!matchCategory) return false;
+        if (!searchQuery) return true;
+        var q = searchQuery.toLowerCase();
+        return t.term.toLowerCase().indexOf(q) !== -1 ||
+               t.short.toLowerCase().indexOf(q) !== -1 ||
+               t.explanation.toLowerCase().indexOf(q) !== -1 ||
+               t.categoryLabel.toLowerCase().indexOf(q) !== -1;
+      });
+    }
+
+    function buildCard(t) {
+      var isOpen = openCardId === t.id;
+      var relatedHtml = '';
+      if (t.related && t.related.length) {
+        var tags = t.related.map(function (rid) {
+          var rt = termMap[rid];
+          return rt ? '<button class="glossary-related__tag" data-goto="' + rid + '">' + rt.term + '</button>' : '';
+        }).join('');
+        relatedHtml = '<div class="glossary-related"><div class="glossary-related__label">Related terms</div><div class="glossary-related__tags">' + tags + '</div></div>';
+      }
+
+      return '<div class="glossary-card' + (isOpen ? ' open' : '') + '" data-id="' + t.id + '">' +
+        '<div class="glossary-card__header" data-toggle="' + t.id + '">' +
+          '<div class="glossary-card__info">' +
+            '<div class="glossary-card__top">' +
+              '<span class="glossary-card__title">' + t.term + '</span>' +
+              '<span class="glossary-card__tag glossary-card__tag--' + t.category + '">' + t.categoryLabel + '</span>' +
+            '</div>' +
+            '<div class="glossary-card__short">' + t.short + '</div>' +
+          '</div>' +
+          '<span class="glossary-card__toggle">+</span>' +
+        '</div>' +
+        '<div class="glossary-card__detail">' +
+          '<div class="glossary-card__detail-inner">' +
+            '<div class="glossary-detail-grid">' +
+              '<div class="glossary-detail-block glossary-detail-block--full">' +
+                '<span class="glossary-detail-block__label">Explanation</span>' +
+                '<p class="glossary-detail-block__text">' + t.explanation + '</p>' +
+              '</div>' +
+              '<div class="glossary-detail-block">' +
+                '<span class="glossary-detail-block__label">How it works</span>' +
+                '<p class="glossary-detail-block__text">' + t.howItWorks + '</p>' +
+              '</div>' +
+              '<div class="glossary-detail-block">' +
+                '<span class="glossary-detail-block__label">Example</span>' +
+                '<p class="glossary-detail-block__text">' + t.example + '</p>' +
+              '</div>' +
+              '<div class="glossary-detail-block glossary-detail-block--full">' +
+                '<span class="glossary-detail-block__label">Why it matters</span>' +
+                '<p class="glossary-detail-block__text">' + t.whyItMatters + '</p>' +
+              '</div>' +
+            '</div>' +
+            relatedHtml +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    function render() {
+      var filtered = getFilteredTerms();
+      var groups = groupByLetter(filtered);
+      var letters = Object.keys(groups).sort();
+      var html = '';
+
+      letters.forEach(function (letter) {
+        var cardsHtml = groups[letter].map(buildCard).join('');
+        html += '<div class="glossary-group">' +
+          '<div class="glossary-letter">' + letter + '</div>' +
+          '<div class="glossary-cards">' + cardsHtml + '</div>' +
+        '</div>';
+      });
+
+      contentEl.innerHTML = html;
+      countEl.innerHTML = '<span>' + filtered.length + '</span> of ' + terms.length + ' terms';
+      emptyEl.classList.toggle('visible', filtered.length === 0);
+
+      bindCardEvents();
+    }
+
+    function bindCardEvents() {
+      var headers = contentEl.querySelectorAll('[data-toggle]');
+      headers.forEach(function (h) {
+        h.addEventListener('click', function () {
+          var id = this.getAttribute('data-toggle');
+          openCardId = openCardId === id ? null : id;
+          render();
+          if (openCardId) {
+            var card = contentEl.querySelector('[data-id="' + openCardId + '"]');
+            if (card) {
+              setTimeout(function () {
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              }, 100);
+            }
+          }
+        });
+      });
+
+      var relLinks = contentEl.querySelectorAll('[data-goto]');
+      relLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var targetId = this.getAttribute('data-goto');
+          var targetTerm = termMap[targetId];
+          if (!targetTerm) return;
+
+          activeFilter = 'all';
+          searchQuery = '';
+          searchInput.value = '';
+          clearBtn.classList.remove('visible');
+          updateFilterButtons();
+          openCardId = targetId;
+          render();
+
+          setTimeout(function () {
+            var card = contentEl.querySelector('[data-id="' + targetId + '"]');
+            if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 150);
+        });
+      });
+    }
+
+    function updateFilterButtons() {
+      var btns = filtersEl.querySelectorAll('.glossary-filter');
+      btns.forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-filter') === activeFilter);
+      });
+    }
+
+    searchInput.addEventListener('input', function () {
+      searchQuery = this.value.trim();
+      clearBtn.classList.toggle('visible', searchQuery.length > 0);
+      openCardId = null;
+      render();
+    });
+
+    clearBtn.addEventListener('click', function () {
+      searchInput.value = '';
+      searchQuery = '';
+      clearBtn.classList.remove('visible');
+      openCardId = null;
+      searchInput.focus();
+      render();
+    });
+
+    filtersEl.addEventListener('click', function (e) {
+      var btn = e.target.closest('.glossary-filter');
+      if (!btn) return;
+      activeFilter = btn.getAttribute('data-filter');
+      openCardId = null;
+      updateFilterButtons();
+      render();
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>

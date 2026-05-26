@@ -14,10 +14,14 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  const isEnDoc = document.documentElement.lang === 'en';
   burger?.addEventListener('click', () => {
     nav.classList.toggle('mobile-open');
+    const isOpen = nav.classList.contains('mobile-open');
     burger.setAttribute('aria-label',
-      nav.classList.contains('mobile-open') ? 'Menü schließen' : 'Menü öffnen'
+      isEnDoc
+        ? (isOpen ? 'Close menu' : 'Open menu')
+        : (isOpen ? 'Menü schließen' : 'Menü öffnen')
     );
   });
 
@@ -90,13 +94,22 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const infoItems = $$('.agent-info');
   const headlineText = $('#agentTypeText');
 
-  const agentLabels = [
-    'Ihren Kundenservice',
-    'Ihre Betriebsprozesse',
-    'Ihren Vertrieb',
-    'Ihre Buchhaltung',
-    'Ihr HR-Team'
-  ];
+  const isEnPage = document.documentElement.lang === 'en';
+  const agentLabels = isEnPage
+    ? [
+        'your customer service',
+        'your operations',
+        'your sales pipeline',
+        'your bookkeeping',
+        'your HR team'
+      ]
+    : [
+        'Ihren Kundenservice',
+        'Ihre Betriebsprozesse',
+        'Ihren Vertrieb',
+        'Ihre Buchhaltung',
+        'Ihr HR-Team'
+      ];
 
   function switchAgent(index) {
     tabs.forEach((t, i) => t.classList.toggle('agents__tab--active', i === index));
@@ -203,21 +216,34 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     }, delay);
   }
 
+  const isEnForm = document.documentElement.lang === 'en';
+
   function buildComposeData(name, company, email, challenge) {
-    const subjectText = `Kontaktanfrage von ${name} (${company})`;
-    const bodyLines = [
-      `Name: ${name}`,
-      `Unternehmen: ${company}`,
-      `E-Mail: ${email}`,
-      challenge ? `\nGrößte Herausforderung:\n${challenge}` : ''
-    ].filter(Boolean);
+    const subjectText = isEnForm
+      ? `Inquiry from ${name} (${company})`
+      : `Kontaktanfrage von ${name} (${company})`;
+    const bodyLines = isEnForm
+      ? [
+          `Name: ${name}`,
+          `Company: ${company}`,
+          `Email: ${email}`,
+          challenge ? `\nBiggest challenge:\n${challenge}` : ''
+        ].filter(Boolean)
+      : [
+          `Name: ${name}`,
+          `Unternehmen: ${company}`,
+          `E-Mail: ${email}`,
+          challenge ? `\nGrößte Herausforderung:\n${challenge}` : ''
+        ].filter(Boolean);
     const bodyText = bodyLines.join('\n');
     const subject = encodeURIComponent(subjectText);
     const body = encodeURIComponent(bodyText);
 
     return {
       mailto: `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`,
-      draftText: `An: ${EMAIL_TO}\nBetreff: ${subjectText}\n\n${bodyText}`
+      draftText: isEnForm
+        ? `To: ${EMAIL_TO}\nSubject: ${subjectText}\n\n${bodyText}`
+        : `An: ${EMAIL_TO}\nBetreff: ${subjectText}\n\n${bodyText}`
     };
   }
 
@@ -255,8 +281,13 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   }
 
   fallbackCopy?.addEventListener('click', async () => {
-    const copied = await copyToClipboard(fallbackDraftText || `An: ${EMAIL_TO}\nBetreff:\n\n`);
-    fallbackCopy.textContent = copied ? 'Entwurf kopiert' : 'Kopieren fehlgeschlagen';
+    const fallbackTemplate = isEnForm
+      ? `To: ${EMAIL_TO}\nSubject:\n\n`
+      : `An: ${EMAIL_TO}\nBetreff:\n\n`;
+    const copied = await copyToClipboard(fallbackDraftText || fallbackTemplate);
+    fallbackCopy.textContent = copied
+      ? (isEnForm ? 'Draft copied' : 'Entwurf kopiert')
+      : (isEnForm ? 'Copy failed' : 'Kopieren fehlgeschlagen');
     setTimeout(() => {
       fallbackCopy.textContent = copyBtnDefault;
     }, 1800);
@@ -272,7 +303,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     const challenge = (form.querySelector('#challenge')?.value || '').trim();
 
     if (!name || !company || !email) {
-      showSubmitFeedback('Bitte alle Pflichtfelder ausfüllen');
+      showSubmitFeedback(isEnForm ? 'Please fill in all required fields' : 'Bitte alle Pflichtfelder ausfüllen');
       return;
     }
 
@@ -300,7 +331,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
       cleanupListeners();
       if (switchedContext) return;
       showFallback(composeData);
-      showSubmitFeedback('Fast geschafft - Entwurf jetzt kopieren', 2600);
+      showSubmitFeedback(isEnForm ? 'Almost there — copy the draft now' : 'Fast geschafft - Entwurf jetzt kopieren', 2600);
     }, MAIL_APP_TIMEOUT_MS);
   });
 })();
@@ -460,8 +491,18 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const paybackEl = $('#roiPayback');
   const barFill = $('#roiBarFill');
 
+  const isEn = document.documentElement.lang === 'en';
+  const currencySymbol = isEn ? '$' : '€';
+  const currencyLocale = isEn ? 'en-US' : 'de-DE';
+
   function formatCurrency(num) {
-    return num.toLocaleString('de-DE') + '€';
+    return isEn
+      ? currencySymbol + num.toLocaleString(currencyLocale)
+      : num.toLocaleString(currencyLocale) + currencySymbol;
+  }
+
+  function formatCost(c) {
+    return isEn ? currencySymbol + c : c + currencySymbol;
   }
 
   function calculate() {
@@ -472,7 +513,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
     employeesVal.textContent = e;
     hoursVal.textContent = h + 'h';
-    costVal.textContent = c + '€';
+    costVal.textContent = formatCost(c);
     automationVal.textContent = (a * 100) + '%';
 
     const weeklyHoursSaved = e * h * a;

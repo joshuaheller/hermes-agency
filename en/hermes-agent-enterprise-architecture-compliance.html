@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hermes Agent Enterprise Architecture: Security, Scaling, GDPR &amp; CCPA | Hermes Agency</title>
+  <meta name="description" content="A technical guide to Hermes Agent in production: architecture, guardrails, roles, on-premise, US &amp; EU hosting, audit logging and GDPR &amp; CCPA for real AI agents." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hermes-agency.dev/en/hermes-agent-enterprise-architecture-compliance.html" />
+  <link rel="alternate" hreflang="de" href="https://hermes-agency.dev/hermes-agent-enterprise-architektur-dsgvo.html" />
+  <link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/hermes-agent-enterprise-architecture-compliance.html" />
+  <link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/en/hermes-agent-enterprise-architecture-compliance.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://hermes-agency.dev/en/hermes-agent-enterprise-architecture-compliance.html" />
+  <meta property="og:title" content="Hermes Agent Enterprise Architecture: Security, Scaling, GDPR &amp; CCPA" />
+  <meta property="og:description" content="How companies run Hermes Agent safely in production: hosting, roles, audit logs, knowledge base and human-in-the-loop." />
+  <meta property="og:image" content="https://hermes-agency.dev/assets/og-image.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Hermes Agent Enterprise Architecture: Security, Scaling, GDPR &amp; CCPA",
+    "description": "A technical article on Hermes Agent architecture, data protection and operating models for companies of any size.",
+    "mainEntityOfPage": "https://hermes-agency.dev/en/hermes-agent-enterprise-architecture-compliance.html",
+    "datePublished": "2026-04-15",
+    "dateModified": "2026-05-26",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Organization",
+      "name": "Hermes Agency"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hermes Agency",
+      "url": "https://hermes-agency.dev"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/assets/logo-hermes.svg" />
+    <link rel="preload" href="/assets/fonts/Syne-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/SpaceGrotesk-latin.woff2') format('woff2')}
+    @font-face{font-family:'Syne';font-style:normal;font-weight:400 800;font-display:swap;src:url('/assets/fonts/Syne-latin.woff2') format('woff2')}
+    @font-face{font-family:'Space Grotesk Fallback';src:local('Arial'),local('Liberation Sans'),local('Helvetica Neue'),local('Roboto');size-adjust:126.641%;ascent-override:77.700%;descent-override:23.057%;line-gap-override:0%}
+    @font-face{font-family:'Syne Fallback';src:local('Arial'),local('Liberation Sans'),local('Helvetica Neue'),local('Roboto');size-adjust:124.602%;ascent-override:74.237%;descent-override:22.070%;line-gap-override:0%}
+ 
+ 
+  </style>
+  <link rel="stylesheet" href="/styles.min.css" />
+
+  <style>
+    .tech-page { padding: 7rem 0 4rem; min-height: 100vh; background: var(--c-bg); }
+    .tech-back { display: inline-flex; gap: 0.5rem; margin-bottom: 2rem; color: var(--c-text-muted); }
+    .tech-back:hover { color: var(--c-accent); }
+    .tech-hero, .tech-section, .tech-cta { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-lg); padding: 2rem; }
+    .tech-hero { margin-bottom: 1.5rem; }
+    .tech-hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); color: var(--c-white); margin-bottom: 1rem; }
+    .tech-hero p, .tech-section p { color: var(--c-text-muted); line-height: 1.75; }
+    .tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+    .tech-block { background: var(--c-bg); border: 1px solid var(--c-border); border-radius: var(--r-md); padding: 1.2rem; }
+    .tech-block h3 { color: var(--c-white); margin-bottom: 0.6rem; font-size: 1rem; }
+    .tech-section + .tech-section, .tech-cta { margin-top: 1.5rem; }
+    .tech-section h2, .tech-cta h2 { color: var(--c-white); margin-bottom: 0.8rem; }
+    .tech-section ul { padding-left: 1.2rem; color: var(--c-text-muted); line-height: 1.8; }
+    .tech-note { margin-top: 1rem; padding: 1rem 1.1rem; border-left: 3px solid var(--c-accent); background: var(--c-accent-dim); border-radius: 0 var(--r-md) var(--r-md) 0; color: var(--c-text); }
+    @media (max-width: 960px) { .tech-grid { grid-template-columns: 1fr; } }
+  </style>
+  <script defer data-domain="hermes-agency.dev" src="https://analytics.taisc.de/js/script.js"></script>
+</head>
+<body>
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="/assets/logo-hermes.svg" alt="Hermes Agency Logo" class="nav__logo-img" width="64" height="64" />
+        <span class="nav__logo-text">Hermes Agency</span>
+      </a>
+      <a class="nav__lang" href="/hermes-agent-enterprise-architektur-dsgvo.html" hreflang="de" aria-label="Switch to German">DE</a>
+      <ul class="nav__links">
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+        <li><a href="hermes-agent-for-enterprises.html" class="nav__link">Guide</a></li>
+        <li><a href="glossary.html" class="nav__link">Glossary</a></li>
+      </ul>
+      <a href="index.html#kontakt" class="btn btn--nav">Book a call</a>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="tech-page">
+    <div class="container">
+      <a href="blog.html" class="tech-back">← Back to content hub</a>
+
+      <section class="tech-hero">
+        <span class="section-tag">Architecture &amp; Compliance</span>
+        <h1>Hermes Agent enterprise architecture: security, scaling and data protection for production AI agents</h1>
+        <p>
+          Companies rarely fail at the idea of an AI agent. They fail at architecture questions: who can do what?
+          Which data is processed where? How are decisions logged? When does a human get involved? These points
+          need to be modelled cleanly before you go live.
+        </p>
+      </section>
+
+      <section class="tech-section">
+        <h2>1. The core architecture</h2>
+        <p>
+          A reliable enterprise setup separates at least four layers: user input, knowledge and context access,
+          model invocation, and action rights in target systems. This prevents the situation where one agent can
+          read everything, decide everything and change everything at the same time.
+        </p>
+        <div class="tech-grid">
+          <div class="tech-block">
+            <h3>Input &amp; governance layer</h3>
+            <p>Authentication, roles, prompt policies, logging and approval rules.</p>
+          </div>
+          <div class="tech-block">
+            <h3>Knowledge &amp; context layer</h3>
+            <p>RAG, knowledge bases, SOPs, product data and access to structured data sources.</p>
+          </div>
+          <div class="tech-block">
+            <h3>Agent &amp; model layer</h3>
+            <p>Model router, agent logic, tool use, evaluation points and confidence signals.</p>
+          </div>
+          <div class="tech-block">
+            <h3>Action layer</h3>
+            <p>API calls into CRM, ERP, ticketing, DMS or messaging systems — with clearly bounded rights.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tech-section">
+        <h2>2. Security comes from boundaries, not from trust</h2>
+        <ul>
+          <li>Grant tool permissions per agent — not globally across all workflows.</li>
+          <li>Strictly separate write rights from read rights.</li>
+          <li>Run critical actions only after approval or a threshold check.</li>
+          <li>Log every model call, every source and every action in an audit-grade way.</li>
+          <li>Define fallbacks for missing sources, high uncertainty or failing external APIs.</li>
+        </ul>
+        <div class="tech-note">
+          The most important rule: an agent must never have more power than the surrounding process can organizationally absorb.
+        </div>
+      </section>
+
+      <section class="tech-section">
+        <h2>3. GDPR &amp; CCPA: the architecture questions to settle early</h2>
+        <p>
+          Data protection is not an add-on. Before go-live you need to clarify data categories, storage locations,
+          retention periods, deletion concepts and roles — under both the EU’s GDPR and California’s CCPA (and
+          adjacent state laws). Typical questions at project kickoff:
+        </p>
+        <ul>
+          <li>Which personal data does the agent see?</li>
+          <li>Who is the controller, and where does the processing happen?</li>
+          <li>Who can see outputs, and how long are logs retained?</li>
+          <li>Which models are even permitted for sensitive data?</li>
+          <li>Is US (us-east) or EU (Frankfurt/Ireland) hosting sufficient, or is on-premise required?</li>
+          <li>Do you need CCPA opt-out signals (GPC) honored in customer-facing flows?</li>
+        </ul>
+      </section>
+
+      <section class="tech-section">
+        <h2>4. On-premise, US/EU cloud or hybrid?</h2>
+        <p>
+          There’s no universally right hosting model. A hybrid setup is usually the most practical for many
+          companies: sensitive data sources stay close to the business, less critical components run in a managed
+          US (us-east) or EU (Frankfurt/Ireland) cloud. Full on-premise makes sense when regulatory or contractual
+          requirements demand it, or when data must not leave the company.
+        </p>
+        <p>
+          The label matters less than operational viability: monitoring, updates, secrets management, access
+          isolation and auditability must work robustly in the model you choose.
+        </p>
+      </section>
+
+      <section class="tech-section">
+        <h2>5. Scaling isn’t just more load — it’s more responsibility</h2>
+        <p>
+          As soon as several agents are live, the demands on versioning, prompt management, test cases, cost
+          control and change approvals grow. A production setup should include evaluation and release logic from
+          the start: which version of an agent runs where? How do you detect regressions? Who approves new
+          permissions or new data sources?
+        </p>
+      </section>
+
+      <section class="tech-cta">
+        <h2>You need a credible Hermes Agent setup for sensitive data?</h2>
+        <p>
+          We design architectures that don’t just look impressive but actually hold up under data protection,
+          security and operational requirements — GDPR &amp; CCPA-ready, US or EU hosting.
+        </p>
+        <a href="index.html#kontakt" class="btn btn--primary" style="margin-top:1rem;">Request an architecture call</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; <span id="copyright-year">2026</span> Hermes Agency · <a href="mailto:hermes@theaisoftwarecompany.com">hermes@theaisoftwarecompany.com</a></p>
+        <p class="footer__credit">A service by <a href="https://theaisoftwarecompany.com" target="_blank" rel="noopener">The AI Software Company</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('nav');
+      var burger = document.getElementById('navBurger');
+      burger && burger.addEventListener('click', function () {
+        nav.classList.toggle('mobile-open');
+      });
+    })();
+  </script>
+</body>
+</html>

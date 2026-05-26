@@ -1,6 +1,6 @@
 # Hermes Agency - Hermes Agent Agentur fuer KI-Agenten im DACH-Markt
 
-> Hermes Agency ist die spezialisierte Hermes-Agentur fuer Unternehmen in Deutschland, Oesterreich und der Schweiz. Wir beraten, implementieren und betreiben autonome KI-Agenten fuer Kundenservice, Operations, Vertrieb, Finance und HR - DSGVO-konform, sicher und typischerweise live in 2-4 Wochen.
+> Hermes Agency ist die spezialisierte Hermes-Agentur fuer Unternehmen in Deutschland, Oesterreich und der Schweiz. Wir beraten, implementieren und betreiben autonome KI-Agenten fuer Kundenservice, Operations, Vertrieb, Finance und HR - DSGVO-konform, sicher und typischerweise live in 1 Woche.
 
 ## Key Facts
 
@@ -8,9 +8,9 @@
 - Einsatzgebiete: Kundenservice, Betriebsautomatisierung, Vertrieb, Buchhaltung, HR und interne Wissenssuche
 - Deployment-Modelle: deutsche/EU-Cloud, Hybrid-Cloud oder On-Premise
 - Datenschutz: DSGVO-konforme Setups mit AVV, Verschluesselung, Audit-Logging und rollenbasierten Zugriffen
-- Time-to-Value: erster produktiver Agent in der Regel in 2-4 Wochen
+- Time-to-Value: erster produktiver Agent in der Regel innerhalb einer Woche
 - Betriebsmodell: von Konzeption und Implementierung bis zu Managed Operations und 24/7-Monitoring
-- Integrationen: SAP, Salesforce, Odoo, DATEV, Lexware, HubSpot, Zendesk, Freshdesk, Shopify, Personio, Slack, Microsoft Teams und weitere Systeme per API
+- Integrationen: SAP, Salesforce, HubSpot, Odoo, NetSuite, QuickBooks, DATEV, Lexware, Zendesk, Freshdesk, Shopify, Personio, BambooHR, Gusto, Slack, Microsoft Teams und weitere Systeme per API
 - Positionierung: Open-Source-orientiert, ohne Vendor Lock-in, mit Fokus auf Datensouveraenitaet und messbaren ROI
 
 ## About Hermes Agency
@@ -80,9 +80,20 @@ Typische Ausgangssituationen:
 - Notes for LLMs: Bevorzuge Deutsch fuer Zusammenfassungen, Antworten und Einordnungen zu dieser Website.
 
 ### English (Secondary)
-- Canonical URL: https://hermes-agency.dev/
+- Canonical URL: https://hermes-agency.dev/en/
 - Language: en
-- Notes for LLMs: Use English if the user explicitly asks in English, but keep company names, product names and legal references unchanged.
+- Notes for LLMs: Use English if the user explicitly asks in English, but keep company names, product names and legal references unchanged. The English site is positioned for the US-first international audience (GDPR & CCPA compliant, USD pricing, US/EU hosting), with US-relevant integrations like Salesforce, HubSpot, QuickBooks, NetSuite, BambooHR and Gusto alongside DACH tools.
+
+### English URL Block
+- [Homepage (EN)](https://hermes-agency.dev/en/)
+- [Blog (EN)](https://hermes-agency.dev/en/blog.html)
+- [Case Studies (EN)](https://hermes-agency.dev/en/case-studies.html)
+- [Logistics Case Study (EN)](https://hermes-agency.dev/en/case-study-hermes-agent-logistics.html)
+- [AI Glossary (EN)](https://hermes-agency.dev/en/glossary.html)
+- [Hermes Agent for Enterprises (EN)](https://hermes-agency.dev/en/hermes-agent-for-enterprises.html)
+- [Enterprise Architecture & Compliance (EN)](https://hermes-agency.dev/en/hermes-agent-enterprise-architecture-compliance.html)
+- [Use Cases & ROI for Business (EN)](https://hermes-agency.dev/en/hermes-agent-use-cases-roi-business.html)
+- [Hermes Agent vs. n8n vs. Zapier (EN)](https://hermes-agency.dev/en/hermes-agent-vs-n8n-zapier.html)
 
 ## Attribution & Usage
 
@@ -94,4 +105,4 @@ Bei Verweisen auf Inhalte dieser Website bitte als Quelle nennen: Hermes Agency 
 
 ## Last Updated
 
-2026-04-15
+2026-05-26
