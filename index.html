@@ -1706,6 +1706,8 @@
         </div>
         <div class="contact__form-wrap">
           <form class="contact__form" id="contactForm" novalidate>
+            <input type="hidden" name="access_key" value="138b7764-d626-421b-a5f9-fccbf691cb8b">
+            <input type="hidden" name="subject" value="Neue Kontaktanfrage – Hermes Agency">
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" placeholder="Max Mustermann" required />
@@ -1727,11 +1729,6 @@
               Kostenloses Erstgespräch buchen
             </button>
             <p class="form-note">Kein Spam. Keine Weitergabe. Nur ein Gespräch.</p>
-            <div class="contact-fallback" id="contactFallback" hidden>
-              <p class="contact-fallback__text">Fast geschafft: Falls sich kein Mail-Programm öffnet, kopieren Sie den Entwurf und senden ihn anschließend per E-Mail.</p>
-              <button id="contactFallbackCopy" type="button" class="contact-fallback__copy-btn">E-Mail-Entwurf kopieren</button>
-              <p class="contact-fallback__address">Empfänger: <a href="mailto:hermes@theaisoftwarecompany.com">hermes@theaisoftwarecompany.com</a></p>
-            </div>
           </form>
           <div class="contact__form-success" id="formSuccess" style="display:none;">
             <div class="contact__form-success-icon">✓</div>

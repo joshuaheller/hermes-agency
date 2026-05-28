@@ -1695,6 +1695,8 @@
         </div>
         <div class="contact__form-wrap">
           <form class="contact__form" id="contactForm" novalidate>
+            <input type="hidden" name="access_key" value="138b7764-d626-421b-a5f9-fccbf691cb8b">
+            <input type="hidden" name="subject" value="New contact request – Hermes Agency">
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" placeholder="Alex Johnson" required />
@@ -1716,11 +1718,6 @@
               Book a free intro call
             </button>
             <p class="form-note">No spam. No sharing. Just a conversation.</p>
-            <div class="contact-fallback" id="contactFallback" hidden>
-              <p class="contact-fallback__text">Almost there: if no mail client opens, copy the draft and send it by email.</p>
-              <button id="contactFallbackCopy" type="button" class="contact-fallback__copy-btn">Copy email draft</button>
-              <p class="contact-fallback__address">Recipient: <a href="mailto:hermes@theaisoftwarecompany.com">hermes@theaisoftwarecompany.com</a></p>
-            </div>
           </form>
           <div class="contact__form-success" id="formSuccess" style="display:none;">
             <div class="contact__form-success-icon">✓</div>

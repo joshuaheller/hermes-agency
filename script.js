@@ -192,147 +192,42 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   });
 })();
 
-// CONTACT FORM – opens email app with desktop-safe fallback options
+// CONTACT FORM – submits via Web3Forms
 (function initContactForm() {
   const form = $('#contactForm');
   if (!form) return;
 
-  const EMAIL_TO = 'hermes-agency@theaisoftwarecompany.com';
-  const MAIL_APP_TIMEOUT_MS = 1200;
+  const successDiv = $('#formSuccess');
   const submitBtn = form.querySelector('button[type="submit"]');
-  const fallbackWrap = form.querySelector('#contactFallback');
-  const fallbackCopy = form.querySelector('#contactFallbackCopy');
-  const copyBtnDefault = fallbackCopy?.textContent || 'E-Mail-Entwurf kopieren';
-  let fallbackDraftText = '';
-
-  function showSubmitFeedback(message, delay = 2000) {
-    if (!submitBtn) return;
-    const original = submitBtn.innerHTML;
-    submitBtn.innerHTML = `<span class="btn__icon">⚡</span> ${message}`;
-    submitBtn.disabled = true;
-    setTimeout(() => {
-      submitBtn.innerHTML = original;
-      submitBtn.disabled = false;
-    }, delay);
-  }
-
   const isEnForm = document.documentElement.lang === 'en';
 
-  function buildComposeData(name, company, email, challenge) {
-    const subjectText = isEnForm
-      ? `Inquiry from ${name} (${company})`
-      : `Kontaktanfrage von ${name} (${company})`;
-    const bodyLines = isEnForm
-      ? [
-          `Name: ${name}`,
-          `Company: ${company}`,
-          `Email: ${email}`,
-          challenge ? `\nBiggest challenge:\n${challenge}` : ''
-        ].filter(Boolean)
-      : [
-          `Name: ${name}`,
-          `Unternehmen: ${company}`,
-          `E-Mail: ${email}`,
-          challenge ? `\nGrößte Herausforderung:\n${challenge}` : ''
-        ].filter(Boolean);
-    const bodyText = bodyLines.join('\n');
-    const subject = encodeURIComponent(subjectText);
-    const body = encodeURIComponent(bodyText);
-
-    return {
-      mailto: `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`,
-      draftText: isEnForm
-        ? `To: ${EMAIL_TO}\nSubject: ${subjectText}\n\n${bodyText}`
-        : `An: ${EMAIL_TO}\nBetreff: ${subjectText}\n\n${bodyText}`
-    };
-  }
-
-  function hideFallback() {
-    if (fallbackWrap) fallbackWrap.hidden = true;
-    if (fallbackCopy) fallbackCopy.textContent = copyBtnDefault;
-    fallbackDraftText = '';
-  }
-
-  function showFallback(composeData) {
-    if (!fallbackWrap) return;
-    fallbackDraftText = composeData.draftText;
-    fallbackWrap.hidden = false;
-  }
-
-  async function copyToClipboard(text) {
-    if (navigator.clipboard?.writeText) {
-      try {
-        await navigator.clipboard.writeText(text);
-        return true;
-      } catch (_) {}
-    }
-
-    const helper = document.createElement('textarea');
-    helper.value = text;
-    helper.setAttribute('readonly', '');
-    helper.style.position = 'fixed';
-    helper.style.left = '-9999px';
-    document.body.appendChild(helper);
-    helper.select();
-    helper.setSelectionRange(0, helper.value.length);
-    const copied = document.execCommand('copy');
-    helper.remove();
-    return copied;
-  }
-
-  fallbackCopy?.addEventListener('click', async () => {
-    const fallbackTemplate = isEnForm
-      ? `To: ${EMAIL_TO}\nSubject:\n\n`
-      : `An: ${EMAIL_TO}\nBetreff:\n\n`;
-    const copied = await copyToClipboard(fallbackDraftText || fallbackTemplate);
-    fallbackCopy.textContent = copied
-      ? (isEnForm ? 'Draft copied' : 'Entwurf kopiert')
-      : (isEnForm ? 'Copy failed' : 'Kopieren fehlgeschlagen');
-    setTimeout(() => {
-      fallbackCopy.textContent = copyBtnDefault;
-    }, 1800);
-  });
-
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    hideFallback();
 
-    const name = (form.querySelector('#name')?.value || '').trim();
-    const company = (form.querySelector('#company')?.value || '').trim();
-    const email = (form.querySelector('#email')?.value || '').trim();
-    const challenge = (form.querySelector('#challenge')?.value || '').trim();
+    const originalHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<span class="btn__icon">⚡</span> ${isEnForm ? 'Sending…' : 'Wird gesendet…'}`;
 
-    if (!name || !company || !email) {
-      showSubmitFeedback(isEnForm ? 'Please fill in all required fields' : 'Bitte alle Pflichtfelder ausfüllen');
-      return;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      });
+      const json = await res.json();
+
+      if (json.success) {
+        form.style.display = 'none';
+        if (successDiv) successDiv.style.display = 'block';
+      } else {
+        submitBtn.innerHTML = originalHTML;
+        submitBtn.disabled = false;
+        alert(isEnForm ? 'Something went wrong. Please try again.' : 'Etwas ist schiefgelaufen. Bitte erneut versuchen.');
+      }
+    } catch {
+      submitBtn.innerHTML = originalHTML;
+      submitBtn.disabled = false;
+      alert(isEnForm ? 'Something went wrong. Please try again.' : 'Etwas ist schiefgelaufen. Bitte erneut versuchen.');
     }
-
-    const composeData = buildComposeData(name, company, email, challenge);
-
-    let switchedContext = false;
-    const markAsSwitched = () => {
-      switchedContext = true;
-      cleanupListeners();
-    };
-    const onVisibility = () => {
-      if (document.visibilityState === 'hidden') markAsSwitched();
-    };
-    const cleanupListeners = () => {
-      window.removeEventListener('blur', markAsSwitched);
-      document.removeEventListener('visibilitychange', onVisibility);
-    };
-
-    window.addEventListener('blur', markAsSwitched, { once: true });
-    document.addEventListener('visibilitychange', onVisibility);
-
-    window.location.href = composeData.mailto;
-
-    setTimeout(() => {
-      cleanupListeners();
-      if (switchedContext) return;
-      showFallback(composeData);
-      showSubmitFeedback(isEnForm ? 'Almost there — copy the draft now' : 'Fast geschafft - Entwurf jetzt kopieren', 2600);
-    }, MAIL_APP_TIMEOUT_MS);
   });
 })();
 
