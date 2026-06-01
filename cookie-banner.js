@@ -30,6 +30,26 @@
     document.head.appendChild(s);
   }
 
+  function loadLinkedInInsight() {
+    if (window.lintrk) return;
+    window._linkedin_partner_id = '7050346';
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
+    window.lintrk = function(a, b) { window.lintrk.q.push([a, b]); };
+    window.lintrk.q = [];
+    var s = document.getElementsByTagName('script')[0];
+    var b = document.createElement('script');
+    b.type = 'text/javascript';
+    b.async = true;
+    b.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';
+    s.parentNode.insertBefore(b, s);
+  }
+
+  function loadOptional() {
+    loadGoogleAnalytics();
+    loadLinkedInInsight();
+  }
+
   function hideBanner() {
     var b = document.getElementById('cookie-banner');
     if (b) {
@@ -52,7 +72,7 @@
     if (existing) return;
 
     var html = '<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen" aria-live="polite">' +
-      '<p class="cookie-banner__text">Wir nutzen Cookies – nur essenzielle, plus optional Google Analytics. Alles klar? ⚡</p>' +
+      '<p class="cookie-banner__text">Wir nutzen Cookies – nur essenzielle, plus optional Google Analytics und das LinkedIn Insight Tag. Alles klar? ⚡</p>' +
       '<div class="cookie-banner__actions">' +
         '<button type="button" class="cookie-banner__btn cookie-banner__btn--decline" data-action="decline">Nur notwendige</button>' +
         '<button type="button" class="cookie-banner__btn cookie-banner__btn--accept" data-action="accept">Alle erlauben</button>' +
@@ -71,7 +91,7 @@
 
     banner.querySelector('[data-action="accept"]').addEventListener('click', function() {
       setConsent('accept');
-      loadGoogleAnalytics();
+      loadOptional();
       hideBanner();
     });
 
@@ -80,14 +100,14 @@
       hideBanner();
     });
 
-    window.hermes-agencyShowCookieBanner = showBanner;
+    window.hermesShowCookieBanner = showBanner;
   }
 
   function init() {
     initBanner();
     var consent = getConsent();
     if (consent === 'accept') {
-      loadGoogleAnalytics();
+      loadOptional();
       hideBanner();
     } else if (consent === 'decline') {
       hideBanner();
