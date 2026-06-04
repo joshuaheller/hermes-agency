@@ -25,7 +25,7 @@
   <!-- Blog hub -->
   <url>
     <loc>https://hermes-agency.dev/blog.html</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/blog.html" />
@@ -34,12 +34,32 @@
   </url>
   <url>
     <loc>https://hermes-agency.dev/en/blog.html</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/blog.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/blog.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/blog.html" />
+  </url>
+
+  <!-- Blog posts -->
+  <url>
+    <loc>https://hermes-agency.dev/blog/parallele-ki-agenten-multi-agent-workflow.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/blog/parallele-ki-agenten-multi-agent-workflow.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/blog/parallel-ai-agents-multi-agent-workflow.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/blog/parallele-ki-agenten-multi-agent-workflow.html" />
+  </url>
+  <url>
+    <loc>https://hermes-agency.dev/en/blog/parallel-ai-agents-multi-agent-workflow.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hermes-agency.dev/blog/parallele-ki-agenten-multi-agent-workflow.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/blog/parallel-ai-agents-multi-agent-workflow.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/blog/parallele-ki-agenten-multi-agent-workflow.html" />
   </url>
 
   <!-- Case studies hub -->
@@ -82,7 +102,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/case-study-hermes-agent-logistik.html" />
   </url>
 
-  <!-- Pillar guide: Hermes Agent for businesses -->
+  <!-- Pillar guide -->
   <url>
     <loc>https://hermes-agency.dev/hermes-agent-fuer-unternehmen.html</loc>
     <lastmod>2026-05-26</lastmod>
@@ -182,7 +202,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hermes-agency.dev/glossar.html" />
   </url>
 
-  <!-- Legal (DE only — EN legal pages are still in German and intentionally excluded) -->
+  <!-- Legal -->
   <url>
     <loc>https://hermes-agency.dev/impressum.html</loc>
     <lastmod>2026-05-26</lastmod>

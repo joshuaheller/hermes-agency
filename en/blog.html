@@ -34,6 +34,11 @@
     "hasPart": [
       {
         "@type": "Article",
+        "headline": "Parallel AI Agents: How 3 Simultaneous Workflows Multiply Your Productivity",
+        "url": "https://hermes-agency.dev/en/blog/parallel-ai-agents-multi-agent-workflow.html"
+      },
+      {
+        "@type": "Article",
         "headline": "Hermes Agent for enterprises: the guide for decision-makers",
         "url": "https://hermes-agency.dev/en/hermes-agent-for-enterprises.html"
       },
@@ -62,15 +67,13 @@
   </script>
 
   <link rel="icon" type="image/svg+xml" href="/assets/logo-hermes.svg" />
-    <link rel="preload" href="/assets/fonts/Syne-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/Syne-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>
     @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/SpaceGrotesk-latin.woff2') format('woff2')}
     @font-face{font-family:'Syne';font-style:normal;font-weight:400 800;font-display:swap;src:url('/assets/fonts/Syne-latin.woff2') format('woff2')}
     @font-face{font-family:'Space Grotesk Fallback';src:local('Arial'),local('Liberation Sans'),local('Helvetica Neue'),local('Roboto');size-adjust:126.641%;ascent-override:77.700%;descent-override:23.057%;line-gap-override:0%}
     @font-face{font-family:'Syne Fallback';src:local('Arial'),local('Liberation Sans'),local('Helvetica Neue'),local('Roboto');size-adjust:124.602%;ascent-override:74.237%;descent-override:22.070%;line-gap-override:0%}
- 
- 
   </style>
   <link rel="stylesheet" href="/styles.min.css" />
 
@@ -94,6 +97,11 @@
     .content-link:hover { color: var(--c-white); }
     .content-meta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; color: var(--c-text-dim); font-size: 0.82rem; }
     .content-cta { margin-top: 3rem; }
+    .content-latest { margin: 2rem 0; }
+    .content-latest-label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-text-dim); margin-bottom: 0.75rem; }
+    .content-featured { border: 1px solid rgba(109,94,252,0.35); border-radius: var(--r-lg); padding: 2rem; background: linear-gradient(135deg, var(--c-surface), rgba(109,94,252,0.04)); }
+    .content-featured h2 { font-size: 1.5rem; color: var(--c-white); margin-bottom: 0.9rem; }
+    .content-featured p { color: var(--c-text-muted); line-height: 1.7; }
     @media (max-width: 960px) {
       .content-highlight, .content-grid, .content-list { grid-template-columns: 1fr; }
     }
@@ -138,7 +146,7 @@
         <span class="section-tag">Hermes Agent Content Hub</span>
         <h1>The central knowledge hub for Hermes Agent, AI agents and compliant automation.</h1>
         <p>
-          This page maps out the content structure of hermes-agency.dev — a central pillar guide for decision-makers,
+          This page maps out the content structure of hermes-agency.dev &mdash; a central pillar guide for decision-makers,
           flanked by comparisons, technical deep dives, use cases and real case studies. That is how we build
           topical authority around Hermes Agent for SMBs, scale-ups and enterprise pilots in the US and internationally.
         </p>
@@ -150,8 +158,7 @@
           <h2>Hermes Agent for enterprises</h2>
           <p>
             The guide positions Hermes Agent strategically: data sovereignty, architecture, governance, integrations,
-            implementation process and ROI — for SMBs, scale-ups and enterprise pilots in the US, Canada, the UK,
-            DACH and beyond.
+            implementation process and ROI &mdash; for SMBs, scale-ups and enterprise pilots in the US, Canada, the UK, DACH and beyond.
           </p>
           <div class="content-meta">
             <span>Focus: Hermes Agent</span>
@@ -160,10 +167,9 @@
           </div>
           <a href="hermes-agent-for-enterprises.html" class="btn btn--primary" style="margin-top:1.25rem;">Read the guide</a>
         </article>
-
         <aside class="content-panel">
           <span class="content-badge">Hub-and-Spoke</span>
-          <h2>What you’ll find here</h2>
+          <h2>What you&rsquo;ll find here</h2>
           <ul>
             <li>Comparison articles: Hermes Agent vs. alternatives</li>
             <li>Technical content on architecture, security, GDPR &amp; CCPA</li>
@@ -177,28 +183,39 @@
         <article class="content-card">
           <span class="content-badge">Cluster A</span>
           <h3>Comparison &amp; market positioning</h3>
-          <p>
-            For companies weighing Hermes Agent against n8n, Zapier or proprietary platforms.
-          </p>
-          <a href="hermes-agent-vs-n8n-zapier.html" class="content-link">Read Hermes Agent vs. n8n vs. Zapier →</a>
+          <p>For companies weighing Hermes Agent against n8n, Zapier or proprietary platforms.</p>
+          <a href="hermes-agent-vs-n8n-zapier.html" class="content-link">Read Hermes Agent vs. n8n vs. Zapier &rarr;</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Cluster B</span>
           <h3>Implementation &amp; technical</h3>
-          <p>
-            Architecture, data protection, roles, on-premise, API integration and scaling for productive agents.
-          </p>
-          <a href="hermes-agent-enterprise-architecture-compliance.html" class="content-link">Read the architecture guide →</a>
+          <p>Architecture, data protection, roles, on-premise, API integration and scaling for productive agents.</p>
+          <a href="hermes-agent-enterprise-architecture-compliance.html" class="content-link">Read the architecture guide &rarr;</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Cluster C</span>
           <h3>Use cases &amp; ROI</h3>
+          <p>Concrete scenarios for customer service, operations, sales and internal knowledge work &mdash; for companies of any size.</p>
+          <a href="hermes-agent-use-cases-roi-business.html" class="content-link">Read the use-case article &rarr;</a>
+        </article>
+      </section>
+
+      <section class="content-latest">
+        <div class="content-latest-label">Latest Article</div>
+        <article class="content-featured">
+          <span class="content-badge">AI Productivity &middot; Multi-Agent</span>
+          <h2>Parallel AI Agents: How 3 Simultaneous Workflows Multiply Your Productivity</h2>
           <p>
-            Concrete scenarios for customer service, operations, sales and internal knowledge work — for companies of any size.
+            3 agents running at the same time: SEO optimization, automation debugging, and landing page creation &mdash;
+            all in one morning. A real-world founder experiment, McKinsey &amp; BCG research data, and an interactive
+            ROI calculator show what parallel multi-agent workflows mean for your business.
           </p>
-          <a href="hermes-agent-use-cases-roi-business.html" class="content-link">Read the use-case article →</a>
+          <div class="content-meta">
+            <span>Author: Joshua Heller</span>
+            <span>June 3, 2026</span>
+            <span>~15 min. read</span>
+          </div>
+          <a href="blog/parallel-ai-agents-multi-agent-workflow.html" class="btn btn--primary" style="margin-top:1.25rem;display:inline-flex;">Read article &rarr;</a>
         </article>
       </section>
 
@@ -207,52 +224,44 @@
           <span class="content-badge">Comparison</span>
           <h2>Hermes Agent vs. n8n vs. Zapier</h2>
           <p>When is an agent framework worth it, when is a workflow tool enough, and where do lock-in risks emerge?</p>
-          <a href="hermes-agent-vs-n8n-zapier.html" class="content-link">To the comparison →</a>
+          <a href="hermes-agent-vs-n8n-zapier.html" class="content-link">To the comparison &rarr;</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Technical</span>
           <h2>Enterprise architecture, security and compliance</h2>
           <p>How Hermes Agent fits into sensitive system landscapes: access, logging, model choice, US/EU hosting and approvals.</p>
-          <a href="hermes-agent-enterprise-architecture-compliance.html" class="content-link">To the technical guide →</a>
+          <a href="hermes-agent-enterprise-architecture-compliance.html" class="content-link">To the technical guide &rarr;</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Use Cases</span>
           <h2>5 Hermes Agent use cases for growing companies and enterprises</h2>
-          <p>From ticket automation to quote prep: typical quick wins with a clear business case — cost saved and revenue grown.</p>
-          <a href="hermes-agent-use-cases-roi-business.html" class="content-link">To the use cases →</a>
+          <p>From ticket automation to quote prep: typical quick wins with a clear business case.</p>
+          <a href="hermes-agent-use-cases-roi-business.html" class="content-link">To the use cases &rarr;</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Case Study</span>
           <h2>Logistics company saves 35 hours per week</h2>
           <p>A concrete look at the starting point, architecture, rollout and the measured impact after 90 days.</p>
-          <a href="case-study-hermes-agent-logistics.html" class="content-link">To the case study →</a>
+          <a href="case-study-hermes-agent-logistics.html" class="content-link">To the case study &rarr;</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Case Studies</span>
           <h2>All case studies at a glance</h2>
           <p>The central overview of project results, reference patterns and typical ROI ranges.</p>
-          <a href="case-studies.html" class="content-link">To the overview →</a>
+          <a href="case-studies.html" class="content-link">To the overview &rarr;</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Glossary</span>
           <h2>AI glossary for decision-makers and IT teams</h2>
           <p>Definitions for AI agent, agentic AI, Hermes Agent, embeddings, RAG, governance, GDPR and CCPA.</p>
-          <a href="glossary.html" class="content-link">To the glossary →</a>
+          <a href="glossary.html" class="content-link">To the glossary &rarr;</a>
         </article>
       </section>
 
       <section class="content-panel content-cta">
         <span class="content-badge">Next step</span>
-        <h2>You don’t just want to understand Hermes Agent — you want it running in production?</h2>
-        <p>
-          Then start with an intro call. We prioritize the right use cases, check data protection (GDPR &amp; CCPA) and
-          show you which agent setup fits your risk profile, integration stack and revenue goals.
-        </p>
+        <h2>You don&rsquo;t just want to understand Hermes Agent &mdash; you want it running in production?</h2>
+        <p>Then start with an intro call. We prioritize the right use cases, check data protection (GDPR &amp; CCPA) and show you which agent setup fits your risk profile, integration stack and revenue goals.</p>
         <a href="index.html#kontakt" class="btn btn--primary" style="margin-top:1rem;">Request a Hermes Agent consultation</a>
       </section>
     </div>
@@ -261,7 +270,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__bottom">
-        <p>&copy; <span id="copyright-year">2026</span> Hermes Agency · <a href="mailto:hermes@theaisoftwarecompany.com">hermes@theaisoftwarecompany.com</a></p>
+        <p>&copy; <span id="copyright-year">2026</span> Hermes Agency &middot; <a href="mailto:hermes@theaisoftwarecompany.com">hermes@theaisoftwarecompany.com</a></p>
         <p class="footer__credit">A service by <a href="https://theaisoftwarecompany.com" target="_blank" rel="noopener">The AI Software Company</a></p>
       </div>
     </div>

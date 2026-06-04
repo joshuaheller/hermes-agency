@@ -33,6 +33,11 @@
     "hasPart": [
       {
         "@type": "Article",
+        "headline": "Parallele KI-Agenten: Wie 3 gleichzeitige Workflows die Produktivitaet vervielfachen",
+        "url": "https://hermes-agency.dev/blog/parallele-ki-agenten-multi-agent-workflow.html"
+      },
+      {
+        "@type": "Article",
         "headline": "Hermes Agent fuer Unternehmen: Leitfaden fuer Entscheider im DACH-Markt",
         "url": "https://hermes-agency.dev/hermes-agent-fuer-unternehmen.html"
       },
@@ -61,15 +66,13 @@
   </script>
 
   <link rel="icon" type="image/svg+xml" href="assets/logo-hermes.svg" />
-    <link rel="preload" href="/assets/fonts/Syne-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/Syne-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>
     @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/SpaceGrotesk-latin.woff2') format('woff2')}
     @font-face{font-family:'Syne';font-style:normal;font-weight:400 800;font-display:swap;src:url('/assets/fonts/Syne-latin.woff2') format('woff2')}
     @font-face{font-family:'Space Grotesk Fallback';src:local('Arial'),local('Liberation Sans'),local('Helvetica Neue'),local('Roboto');size-adjust:126.641%;ascent-override:77.700%;descent-override:23.057%;line-gap-override:0%}
     @font-face{font-family:'Syne Fallback';src:local('Arial'),local('Liberation Sans'),local('Helvetica Neue'),local('Roboto');size-adjust:124.602%;ascent-override:74.237%;descent-override:22.070%;line-gap-override:0%}
- 
- 
   </style>
   <link rel="stylesheet" href="styles.min.css" />
 
@@ -93,6 +96,11 @@
     .content-link:hover { color: var(--c-white); }
     .content-meta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; color: var(--c-text-dim); font-size: 0.82rem; }
     .content-cta { margin-top: 3rem; }
+    .content-latest { margin: 2rem 0; }
+    .content-latest-label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-text-dim); margin-bottom: 0.75rem; }
+    .content-featured { border: 1px solid rgba(109,94,252,0.35); border-radius: var(--r-lg); padding: 2rem; background: linear-gradient(135deg, var(--c-surface), rgba(109,94,252,0.04)); }
+    .content-featured h2 { font-size: 1.5rem; color: var(--c-white); margin-bottom: 0.9rem; }
+    .content-featured p { color: var(--c-text-muted); line-height: 1.7; }
     @media (max-width: 960px) {
       .content-highlight, .content-grid, .content-list { grid-template-columns: 1fr; }
     }
@@ -175,28 +183,39 @@
         <article class="content-card">
           <span class="content-badge">Cluster A</span>
           <h3>Vergleich &amp; Markteinordnung</h3>
-          <p>
-            Fuer Unternehmen, die Hermes Agent gegen n8n, Zapier oder proprietaere Plattformen abwaegen.
-          </p>
+          <p>Fuer Unternehmen, die Hermes Agent gegen n8n, Zapier oder proprietaere Plattformen abwaegen.</p>
           <a href="hermes-agent-vs-n8n-zapier.html" class="content-link">Hermes Agent vs. n8n vs. Zapier lesen →</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Cluster B</span>
           <h3>Implementierung &amp; Technik</h3>
-          <p>
-            Architektur, Datenschutz, Rollen, On-Premise, API-Integration und Skalierung fuer produktive Agenten.
-          </p>
+          <p>Architektur, Datenschutz, Rollen, On-Premise, API-Integration und Skalierung fuer produktive Agenten.</p>
           <a href="hermes-agent-enterprise-architektur-dsgvo.html" class="content-link">Architektur-Guide lesen →</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Cluster C</span>
           <h3>Use Cases &amp; ROI</h3>
-          <p>
-            Konkrete Einsatzbilder fuer Kundenservice, Operations, Vertrieb und interne Wissensarbeit in Unternehmen jeder Groesse.
-          </p>
+          <p>Konkrete Einsatzbilder fuer Kundenservice, Operations, Vertrieb und interne Wissensarbeit.</p>
           <a href="hermes-agent-use-cases-roi-mittelstand.html" class="content-link">Use-Case-Artikel lesen →</a>
+        </article>
+      </section>
+
+      <section class="content-latest">
+        <div class="content-latest-label">Neuester Artikel</div>
+        <article class="content-featured">
+          <span class="content-badge">KI-Produktivit&auml;t &middot; Multi-Agent</span>
+          <h2>Parallele KI-Agenten: Wie 3 gleichzeitige Workflows die Produktivit&auml;t vervielfachen</h2>
+          <p>
+            3 Agenten laufen gleichzeitig: SEO-Optimierung, Automation-Debugging und Landing-Page-Erstellung &ndash;
+            alles an einem Vormittag. Praxis-Experiment aus dem Gr&uuml;nderalltag, McKinsey- und BCG-Forschungsdaten
+            und ein interaktiver ROI-Rechner zeigen, was parallele Multi-Agent-Workflows f&uuml;r Ihr Unternehmen bedeuten.
+          </p>
+          <div class="content-meta">
+            <span>Autor: Joshua Heller</span>
+            <span>3. Juni 2026</span>
+            <span>~15 Min. Lesezeit</span>
+          </div>
+          <a href="blog/parallele-ki-agenten-multi-agent-workflow.html" class="btn btn--primary" style="margin-top:1.25rem;display:inline-flex;">Artikel lesen &rarr;</a>
         </article>
       </section>
 
@@ -207,35 +226,30 @@
           <p>Wann lohnt sich ein Agenten-Framework, wann genuegt ein Workflow-Tool und wo entstehen Lock-in-Risiken?</p>
           <a href="hermes-agent-vs-n8n-zapier.html" class="content-link">Zum Vergleich →</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Technik</span>
           <h2>Enterprise-Architektur, Sicherheit und DSGVO</h2>
           <p>Wie Hermes Agent in sensible Systemlandschaften passt: Zugriff, Logging, Modellwahl, Hosting und Freigaben.</p>
           <a href="hermes-agent-enterprise-architektur-dsgvo.html" class="content-link">Zum Technik-Guide →</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Use Cases</span>
           <h2>5 Hermes Agent Use Cases fuer wachsende Unternehmen und Konzerne</h2>
           <p>Von Ticketautomatisierung bis Angebotsvorbereitung: typische Quick Wins mit nachvollziehbarem Business Case.</p>
           <a href="hermes-agent-use-cases-roi-mittelstand.html" class="content-link">Zu den Use Cases →</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Case Study</span>
           <h2>Logistikunternehmen spart 35 Stunden pro Woche</h2>
           <p>Ein konkreter Blick auf Ausgangslage, Architektur, Rollout und den gemessenen Impact nach 90 Tagen.</p>
           <a href="case-study-hermes-agent-logistik.html" class="content-link">Zur Fallstudie →</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Case Studies</span>
           <h2>Alle Fallstudien im Ueberblick</h2>
           <p>Die zentrale Uebersicht fuer Projektergebnisse, Referenzmuster und typische ROI-Korridore im DACH-Markt.</p>
           <a href="case-studies.html" class="content-link">Zur Uebersicht →</a>
         </article>
-
         <article class="content-card">
           <span class="content-badge">Glossar</span>
           <h2>KI-Glossar fuer Entscheider und IT-Teams</h2>
@@ -247,10 +261,7 @@
       <section class="content-panel content-cta">
         <span class="content-badge">Naechster Schritt</span>
         <h2>Sie wollen Hermes Agent nicht nur verstehen, sondern produktiv einsetzen?</h2>
-        <p>
-          Dann starten Sie mit einem Erstgespraech. Wir priorisieren passende Use Cases, pruefen Datenschutz und
-          zeigen Ihnen, welches Agenten-Setup zu Ihrem Risiko- und Integrationsprofil passt.
-        </p>
+        <p>Dann starten Sie mit einem Erstgespraech. Wir priorisieren passende Use Cases, pruefen Datenschutz und zeigen Ihnen, welches Agenten-Setup zu Ihrem Risiko- und Integrationsprofil passt.</p>
         <a href="index.html#kontakt" class="btn btn--primary" style="margin-top:1rem;">Hermes-Agent-Beratung anfragen</a>
       </section>
     </div>
