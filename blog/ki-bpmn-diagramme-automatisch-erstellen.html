@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BPMN-Diagramme automatisch erstellen mit KI-Skills: Von 5h auf 15 Min | Hermes Agency</title>
+  <meta name="description" content="Wie ein Custom Claude-Skill BPMN 2.0 Diagramme in 15 Minuten statt 5 Stunden erstellt – vollständig draw.io-kompatibel. Praxis-Erfahrung, ROI-Rechner und Vergleichstabelle." />
+  <meta name="keywords" content="BPMN automatisch erstellen, KI Prozessmodellierung, Claude BPMN Skill, BPMN 2.0 KI, Prozessdiagramm automatisieren, Geschäftsprozesse KI" />
+  <link rel="canonical" href="https://hermes-agency.dev/blog/ki-bpmn-diagramme-automatisch-erstellen.html" />
+  <link rel="alternate" hreflang="de" href="https://hermes-agency.dev/blog/ki-bpmn-diagramme-automatisch-erstellen.html" />
+  <link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/blog/ai-bpmn-diagram-automation.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="BPMN-Diagramme automatisch erstellen mit KI-Skills: Von 5h auf 15 Min | Hermes Agency" />
+  <meta property="og:description" content="Wie ein Custom Claude-Skill BPMN 2.0 Diagramme in 15 Minuten statt 5 Stunden erstellt – vollständig draw.io-kompatibel. Praxis-Erfahrung, ROI-Rechner und Vergleichstabelle." />
+  <meta property="og:image" content="https://replicate.delivery/xezq/88O1RLJKIILRHlhVmhnTfProwvTeYCJR3eInPqsHkD3j2nbtA/out-0.webp" />
+  <meta property="og:url" content="https://hermes-agency.dev/blog/ki-bpmn-diagramme-automatisch-erstellen.html" />
+  <meta property="og:site_name" content="Hermes Agency" />
+  <meta property="article:published_time" content="2026-06-10" />
+  <meta property="article:author" content="Joshua Heller" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BPMN-Diagramme automatisch erstellen mit KI-Skills: Von 5h auf 15 Min" />
+  <meta name="twitter:description" content="Wie ein Custom Claude-Skill BPMN 2.0 Diagramme in 15 Minuten statt 5 Stunden erstellt – draw.io-kompatibel, BPMN 2.0-konform." />
+  <meta name="twitter:image" content="https://replicate.delivery/xezq/88O1RLJKIILRHlhVmhnTfProwvTeYCJR3eInPqsHkD3j2nbtA/out-0.webp" />
+
+  <!-- JSON-LD: BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "BPMN-Diagramme automatisch erstellen mit KI-Skills: Von 5h auf 15 Min",
+    "description": "Wie ein Custom Claude-Skill BPMN 2.0 Diagramme in 15 Minuten statt 5 Stunden erstellt – vollständig draw.io-kompatibel. Praxis-Erfahrung, ROI-Rechner und Vergleichstabelle.",
+    "image": "https://replicate.delivery/xezq/88O1RLJKIILRHlhVmhnTfProwvTeYCJR3eInPqsHkD3j2nbtA/out-0.webp",
+    "author": {
+      "@type": "Person",
+      "name": "Joshua Heller"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hermes Agency",
+      "url": "https://hermes-agency.dev"
+    },
+    "datePublished": "2026-06-10",
+    "url": "https://hermes-agency.dev/blog/ki-bpmn-diagramme-automatisch-erstellen.html",
+    "mainEntityOfPage": "https://hermes-agency.dev/blog/ki-bpmn-diagramme-automatisch-erstellen.html",
+    "keywords": "BPMN automatisch erstellen, KI Prozessmodellierung, Claude BPMN Skill, BPMN 2.0 KI, Prozessdiagramm automatisieren"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was ist der Unterschied zwischen MCP und Custom Skill?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ein MCP (Model Context Protocol) Server stellt Tools und Ressourcen bereit, die Claude direkt aufrufen kann – etwa das offizielle draw.io MCP, das Diagramme erstellt. Ein Custom Skill ist eine tiefgehendere Integration, die spezifisches Domänenwissen als System-Prompt oder Tool-Definition einbettet. Der BPMN-Skill enthält die vollständige BPMN 2.0 Spezifikation als Kontext und erzwingt so korrekte Notation, was ein generisches MCP nicht leisten kann."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Funktioniert das auch mit anderen Tools als draw.io?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Der Custom Skill generiert valides BPMN 2.0 XML, das dem OMG-Standard entspricht. Das bedeutet: Lucidchart, Camunda Modeler, Bizagi, Microsoft Visio (über Import) und jedes andere BPMN-2.0-konforme Tool kann die Ausgabe öffnen und weiterbearbeiten. draw.io ist für die meisten Unternehmenskunden bevorzugt, weil es kostenlos, browser-basiert und kollaborativ ist."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie gut ist die BPMN 2.0 Notation wirklich?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In der Praxis sind die Ergebnisse zu 90–95% fertig. Alle Kern-Elemente – Events (Start, Intermediate, End), Tasks (User, Service, Script, Business Rule), Gateways (Exclusive XOR, Parallel AND, Inclusive OR), Swimlanes und Connecting Objects – werden korrekt platziert und typisiert. Was manchmal noch manuell angepasst werden muss: die visuelle Positionierung bei sehr komplexen Prozessen mit mehr als 20 Aktivitäten sowie branchen-spezifische Erweiterungen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Brauche ich BPMN-Vorkenntnisse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Für die Nutzung des Skills nicht zwingend – Sie können einfach einen Prozess in natürlicher Sprache beschreiben, und der Skill übersetzt ihn in korrektes BPMN. Für die Nachbearbeitung und Qualitätssicherung ist ein Grundverständnis der Notation hilfreich: zu wissen, wann ein Exclusive Gateway versus ein Parallel Gateway angebracht ist, macht die Ergebnisse noch besser. Unsere Einarbeitung dauert typischerweise 30–60 Minuten."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie setzt Hermes Agent das in meinem Unternehmen ein?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hermes Agent integriert den BPMN-Skill direkt in Ihren bestehenden Workflow: Prozessbeschreibungen aus Confluence, SharePoint oder Meeting-Transkripten werden automatisch erkannt und in BPMN-Diagramme überführt. Die Ergebnisse werden direkt in Ihr Prozess-Repository geschrieben und können in der nächsten Genehmigungsrunde verwendet werden. Das Setup dauert typischerweise 1–2 Wochen."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../styles.min.css" />
+
+  <style>
+    :root {
+      --c-bg: #0d0d16;
+      --c-surface: #161622;
+      --c-border: #252535;
+      --c-accent: #6d5efc;
+      --c-accent-dim: rgba(109,94,252,0.12);
+      --c-white: #f0f0ff;
+      --c-text-muted: #9090b0;
+      --c-text-dim: #606080;
+    }
+
+    .blog-article-page {
+      padding: 7rem 0 5rem;
+      min-height: 100vh;
+      background: var(--c-bg);
+    }
+
+    .blog-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--c-text-muted);
+      margin-bottom: 2rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .blog-back:hover {
+      color: var(--c-accent);
+    }
+
+    .blog-header {
+      max-width: 800px;
+      margin-bottom: 3rem;
+    }
+
+    .blog-header h1 {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      color: var(--c-white);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .blog-deck {
+      color: var(--c-text-muted);
+      font-size: 1.12rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--c-text-dim);
+      font-size: 0.85rem;
+      align-items: center;
+    }
+
+    .blog-meta-tag {
+      background: var(--c-accent-dim);
+      color: var(--c-accent);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .blog-body {
+      max-width: 800px;
+    }
+
+    .blog-body p {
+      color: var(--c-text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .blog-body h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      color: var(--c-white);
+      margin: 2.5rem 0 1rem;
+    }
+
+    .blog-body h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      color: var(--c-white);
+      margin: 2rem 0 0.75rem;
+    }
+
+    .blog-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .blog-stat-cell {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .blog-stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--c-accent);
+    }
+
+    .blog-stat-label {
+      font-size: 0.8rem;
+      color: var(--c-text-dim);
+      margin-top: 0.25rem;
+    }
+
+    .blog-callout {
+      background: var(--c-surface);
+      border-left: 3px solid var(--c-accent);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+
+    .blog-callout-hl {
+      font-weight: 700;
+      color: var(--c-white);
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-callout p {
+      margin-bottom: 0;
+    }
+
+    .blog-chapter-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 2rem 0 2.5rem;
+      padding: 1.5rem;
+      background: var(--c-surface);
+      border-radius: 12px;
+    }
+
+    .blog-ch-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--c-text-muted);
+      font-size: 0.85rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--c-border);
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .blog-ch-item:hover {
+      color: var(--c-accent);
+      border-color: var(--c-accent);
+    }
+
+    .blog-ch-num {
+      font-weight: 700;
+      color: var(--c-accent);
+    }
+
+    .blog-chapter-block {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem 0 1rem;
+    }
+
+    .blog-chapter-num {
+      font-weight: 700;
+      color: var(--c-accent);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .blog-chapter-block h2 {
+      margin: 0;
+    }
+
+    .blog-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.75rem 0;
+      font-size: 0.92rem;
+    }
+
+    .blog-table th {
+      background: rgba(109, 94, 252, 0.15);
+      color: var(--c-white);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .blog-table td {
+      padding: 0.75rem 1rem;
+      color: var(--c-text-muted);
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .blog-table tr:hover td {
+      background: rgba(109, 94, 252, 0.04);
+    }
+
+    .badge-green { color: #4caf50; font-weight: 600; }
+    .badge-red { color: #f44336; font-weight: 600; }
+    .badge-yellow { color: #f5a623; font-weight: 600; }
+
+    .step-cards {
+      display: grid;
+      gap: 1rem;
+      margin: 1.75rem 0;
+    }
+
+    .step-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: rgba(109, 94, 252, 0.2);
+      border: 1px solid var(--c-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--c-accent);
+      font-size: 0.9rem;
+    }
+
+    .step-body h4 {
+      color: var(--c-white);
+      margin: 0 0 0.4rem;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .step-body p {
+      color: var(--c-text-muted);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      color: var(--c-text-muted);
+      padding: 0.4rem 0;
+    }
+
+    .checklist li::before {
+      content: "✅";
+      flex-shrink: 0;
+    }
+
+    .roi-calc {
+      background: var(--c-surface);
+      border: 1px solid rgba(109, 94, 252, 0.3);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .roi-calc h3 {
+      color: var(--c-white);
+      margin: 0 0 1.5rem;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .roi-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .roi-field label {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--c-text-dim);
+      margin-bottom: 0.4rem;
+    }
+
+    .roi-field input {
+      width: 100%;
+      background: #0d0d20;
+      border: 1px solid var(--c-border);
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      color: var(--c-white);
+      font-size: 1rem;
+      box-sizing: border-box;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .roi-field input:focus {
+      outline: none;
+      border-color: var(--c-accent);
+    }
+
+    .roi-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .roi-result {
+      text-align: center;
+      background: rgba(109, 94, 252, 0.08);
+      border: 1px solid rgba(109, 94, 252, 0.2);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .roi-result-val {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--c-accent);
+      font-family: 'Syne', sans-serif;
+    }
+
+    .roi-result-label {
+      font-size: 0.78rem;
+      color: var(--c-text-dim);
+      margin-top: 0.25rem;
+    }
+
+    .blog-faq {
+      margin: 1.5rem 0;
+    }
+
+    .blog-faq-item {
+      border-bottom: 1px solid var(--c-border);
+      padding: 1.25rem 0;
+    }
+
+    .blog-faq-q {
+      font-weight: 700;
+      color: var(--c-white);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Syne', sans-serif;
+      user-select: none;
+    }
+
+    .blog-faq-q::after {
+      content: "+";
+      color: var(--c-accent);
+      font-size: 1.25rem;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+
+    .blog-faq-item.open .blog-faq-q::after {
+      transform: rotate(45deg);
+    }
+
+    .blog-faq-a {
+      color: var(--c-text-muted);
+      line-height: 1.75;
+      padding-top: 0.75rem;
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .blog-faq-item.open .blog-faq-a {
+      display: block;
+    }
+
+    .blog-article-cta {
+      background: linear-gradient(135deg, rgba(109,94,252,0.15), rgba(109,94,252,0.05));
+      border: 1px solid rgba(109, 94, 252, 0.35);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .blog-cta-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-article-cta h3 {
+      font-size: 1.5rem;
+      color: var(--c-white);
+      margin: 0 0 0.75rem;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .blog-article-cta p {
+      color: var(--c-text-muted);
+      margin: 0 0 1.25rem;
+    }
+
+    .blog-related-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .rc {
+      display: block;
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+
+    .rc:hover {
+      border-color: var(--c-accent);
+    }
+
+    .blog-rc-type {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .blog-rc-title {
+      font-size: 0.95rem;
+      color: var(--c-white);
+      line-height: 1.4;
+    }
+
+    .blog-hero-img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--c-border);
+      display: block;
+    }
+
+    .blog-sep {
+      color: var(--c-text-dim);
+      text-align: center;
+      margin: 2rem 0;
+      letter-spacing: 0.5em;
+    }
+
+    .bpmn-container {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      overflow-x: auto;
+    }
+
+    .bpmn-caption {
+      font-size: 0.82rem;
+      color: var(--c-text-dim);
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+
+    .element-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+
+    .element-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 10px;
+      padding: 0.875rem 1rem;
+    }
+
+    .element-card-title {
+      color: var(--c-white);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .element-card-desc {
+      color: var(--c-text-dim);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .toc-label {
+      color: var(--c-text-dim);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      width: 100%;
+      margin-bottom: 0.25rem;
+    }
+
+    @media (max-width: 700px) {
+      .blog-stats { grid-template-columns: 1fr 1fr; }
+      .roi-inputs { grid-template-columns: 1fr; }
+      .roi-results { grid-template-columns: 1fr 1fr; }
+      .blog-related-grid { grid-template-columns: 1fr; }
+      .element-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      .blog-stats { grid-template-columns: 1fr; }
+      .roi-results { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script defer data-domain="hermes-agency.dev" src="https://analytics.taisc.de/js/script.js"></script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav scrolled" id="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__logo">
+      <img src="../assets/logo-hermes.svg" alt="Hermes Agency Logo" class="nav__logo-img" width="64" height="64" />
+      <span class="nav__logo-text">Hermes Agency</span>
+    </a>
+    <a class="nav__lang" href="../en/blog/ai-bpmn-diagram-automation.html" hreflang="en" aria-label="Switch to English">EN</a>
+    <ul class="nav__links">
+      <li><a href="../index.html#hermes-agent" class="nav__link">Leistungen</a></li>
+      <li><a href="../blog.html" class="nav__link">Blog</a></li>
+      <li><a href="../case-studies.html" class="nav__link">Case Studies</a></li>
+      <li><a href="../glossar.html" class="nav__link">Glossar</a></li>
+    </ul>
+    <a href="../index.html#kontakt" class="btn btn--nav">Erstgespräch buchen</a>
+    <button class="nav__burger" id="navBurger" aria-label="Menue öffnen"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav__mobile" id="navMobile">
+    <ul>
+      <li><a href="../index.html#hermes-agent" class="nav__link">Leistungen</a></li>
+      <li><a href="../blog.html" class="nav__link">Blog</a></li>
+      <li><a href="../case-studies.html" class="nav__link">Case Studies</a></li>
+      <li><a href="../glossar.html" class="nav__link">Glossar</a></li>
+      <li><a href="../index.html#kontakt" class="btn btn--primary" style="display:inline-block;margin-top:1rem;">Erstgespräch buchen</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="blog-article-page">
+  <div class="container">
+
+    <a href="../blog.html" class="blog-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Zurück zum Blog
+    </a>
+
+    <!-- Hero Image -->
+    <img
+      src="https://replicate.delivery/xezq/88O1RLJKIILRHlhVmhnTfProwvTeYCJR3eInPqsHkD3j2nbtA/out-0.webp"
+      alt="KI-gestützte BPMN-Diagrammerstellung: Visualisierung eines automatisierten Prozessmodellierungs-Workflows"
+      class="blog-hero-img"
+      width="1200"
+      height="420"
+    />
+
+    <!-- Header -->
+    <header class="blog-header">
+      <div class="blog-meta" style="margin-bottom:1rem;">
+        <span class="blog-meta-tag">KI-Produktivität</span>
+        <span class="blog-meta-tag">Prozessmanagement</span>
+      </div>
+      <h1>BPMN-Diagramme automatisch erstellen: Wie ich von 5 Stunden auf 15 Minuten gekommen bin</h1>
+      <p class="blog-deck">Ein selbst entwickelter Claude-Skill erstellt vollständig BPMN 2.0-konforme Prozessdiagramme direkt aus Notizen, Meeting-Transkripten und Anforderungsdokumenten – draw.io-kompatibel, sofort einsetzbar und zu 90–95% fertig.</p>
+      <div class="blog-meta">
+        <span>Von <strong style="color:var(--c-white);">Joshua Heller</strong></span>
+        <span>10. Juni 2026</span>
+        <span>ca. 11 Min. Lesezeit</span>
+      </div>
+    </header>
+
+    <!-- Body -->
+    <article class="blog-body">
+
+      <!-- Table of Contents -->
+      <nav class="blog-chapter-nav" aria-label="Inhaltsverzeichnis">
+        <span class="toc-label">Inhaltsverzeichnis</span>
+        <a href="#hook" class="blog-ch-item"><span class="blog-ch-num">01</span> Das Zeitproblem</a>
+        <a href="#bpmn-basics" class="blog-ch-item"><span class="blog-ch-num">02</span> Was ist BPMN 2.0?</a>
+        <a href="#old-problem" class="blog-ch-item"><span class="blog-ch-num">03</span> Das alte Problem</a>
+        <a href="#solution" class="blog-ch-item"><span class="blog-ch-num">04</span> Die Lösung</a>
+        <a href="#workflow" class="blog-ch-item"><span class="blog-ch-num">05</span> Schritt-für-Schritt</a>
+        <a href="#elements" class="blog-ch-item"><span class="blog-ch-num">06</span> Lieferumfang</a>
+        <a href="#comparison" class="blog-ch-item"><span class="blog-ch-num">07</span> Vergleich</a>
+        <a href="#roi" class="blog-ch-item"><span class="blog-ch-num">08</span> ROI-Rechner</a>
+        <a href="#example" class="blog-ch-item"><span class="blog-ch-num">09</span> Beispiel-Diagramm</a>
+        <a href="#hermes" class="blog-ch-item"><span class="blog-ch-num">10</span> Hermes Agent</a>
+        <a href="#faq" class="blog-ch-item"><span class="blog-ch-num">11</span> FAQ</a>
+      </nav>
+
+      <!-- Section 1: Hook -->
+      <section id="hook">
+        <div class="blog-chapter-block">
+          <span class="blog-chapter-num">01</span>
+          <h2>Die Zeit, die ich für BPMN nie mehr verschwende</h2>
+        </div>
+
+        <p>Ich erinnere mich noch gut an einen Dienstagnachmittag im vergangenen Jahr: drei Stunden, eine Tasse kalter Kaffee, und ein Prozessdiagramm, das immer noch nicht fertig war. Swimlanes verschoben, Gateways falsch beschriftet, und dann noch die Frage, ob es jetzt ein Exclusive oder ein Inclusive Gateway sein soll. BPMN-Diagramme zu erstellen war für mich immer eine Kombination aus konzentrierter Facharbeit und stumpfsinniger Klickarbeit – keine ideale Mischung.</p>
+
+        <p>Heute dauert dasselbe Diagramm 15 Minuten. Nicht weil ich schneller geworden bin, sondern weil ich einen Custom Claude-Skill entwickelt habe, der mir die Schwerstarbeit abnimmt. Was dabei rauskommt, ist valides BPMN 2.0 XML, das sich direkt in draw.io öffnen lässt – mit korrekten Event-Typen, sauber typisierten Gateways und vernünftig platzierten Swimlanes.</p>
+
+        <div class="blog-stats">
+          <div class="blog-stat-cell">
+            <div class="blog-stat-num">3–5h</div>
+            <div class="blog-stat-label">frühere Erstellungszeit pro Diagramm</div>
+          </div>
+          <div class="blog-stat-cell">
+            <div class="blog-stat-num">15 Min.</div>
+            <div class="blog-stat-label">aktuelle Erstellungszeit mit KI-Skill</div>
+          </div>
+          <div class="blog-stat-cell">
+            <div class="blog-stat-num">90–95%</div>
+            <div class="blog-stat-label">fertig ohne manuelle Nacharbeit</div>
+          </div>
+        </div>
+
+        <div class="blog-stats" style="margin-top:0;">
+          <div class="blog-stat-cell">
+            <div class="blog-stat-num">47%</div>
+            <div class="blog-stat-label">weniger Meetings zur Prozessklärung</div>
+          </div>
+          <div class="blog-stat-cell">
+            <div class="blog-stat-num">BPMN 2.0</div>
+            <div class="blog-stat-label">vollständig konform, OMG-Standard</div>
+          </div>
+          <div class="blog-stat-cell">
+            <div class="blog-stat-num">draw.io</div>
+            <div class="blog-stat-label">direkt importierbar, kein Re-Export</div>
+          </div>
+        </div>
+
+        <p>In diesem Artikel erkläre ich, wie der Skill aufgebaut ist, warum das stock draw.io MCP für mich nicht funktioniert hat, und wie Sie denselben Workflow in Ihrem Unternehmen implementieren können. Am Ende finden Sie einen ROI-Rechner, mit dem Sie ausrechnen können, wie viel Zeit und Geld Sie monatlich sparen würden.</p>
+      </section>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- Section 2: Was ist BPMN -->
+      <section id="bpmn-basics">
+        <div class="blog-chapter-block">
+          <span class="blog-chapter-num">02</span>
+          <h2>Was ist BPMN 2.0 – und warum ist es so mächtig?</h2>
+        </div>
+
+        <p>BPMN steht für <strong style="color:var(--c-white);">Business Process Model and Notation</strong> und ist der internationale Standard für die grafische Darstellung von Geschäftsprozessen. Die Version 2.0 wurde 2011 von der Object Management Group (OMG) veröffentlicht und ist seitdem der De-facto-Standard in der Prozessmodellierung – sowohl für die fachliche Dokumentation als auch für die technische Ausführung von Prozessen in Workflow-Engines wie Camunda oder Flowable.</p>
+
+        <p>Was BPMN so wertvoll macht: Es schafft eine gemeinsame Sprache zwischen Business-Analysten, IT-Architekten und Entwicklern. Ein BPMN-Diagramm kann gleichzeitig von der Fachabteilung verstanden und von einer Process Engine ausgeführt werden. Diese Dualität – lesbar und ausführbar – ist einzigartig.</p>
+
+        <h3>Die vier Kern-Kategorien von BPMN-Elementen</h3>
+
+        <div class="element-grid">
+          <div class="element-card">
+            <div class="element-card-title">Events (Ereignisse)</div>
+            <div class="element-card-desc"><strong>Start Event</strong> (einfacher Kreis): beginnt den Prozess. <strong>Intermediate Event</strong> (doppelter Kreisrand): tritt während des Prozesses auf. <strong>End Event</strong> (dicker Kreisrand): beendet den Prozessfluss. Symbole im Kreis spezifizieren den Typ: Message, Timer, Error, Signal, Compensation u.v.m.</div>
+          </div>
+          <div class="element-card">
+            <div class="element-card-title">Tasks (Aufgaben)</div>
+            <div class="element-card-desc"><strong>User Task</strong> (Person-Symbol): wird von einem Menschen ausgeführt. <strong>Service Task</strong> (Zahnrad): automatisierter Dienst. <strong>Script Task</strong> (Dokument): Script-Ausführung. <strong>Business Rule Task</strong> (Tabelle): regelbasierte Entscheidung. Tasks sind abgerundete Rechtecke.</div>
+          </div>
+          <div class="element-card">
+            <div class="element-card-title">Gateways (Gabelungen)</div>
+            <div class="element-card-desc"><strong>Exclusive Gateway (XOR)</strong>: genau ein ausgehender Pfad wird gewählt. <strong>Parallel Gateway (AND)</strong>: alle Pfade werden gleichzeitig aktiviert. <strong>Inclusive Gateway (OR)</strong>: ein oder mehrere Pfade werden aktiviert. Symbol ist immer eine Raute, inneres Symbol zeigt den Typ.</div>
+          </div>
+          <div class="element-card">
+            <div class="element-card-title">Connecting Objects</div>
+            <div class="element-card-desc"><strong>Sequence Flow</strong> (durchgezogener Pfeil): verbindet Elemente innerhalb eines Pools. <strong>Message Flow</strong> (gestrichelter Pfeil): Kommunikation zwischen Pools. <strong>Association</strong> (gepunktete Linie): verbindet Artefakte wie Data Objects und Annotations mit Aktivitäten.</div>
+          </div>
+        </div>
+
+        <p>Dazu kommen <strong style="color:var(--c-white);">Swimlanes</strong> – horizontale oder vertikale Bahnen, die Verantwortlichkeiten visualisieren. Ein Pool repräsentiert eine Organisation, Lanes innerhalb des Pools einzelne Abteilungen oder Rollen. Diese Struktur macht auf einen Blick sichtbar, wer welchen Schritt verantwortet – und wo Übergaben stattfinden, die in der Praxis häufig die größten Reibungsverluste erzeugen.</p>
+
+        <div class="blog-callout">
+          <div class="blog-callout-hl">Warum BPMN-Notation so wichtig ist</div>
+          <p>Ein falsch verwendetes Gateway kann den Unterschied bedeuten zwischen einem Prozess, der wie beschrieben ausgeführt wird, und einem, der zu Race Conditions oder Dead Ends führt. Das ist der Grund, warum ein BPMN-Generator entweder die Spezifikation kennt – oder einfach nutzlos ist.</p>
+        </div>
+      </section>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- Section 3: Das alte Problem -->
+      <section id="old-problem">
+        <div class="blog-chapter-block">
+          <span class="blog-chapter-num">03</span>
+          <h2>Das alte Problem: Warum BPMN-Erstellung so aufwändig ist</h2>
+        </div>
+
+        <p>Wer noch nie ernsthaft BPMN modelliert hat, unterschätzt den Aufwand regelmäßig. "Das ist doch nur ein Flussdiagramm" – diesen Satz habe ich von Stakeholdern zu oft gehört. Die Realität sieht anders aus, und zwar aus drei Gründen.</p>
+
+        <h3>1. Notation-Wissen ist nicht trivial</h3>
+        <p>Allein der BPMN-2.0-Standard umfasst 538 Seiten. In der Praxis braucht man nicht jedes Detail, aber die Kernelemente und ihre korrekten Verwendungskontexte sitzen nicht nach einem Nachmittag Lesen. Wann ist ein Inclusive Gateway dem Exclusive vorzuziehen? Wann brauche ich einen Event-Based Gateway? Wie modelliere ich korrekt eine Fehlerbehandlung mit einem Boundary Event? Diese Fragen tauchen in jedem zweiten Prozess auf – und falsche Antworten produzieren Diagramme, die zwar hübsch aussehen, aber fachlich falsch sind.</p>
+
+        <h3>2. Software-Komplexität frisst Zeit</h3>
+        <p>Tools wie Visio, Lucidchart oder auch draw.io bieten mächtige Funktionen, haben aber eine Lernkurve. Swimlane-Ausrichtung, Element-Snap, Verbindungspunkte, das korrekte Setzen von Marker-Symbolen auf Tasks – all das kostet Zeit, selbst wenn man die Tools gut kennt. Bei Visio kommt hinzu, dass Lizenzkosten von 280–580 Euro pro Jahr den Zugang oft auf wenige Personen im Unternehmen beschränken.</p>
+
+        <h3>3. Der Perfektionismus-Loop</h3>
+        <p>Das subtilste Problem: Prozessdiagramme werden nie "fertig" gefühlt. Immer gibt es noch eine Ausnahmebehandlung, die eingebaut werden könnte, ein Gateway, das präziser formuliert sein könnte, oder eine Swimlane-Zuordnung, die neu diskutiert werden müsste. Viele Teams verbringen mehr Zeit mit dem Diagramm als mit dem eigentlichen Prozess – ein klassischer Fall von Overengineering.</p>
+
+        <p>Das Ergebnis: BPMN-Diagramme werden entweder gar nicht erstellt (informelle Skizzen stattdessen), oder sie werden zu selten aktualisiert und veralten schnell. In beiden Fällen geht ein erheblicher Teil ihres Werts verloren.</p>
+
+        <div class="blog-callout">
+          <div class="blog-callout-hl">Die echte Kostenfalle</div>
+          <p>Bei einem Stundensatz von 80–120 Euro für einen Business-Analysten kostet ein einziges BPMN-Diagramm je nach Komplexität zwischen 240 und 600 Euro in reiner Arbeitszeit – bevor auch nur eine einzige Zeile Code geschrieben oder ein Prozess optimiert wird.</p>
+        </div>
+      </section>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- Section 4: Die Lösung -->
+      <section id="solution">
+        <div class="blog-chapter-block">
+          <span class="blog-chapter-num">04</span>
+          <h2>Die Lösung: Custom Claude Skill mit BPMN 2.0-Expertise</h2>
+        </div>
+
+        <p>Als ich anfing, mit KI-Tools für BPMN zu experimentieren, war das offensichtliche erste Experiment: das draw.io MCP. Model Context Protocol (MCP) ist Anthropics offener Standard, der es Claude ermöglicht, direkt mit externen Tools zu interagieren. Das draw.io MCP verspricht genau das, was ich brauchte – Diagramme erstellen ohne manuelles Klicken.</p>
+
+        <h3>Warum das stock draw.io MCP versagte</h3>
+
+        <p>Die Ergebnisse waren enttäuschend. Das draw.io MCP generierte zwar funktionierende draw.io-Dateien, aber die BPMN-Notation war durchgehend fehlerhaft: Standard-Rechtecke statt typisierter Tasks, einfache Rauten ohne Gateway-Marker, keine korrekten Event-Symbole. Was herauskam, sah aus wie ein Flussdiagramm aus den 1990ern – technisch in draw.io geöffnet, aber weder BPMN 2.0-konform noch für ernsthaften Unternehmenseinsatz geeignet.</p>
+
+        <p>Das Problem ist strukturell: Ein generisches MCP kennt draw.io, aber nicht die BPMN-Spezifikation. Es weiß, wie man Shapes platziert, aber nicht, welche Shapes für welche BPMN-Elemente korrekt sind, wie sie zu typisieren sind und welche XML-Attribute für BPMN-Compliance nötig sind.</p>
+
+        <h3>Der Custom Skill-Ansatz</h3>
+
+        <p>Ein Custom Claude Skill ist eine andere Schicht der Integration. Statt eines generischen Tool-Aufrufs enthält der Skill die BPMN 2.0-Spezifikation als eingebettetes Domänenwissen – entweder als System-Prompt, als Retrieval-Kontext oder als strukturierte Tool-Definition. Das bedeutet:</p>
+
+        <ul style="list-style:none;padding:0;margin:1rem 0;">
+          <li style="display:flex;gap:0.75rem;padding:0.5rem 0;color:var(--c-text-muted);"><span style="color:var(--c-accent);font-weight:700;">→</span> Claude kennt die exakten XML-Schemas für jedes BPMN-Element</li>
+          <li style="display:flex;gap:0.75rem;padding:0.5rem 0;color:var(--c-text-muted);"><span style="color:var(--c-accent);font-weight:700;">→</span> Gateway-Typen werden anhand der Prozesslogik automatisch gewählt</li>
+          <li style="display:flex;gap:0.75rem;padding:0.5rem 0;color:var(--c-text-muted);"><span style="color:var(--c-accent);font-weight:700;">→</span> Task-Marker werden nach Aktivitätstyp gesetzt (User, Service, Script etc.)</li>
+          <li style="display:flex;gap:0.75rem;padding:0.5rem 0;color:var(--c-text-muted);"><span style="color:var(--c-accent);font-weight:700;">→</span> Swimlanes werden automatisch aus Rollen/Verantwortlichkeiten im Input abgeleitet</li>
+          <li style="display:flex;gap:0.75rem;padding:0.5rem 0;color:var(--c-text-muted);"><span style="color:var(--c-accent);font-weight:700;">→</span> Das Ausgabe-XML ist direkt draw.io-importierbar ohne manuelle Korrekturen</li>
+        </ul>
+
+        <h3>Architektur des Skills</h3>
+
+        <p>Der Skill besteht aus drei Schichten. Die erste ist ein umfangreicher System-Prompt, der die BPMN 2.0-Kerndokumentation enthält und Claude explizit anweist, welche Elemente wann zu verwenden sind. Die zweite Schicht ist eine strukturierte Analyse-Phase: Claude liest den Input und extrahiert zunächst Akteure (für Swimlanes), Aktivitäten (für Tasks), Entscheidungspunkte (für Gateways) und Ereignisse (für Start/End/Intermediate Events) – bevor es ein einziges XML-Element schreibt. Die dritte Schicht ist die XML-Generierung mit draw.io-kompatibler Formatierung, inklusive korrekter mxCell-IDs und Parent-Referenzen für die korrekte Swimlane-Zuordnung.</p>
+
+        <p>Das Ergebnis: Ein XML-String, der direkt als .drawio-Datei gespeichert und geöffnet werden kann. Kein weiteres Tool, kein Export, kein Konvertierungsschritt.</p>
+      </section>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- Section 5: Workflow -->
+      <section id="workflow">
+        <div class="blog-chapter-block">
+          <span class="blog-chapter-num">05</span>
+          <h2>Schritt-für-Schritt: Der Workflow in der Praxis</h2>
+        </div>
+
+        <p>Hier ist der genaue Ablauf, wie ich heute ein BPMN-Diagramm erstelle – von rohem Input bis zum fertigen, bearbeitbaren Diagramm.</p>
+
+        <div class="step-cards">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Input vorbereiten</h4>
+              <p>Sammeln Sie alles, was den Prozess beschreibt: Meeting-Notizen, Transkripte aus Prozess-Workshops, Anforderungsdokumente, E-Mail-Threads oder auch nur eine grobe Stichpunktliste. Der Skill funktioniert auch mit unstrukturierten Texten – Claude extrahiert selbständig die relevanten Informationen. Je mehr Kontext, desto besser das Ergebnis. Ein guter Input enthält: beteiligte Rollen/Abteilungen, Aktivitäten in chronologischer Reihenfolge, Entscheidungspunkte mit Bedingungen, Ausnahmen oder Fehlerszenarien.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Skill in Claude aufrufen</h4>
+              <p>Öffnen Sie Claude (Desktop oder Web) und rufen Sie den BPMN-Skill auf. Das geht entweder über den Skill-Selector im Interface oder über einen dedizierten Prompt-Präfix. Fügen Sie Ihren Input-Text ein und starten Sie die Generierung. Claude beginnt mit der Analyse-Phase und listet zunächst die identifizierten Elemente auf – eine gute Gelegenheit, fehlerhafte Interpretationen früh zu korrigieren, bevor die XML-Generierung startet.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Analyse-Phase reviewen</h4>
+              <p>Claude zeigt Ihnen zunächst eine strukturierte Zusammenfassung: "Ich habe folgende Swimlanes identifiziert: Mitarbeiter, Abteilungsleiter, IT. Folgende Tasks: [Liste]. Folgende Gateways: [Liste mit Typen]." Jetzt ist der richtige Moment für Korrekturen per natürlicher Sprache: "Füge noch die Compliance-Abteilung als Swimlane hinzu" oder "Das Gateway bei 'Genehmigung' sollte Exclusive sein, nicht Inclusive." Diese Korrekturschleife dauert typischerweise 2–3 Minuten.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>XML generieren lassen</h4>
+              <p>Nach der Bestätigung (oder direkt, wenn kein Review nötig) generiert Claude das BPMN 2.0 XML. Der Output ist ein vollständiger draw.io-kompatibler XML-String mit allen nötigen Attributen: bpmndi:BPMNShape-Elemente mit korrekten Bounds, flowElement-Typen, Gateway-Marker, Event-Definitionen. Das dauert je nach Komplexität des Prozesses zwischen 30 Sekunden und 2 Minuten.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">5</div>
+            <div class="step-body">
+              <h4>In draw.io importieren</h4>
+              <p>Kopieren Sie den XML-Output, öffnen Sie draw.io (desktop oder browser), und gehen Sie zu Extras → XML bearbeiten (oder Strg+Shift+X). Fügen Sie das XML ein und klicken Sie auf "OK". Das Diagramm öffnet sich sofort mit allen Elementen korrekt platziert und typisiert. Alternativ: XML als .drawio-Datei speichern und direkt öffnen.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">6</div>
+            <div class="step-body">
+              <h4>Feinschliff (optional)</h4>
+              <p>Die meisten Diagramme sind direkt einsatzbereit. Wenn Sie noch Anpassungen brauchen – z.B. visuelle Layout-Optimierungen oder das Hinzufügen von Data Objects – können Sie das entweder per weiterem Prompt in Claude erledigen oder direkt in draw.io klicken. Typischer Aufwand: 5–10 Minuten für ein komplexes Diagramm, unter 2 Minuten für einfache Prozesse.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- Section 6: Was der Skill liefert -->
+      <section id="elements">
+        <div class="blog-chapter-block">
+          <span class="blog-chapter-num">06</span>
+          <h2>Was der Skill liefert: BPMN-Elemente im Überblick</h2>
+        </div>
+
+        <p>Der Custom Skill unterstützt alle wesentlichen BPMN 2.0-Elemente aus dem offiziellen Standard. Hier ist die vollständige Checkliste:</p>
+
+        <h3>Tasks (Aufgaben)</h3>
+        <ul class="checklist">
+          <li><strong style="color:var(--c-white);">User Task</strong> – manuelle Aktivität, die von einer Person ausgeführt wird (Person-Symbol)</li>
+          <li><strong style="color:var(--c-white);">Service Task</strong> – automatisierter Dienst-Aufruf, z.B. API-Calls oder System-Integrationen (Zahnrad-Symbol)</li>
+          <li><strong style="color:var(--c-white);">Script Task</strong> – Ausführung eines Skripts oder Programms (Dokument-Symbol)</li>
+          <li><strong style="color:var(--c-white);">Business Rule Task</strong> – regelbasierte Entscheidung via Decision Engine (Tabellen-Symbol)</li>
+          <li><strong style="color:var(--c-white);">Send/Receive Task</strong> – Nachrichtenversand und -empfang zwischen Prozessparticipants</li>
+          <li><strong style="color:var(--c-white);">Call Activity</strong> – Aufruf eines wiederverwendbaren Sub-Prozesses (dicker Rahmen)</li>
+        </ul>
+
+        <h3>Gateways (Entscheidungspunkte)</h3>
+        <ul class="checklist">
+          <li><strong style="color:var(--c-white);">Exclusive Gateway (XOR)</strong> – genau ein Pfad wird gewählt, X-Symbol in der Raute</li>
+          <li><strong style="color:var(--c-white);">Parallel Gateway (AND)</strong> – alle Pfade werden gleichzeitig aktiviert, +-Symbol</li>
+          <li><strong style="color:var(--c-white);">Inclusive Gateway (OR)</strong> – ein oder mehrere Pfade werden aktiviert, O-Symbol</li>
+          <li><strong style="color:var(--c-white);">Event-Based Gateway</strong> – Routing basierend auf dem nächsten eintretenden Ereignis</li>
+          <li><strong style="color:var(--c-white);">Complex Gateway</strong> – für komplexe Aktivierungsbedingungen, Stern-Symbol</li>
+        </ul>
+
+        <h3>Events (Ereignisse)</h3>
+        <ul class="checklist">
+          <li><strong style="color:var(--c-white);">Start Event</strong> – einfacher Kreis, initiiert den Prozessfluss</li>
+          <li><strong style="color:var(--c-white);">Intermediate Catch/Throw Event</strong> – doppelter Kreisrand, tritt im Prozessverlauf auf</li>
+          <li><strong style="color:var(--c-white);">End Event</strong> – dicker Kreisrand, beendet den Prozessfluss</li>
+          <li><strong style="color:var(--c-white);">Boundary Events</strong> – haften an Tasks und behandeln Ausnahmen (Error, Timer, Escalation)</li>
+          <li><strong style="color:var(--c-white);">Event-Typen</strong>: Message, Timer, Error, Signal, Escalation, Compensation, Conditional</li>
+        </ul>
+
+        <h3>Swimlanes und Struktur</h3>
+        <ul class="checklist">
+          <li><strong style="color:var(--c-white);">Pools</strong> – repräsentieren Organisationen oder eigenständige Prozessparticipants</li>
+          <li><strong style="color:var(--c-white);">Lanes</strong> – Bahnen innerhalb eines Pools für Rollen und Abteilungen</li>
+          <li><strong style="color:var(--c-white);">Message Flows</strong> – gestrichelte Pfeile für Kommunikation zwischen Pools</li>
+          <li><strong style="color:var(--c-white);">Sequence Flows</strong> – durchgezogene Pfeile mit Bedingungsausdrücken</li>
+          <li><strong style="color:var(--c-white);">Data Objects &amp; Data Stores</strong> – Dokumente und Datenspeicher mit Associations</li>
+          <li><strong style="color:var(--c-white);">Text Annotations</strong> – Kommentare und Erklärungen via gestrichelter Association</li>
+        </ul>
+      </section>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- Section 7: Vergleichstabelle -->
+      <section id="comparison">
+        <div class="blog-chapter-block">
+          <span class="blog-chapter-num">07</span>
+          <h2>Vergleich: Drei Wege zur BPMN-Erstellung</h2>
+        </div>
+
+        <p>Um die Unterschiede greifbar zu machen, habe ich alle drei Ansätze über mehrere Wochen im Alltag verglichen. Die folgende Tabelle fasst die wichtigsten Dimensionen zusammen.</p>
+
+        <div style="overflow-x:auto;">
+          <table class="blog-table">
+            <thead>
+              <tr>
+                <th>Kriterium</th>
+                <th>Manuell (Visio / Lucidchart)</th>
+                <th>draw.io MCP (ohne Custom Skill)</th>
+                <th>Custom KI-Skill</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong style="color:var(--c-white);">Erstellungszeit</strong></td>
+                <td class="badge-red">3–5 Stunden</td>
+                <td class="badge-yellow">45–90 Minuten + Korrekturen</td>
+                <td class="badge-green">10–20 Minuten</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--c-white);">BPMN 2.0 Konformität</strong></td>
+                <td class="badge-yellow">Abhängig von Expertenwissen</td>
+                <td class="badge-red">Schlecht – falsche Notation</td>
+                <td class="badge-green">Sehr gut – 90–95% konform</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--c-white);">Anpassbarkeit</strong></td>
+                <td class="badge-green">Vollständig, direkt in der UI</td>
+                <td class="badge-yellow">Mittel – XML-Korrekturen nötig</td>
+                <td class="badge-green">Hoch – Prompt oder draw.io</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--c-white);">Kosten pro Diagramm</strong></td>
+                <td class="badge-red">80–600 € (Arbeitszeit + Lizenz)</td>
+                <td class="badge-yellow">15–40 € (Token-Kosten + Korrekturen)</td>
+                <td class="badge-green">2–8 € (Token-Kosten, minimal)</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--c-white);">Lernkurve</strong></td>
+                <td class="badge-red">Hoch – BPMN + Tool-Know-how</td>
+                <td class="badge-yellow">Mittel – Tool-Know-how nötig</td>
+                <td class="badge-green">Niedrig – natürliche Sprache</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--c-white);">Qualität der Notation</strong></td>
+                <td class="badge-yellow">Gut bei Experten, variabel sonst</td>
+                <td class="badge-red">Mangelhaft – generische Shapes</td>
+                <td class="badge-green">Konsistent gut, spec-basiert</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--c-white);">Skalierbarkeit</strong></td>
+                <td class="badge-red">Begrenzt – braucht Experten</td>
+                <td class="badge-yellow">Mittel – ohne Qualitätsgarantie</td>
+                <td class="badge-green">Hoch – jeder kann es nutzen</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--c-white);">Tool-Kompatibilität</strong></td>
+                <td class="badge-green">Nativ in jeweiligem Tool</td>
+                <td class="badge-yellow">Nur draw.io</td>
+                <td class="badge-green">draw.io, Camunda, Bizagi, Visio</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Das Fazit ist eindeutig: Der Custom KI-Skill ist in fast allen Dimensionen der manuelle Ansatz und das stock MCP überlegen. Der einzige Bereich, in dem manuelles Modellieren noch vorne liegt, ist die vollständige visuelle Kontrolle – aber auch das wird durch die einfache Nachbearbeitung in draw.io weitgehend kompensiert.</p>
+      </section>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- Section 8: ROI Rechner -->
+      <section id="roi">
+        <div class="blog-chapter-block">
+          <span class="blog-chapter-num">08</span>
+          <h2>Ihr persönlicher ROI-Rechner</h2>
+        </div>
+
+        <p>Wie viel Zeit und Geld sparen Sie konkret? Tragen Sie Ihre Zahlen ein und sehen Sie das Ergebnis sofort.</p>
+
+        <div class="roi-calc">
+          <h3>BPMN-Produktivitätskalkulator</h3>
+          <div class="roi-inputs">
+            <div class="roi-field">
+              <label for="bpmn-count">BPMN-Diagramme pro Monat</label>
+              <input type="number" id="bpmn-count" value="8" min="1" max="500" oninput="updateROI()" />
+            </div>
+            <div class="roi-field">
+              <label for="hourly-rate">Stundensatz (€)</label>
+              <input type="number" id="hourly-rate" value="95" min="10" max="500" oninput="updateROI()" />
+            </div>
+            <div class="roi-field">
+              <label for="old-hours">Durchschn. Stunden bisher pro Diagramm</label>
+              <input type="number" id="old-hours" value="4" min="0.5" max="20" step="0.5" oninput="updateROI()" />
+            </div>
+            <div class="roi-field">
+              <label for="new-minutes">Neue Zeit pro Diagramm (Min.)</label>
+              <input type="number" id="new-minutes" value="20" min="5" max="120" oninput="updateROI()" />
+            </div>
+          </div>
+          <div class="roi-results">
+            <div class="roi-result">
+              <div class="roi-result-val" id="saved-hours">—</div>
+              <div class="roi-result-label">Gesparte Stunden / Monat</div>
+            </div>
+            <div class="roi-result">
+              <div class="roi-result-val" id="saved-month">—</div>
+              <div class="roi-result-label">Gesparte Kosten / Monat</div>
+            </div>
+            <div class="roi-result">
+              <div class="roi-result-val" id="saved-year">—</div>
+              <div class="roi-result-label">Gesparte Kosten / Jahr</div>
+            </div>
+          </div>
+        </div>
+
+        <p>Hinweis: Die Berechnung basiert auf der Zeitersparnis multipliziert mit dem angegebenen Stundensatz. Token-Kosten für den KI-Skill (typischerweise 2–8 Euro pro Diagramm) sind nicht abgezogen, da sie bei den meisten Unternehmensverträgen im Flatrate-Modell inkludiert sind.</p>
+      </section>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- Section 9: Inline SVG Beispiel -->
+      <section id="example">
+        <div class="blog-chapter-block">
+          <span class="blog-chapter-num">09</span>
+          <h2>Beispiel: Bestellfreigabe-Prozess als BPMN 2.0 Diagramm</h2>
+        </div>
+
+        <p>Das folgende Diagramm zeigt einen typischen Bestellfreigabe-Prozess mit drei Swimlanes: Mitarbeiter, Abteilungsleiter und Einkauf. Genau dieses Diagramm wurde mit dem Custom Claude Skill aus einer informellen Prozessbeschreibung in unter 15 Minuten erstellt.</p>
+
+        <div class="bpmn-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 500" width="100%" height="auto" style="min-height:300px;max-height:520px;" role="img" aria-label="BPMN 2.0 Bestellfreigabe-Prozess mit Swimlanes: Mitarbeiter, Abteilungsleiter, Einkauf">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#9090b0" />
+              </marker>
+              <marker id="arrow-accent" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#6d5efc" />
+              </marker>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- Background -->
+            <rect width="860" height="500" fill="#0d0d16" rx="12"/>
+
+            <!-- Pool border -->
+            <rect x="10" y="10" width="840" height="480" fill="none" stroke="#252535" stroke-width="1.5" rx="8"/>
+
+            <!-- Pool Label "Bestellfreigabe-Prozess" -->
+            <rect x="10" y="10" width="28" height="480" fill="#161622" stroke="#252535" stroke-width="1.5" rx="8"/>
+            <text transform="translate(26,490) rotate(-90)" font-family="'Syne',sans-serif" font-size="11" fill="#6d5efc" font-weight="700" letter-spacing="1">BESTELLFREIGABE-PROZESS</text>
+
+            <!-- Swimlane 1: Mitarbeiter -->
+            <rect x="38" y="10" width="812" height="155" fill="#161622" stroke="#252535" stroke-width="1"/>
+            <rect x="38" y="10" width="90" height="155" fill="#1a1a2e" stroke="#252535" stroke-width="1"/>
+            <text transform="translate(88,95) rotate(-90)" font-family="'Space Grotesk',sans-serif" font-size="11" fill="#9090b0" text-anchor="middle">Mitarbeiter</text>
+
+            <!-- Swimlane 2: Abteilungsleiter -->
+            <rect x="38" y="165" width="812" height="155" fill="#161622" stroke="#252535" stroke-width="1"/>
+            <rect x="38" y="165" width="90" height="155" fill="#1a1a2e" stroke="#252535" stroke-width="1"/>
+            <text transform="translate(88,255) rotate(-90)" font-family="'Space Grotesk',sans-serif" font-size="11" fill="#9090b0" text-anchor="middle">Abteilungsleiter</text>
+
+            <!-- Swimlane 3: Einkauf -->
+            <rect x="38" y="320" width="812" height="170" fill="#161622" stroke="#252535" stroke-width="1"/>
+            <rect x="38" y="320" width="90" height="170" fill="#1a1a2e" stroke="#252535" stroke-width="1"/>
+            <text transform="translate(88,415) rotate(-90)" font-family="'Space Grotesk',sans-serif" font-size="11" fill="#9090b0" text-anchor="middle">Einkauf</text>
+
+            <!-- ===== LANE 1: MITARBEITER ===== -->
+
+            <!-- Start Event -->
+            <circle cx="168" cy="87" r="18" fill="#0d0d16" stroke="#4caf50" stroke-width="2.5" filter="url(#glow)"/>
+            <text x="168" y="120" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#9090b0" text-anchor="middle">Start</text>
+
+            <!-- Task: Bestellanforderung erstellen -->
+            <rect x="218" y="65" width="140" height="44" rx="8" fill="#161630" stroke="#6d5efc" stroke-width="1.5"/>
+            <rect x="218" y="65" width="22" height="22" rx="4" fill="rgba(109,94,252,0.15)" stroke="none"/>
+            <!-- User Task icon (person) -->
+            <circle cx="229" cy="72" r="4" fill="#6d5efc"/>
+            <path d="M222,84 Q229,79 236,84" stroke="#6d5efc" stroke-width="1.5" fill="none"/>
+            <text x="298" y="85" font-family="'Space Grotesk',sans-serif" font-size="9.5" fill="#f0f0ff" text-anchor="middle">Bestellanforderung</text>
+            <text x="298" y="98" font-family="'Space Grotesk',sans-serif" font-size="9.5" fill="#f0f0ff" text-anchor="middle">erstellen</text>
+
+            <!-- Arrow: Start → Task1 -->
+            <line x1="186" y1="87" x2="216" y2="87" stroke="#9090b0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+            <!-- ===== LANE 2: ABTEILUNGSLEITER ===== -->
+
+            <!-- Task: Anforderung prüfen -->
+            <rect x="218" y="222" width="140" height="44" rx="8" fill="#161630" stroke="#6d5efc" stroke-width="1.5"/>
+            <!-- User Task icon -->
+            <circle cx="229" cy="229" r="4" fill="#6d5efc"/>
+            <path d="M222,241 Q229,236 236,241" stroke="#6d5efc" stroke-width="1.5" fill="none"/>
+            <text x="298" y="242" font-family="'Space Grotesk',sans-serif" font-size="9.5" fill="#f0f0ff" text-anchor="middle">Anforderung</text>
+            <text x="298" y="255" font-family="'Space Grotesk',sans-serif" font-size="9.5" fill="#f0f0ff" text-anchor="middle">prüfen</text>
+
+            <!-- Sequence Flow: Task1 → Task2 (cross-lane) -->
+            <path d="M298,109 L298,130 L298,222" stroke="#9090b0" stroke-width="1.5" fill="none" stroke-dasharray="none" marker-end="url(#arrow)"/>
+
+            <!-- Exclusive Gateway: Genehmigt? -->
+            <polygon points="448,244 476,216 504,244 476,272" fill="#161630" stroke="#f5a623" stroke-width="2"/>
+            <!-- X symbol -->
+            <line x1="464" y1="232" x2="488" y2="256" stroke="#f5a623" stroke-width="2"/>
+            <line x1="488" y1="232" x2="464" y2="256" stroke="#f5a623" stroke-width="2"/>
+            <text x="476" y="290" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#f5a623" text-anchor="middle" font-weight="600">Genehmigt?</text>
+
+            <!-- Arrow: Task2 → Gateway -->
+            <line x1="358" y1="244" x2="445" y2="244" stroke="#9090b0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+            <!-- ===== LANE 3: EINKAUF ===== -->
+
+            <!-- Task: Bestellung aufgeben -->
+            <rect x="556" y="365" width="140" height="44" rx="8" fill="#161630" stroke="#6d5efc" stroke-width="1.5"/>
+            <!-- Service Task icon (gear) -->
+            <circle cx="567" cy="373" r="5" fill="none" stroke="#6d5efc" stroke-width="1.5"/>
+            <circle cx="567" cy="373" r="2.5" fill="#6d5efc"/>
+            <text x="636" y="385" font-family="'Space Grotesk',sans-serif" font-size="9.5" fill="#f0f0ff" text-anchor="middle">Bestellung</text>
+            <text x="636" y="398" font-family="'Space Grotesk',sans-serif" font-size="9.5" fill="#f0f0ff" text-anchor="middle">aufgeben</text>
+
+            <!-- End Event (success) -->
+            <circle cx="760" cy="387" r="18" fill="#0d0d16" stroke="#4caf50" stroke-width="4"/>
+            <text x="760" y="420" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#9090b0" text-anchor="middle">Ende</text>
+            <text x="760" y="430" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#9090b0" text-anchor="middle">(Bestellt)</text>
+
+            <!-- Arrow: Gateway → Task Bestellung (Ja) -->
+            <path d="M476,272 L476,387 L554,387" stroke="#4caf50" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+            <text x="490" y="340" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#4caf50">Ja</text>
+
+            <!-- Arrow: Task Bestellung → End Event -->
+            <line x1="696" y1="387" x2="740" y2="387" stroke="#9090b0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+            <!-- ===== BACK TO LANE 2: ABLEHNUNG ===== -->
+
+            <!-- Task: Ablehnung mitteilen -->
+            <rect x="556" y="222" width="140" height="44" rx="8" fill="#161630" stroke="#6d5efc" stroke-width="1.5"/>
+            <!-- User Task icon -->
+            <circle cx="567" cy="229" r="4" fill="#6d5efc"/>
+            <path d="M560,241 Q567,236 574,241" stroke="#6d5efc" stroke-width="1.5" fill="none"/>
+            <text x="626" y="242" font-family="'Space Grotesk',sans-serif" font-size="9.5" fill="#f0f0ff" text-anchor="middle">Ablehnung</text>
+            <text x="626" y="255" font-family="'Space Grotesk',sans-serif" font-size="9.5" fill="#f0f0ff" text-anchor="middle">mitteilen</text>
+
+            <!-- End Event (rejection) -->
+            <circle cx="760" cy="244" r="18" fill="#0d0d16" stroke="#f44336" stroke-width="4"/>
+            <text x="760" y="277" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#9090b0" text-anchor="middle">Ende</text>
+            <text x="760" y="287" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#9090b0" text-anchor="middle">(Abgelehnt)</text>
+
+            <!-- Arrow: Gateway → Ablehnung (Nein) -->
+            <line x1="504" y1="244" x2="554" y2="244" stroke="#f44336" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="523" y="238" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#f44336">Nein</text>
+
+            <!-- Arrow: Ablehnung → End Event -->
+            <line x1="696" y1="244" x2="740" y2="244" stroke="#9090b0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+            <!-- Legend -->
+            <rect x="130" y="455" width="580" height="28" fill="rgba(22,22,34,0.8)" rx="6"/>
+            <circle cx="160" cy="469" r="7" fill="none" stroke="#4caf50" stroke-width="2"/>
+            <text x="172" y="473" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#606080">Start/End Event</text>
+            <rect x="220" y="462" width="22" height="14" rx="3" fill="none" stroke="#6d5efc" stroke-width="1.5"/>
+            <text x="246" y="473" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#606080">User/Service Task</text>
+            <polygon points="320,462 334,469 320,476 306,469" fill="none" stroke="#f5a623" stroke-width="1.5"/>
+            <text x="339" y="473" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#606080">Exclusive Gateway (XOR)</text>
+            <line x1="455" y1="469" x2="480" y2="469" stroke="#4caf50" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="485" y="473" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#606080">Ja-Pfad</text>
+            <line x1="540" y1="469" x2="565" y2="469" stroke="#f44336" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="570" y="473" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#606080">Nein-Pfad</text>
+
+            <!-- BPMN 2.0 badge -->
+            <rect x="688" y="455" width="68" height="18" rx="4" fill="rgba(109,94,252,0.15)" stroke="rgba(109,94,252,0.4)" stroke-width="1"/>
+            <text x="722" y="467" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#6d5efc" text-anchor="middle" font-weight="700">BPMN 2.0</text>
+          </svg>
+          <p class="bpmn-caption">Bestellfreigabe-Prozess (Bestellanforderung und Genehmigung) – generiert mit Custom Claude BPMN Skill, direkt draw.io-importierbar</p>
+        </div>
+
+        <p>Das Diagramm illustriert die wichtigsten BPMN-Konventionen: Der grüne Kreis ist ein einfaches Start Event, der dicke Kreisrand zeigt das End Event. Das Exclusive Gateway (Raute mit X) entscheidet exklusiv zwischen dem Ja- und dem Nein-Pfad – im Gegensatz zu einem Parallel Gateway würde hier immer nur genau ein Ausgang aktiviert. Die Swimlanes machen Verantwortlichkeiten auf einen Blick klar: der Mitarbeiter erstellt, der Abteilungsleiter prüft und genehmigt, der Einkauf bestellt.</p>
+      </section>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- Section 10: Hermes Agent Integration -->
+      <section id="hermes">
+        <div class="blog-chapter-block">
+          <span class="blog-chapter-num">10</span>
+          <h2>Hermes Agent: BPMN-Automatisierung als Teil der Prozessexzellenz</h2>
+        </div>
+
+        <p>Der BPMN-Skill ist nicht als isoliertes Tool gedacht. Im Kontext von Hermes Agent wird er Teil einer umfassenderen Prozesskette, die von der Prozessdokumentation bis zur Automatisierungsimplementierung reicht.</p>
+
+        <h3>Wie Hermes Agent BPMN-Erstellung integriert</h3>
+
+        <p>Hermes Agent ist Anthropics Enterprise-Integration für Claude-basierte Agenten-Systeme, die ich für mittelständische und große Unternehmen implementiere. Im Kontext von BPMN bedeutet das konkret: Der Agent kann automatisch auf Prozessdokumentationen in Confluence, SharePoint oder Notion zugreifen, Meeting-Transkripte aus Teams oder Zoom verarbeiten, und daraus BPMN-Diagramme erstellen – ohne dass ein Mensch den Input manuell vorbereiten muss.</p>
+
+        <p>Der Workflow in einem typischen Unternehmenssetup sieht so aus: Ein Prozess-Workshop findet statt, das Transkript wird automatisch in den Agenten-Kontext eingespeist, der BPMN-Skill generiert das Diagramm, und das Ergebnis landet automatisch im Prozess-Repository – beschriftet, kategorisiert und mit dem Workshop-Transkript verlinkt. Die Fachabteilung erhält innerhalb von Minuten nach dem Meeting ein review-fähiges Diagramm statt erst nach Tagen.</p>
+
+        <h3>Über die reine Diagrammerstellung hinaus</h3>
+
+        <p>Was Hermes Agent von einem einzelnen Skill-Aufruf unterscheidet, ist die end-to-end Perspektive. BPMN-Diagramme sind nicht das Ziel – sie sind ein Werkzeug zur Prozessoptimierung. Der Agent kann ein generiertes BPMN-Diagramm analysieren, Engpässe identifizieren, Automatisierungspotenziale markieren und Empfehlungen ausgeben, welche Tasks in welcher Reihenfolge automatisiert werden sollten.</p>
+
+        <p>In einem konkreten Kundenprojekt hat das bedeutet: 47 Prozesse wurden innerhalb von drei Wochen dokumentiert und als BPMN modelliert – ein Umfang, der manuell mehrere Monate gedauert hätte. Auf Basis dieser Dokumentation konnten sechs Prozesse priorisiert und innerhalb von zwei Quartalen automatisiert werden, mit einem kumulierten ROI von über 180.000 Euro im ersten Jahr.</p>
+
+        <div class="blog-article-cta">
+          <div class="blog-cta-eyebrow">Hermes Agent für Ihr Unternehmen</div>
+          <h3>BPMN-Automatisierung in 2 Wochen live</h3>
+          <p>Wir implementieren den Custom BPMN-Skill als Teil eines Hermes Agent-Setups in Ihrer bestehenden Infrastruktur. Inklusive Integration mit Confluence, SharePoint oder Ihrem Prozess-Repository und einem 2-stündigen Onboarding für Ihr Team.</p>
+          <a href="../index.html#kontakt" class="btn btn--primary">Kostenloses Erstgespräch buchen</a>
+        </div>
+      </section>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- Section 11: FAQ -->
+      <section id="faq">
+        <div class="blog-chapter-block">
+          <span class="blog-chapter-num">11</span>
+          <h2>Häufig gestellte Fragen</h2>
+        </div>
+
+        <div class="blog-faq">
+          <div class="blog-faq-item">
+            <div class="blog-faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen MCP und Custom Skill?</div>
+            <div class="blog-faq-a">
+              Ein MCP (Model Context Protocol) Server stellt Tools und Ressourcen bereit, die Claude direkt aufrufen kann – etwa das offizielle draw.io MCP, das Diagramme in draw.io erstellt. Ein Custom Skill ist eine tiefgehendere Integration: Sie bettet spezifisches Domänenwissen als System-Prompt oder strukturierte Tool-Definition ein. Der BPMN-Skill enthält die vollständige BPMN 2.0-Spezifikation als Kontext und erzwingt so korrekte Notation – was ein generisches MCP, das draw.io nur als Tool kennt, schlicht nicht leisten kann. Ein MCP weiß, wie man Shapes platziert. Ein Custom Skill weiß, welche Shapes korrekt sind.
+            </div>
+          </div>
+          <div class="blog-faq-item">
+            <div class="blog-faq-q" onclick="toggleFaq(this)">Funktioniert das auch mit anderen Tools als draw.io?</div>
+            <div class="blog-faq-a">
+              Ja. Der Custom Skill generiert valides BPMN 2.0 XML, das dem OMG-Standard entspricht. Das bedeutet: Lucidchart, Camunda Modeler, Bizagi, Microsoft Visio (via Import), Signavio, ARIS und jedes andere BPMN-2.0-konforme Tool kann die Ausgabe öffnen und weiterbearbeiten. draw.io ist für die meisten Unternehmenskunden bevorzugt, weil es kostenlos, browser-basiert und kollaborativ ist – aber die Ausgabe ist nicht draw.io-exklusiv. Für Camunda-Deployments z.B. kann das XML direkt in die Process Engine importiert werden.
+            </div>
+          </div>
+          <div class="blog-faq-item">
+            <div class="blog-faq-q" onclick="toggleFaq(this)">Wie gut ist die BPMN 2.0 Notation wirklich?</div>
+            <div class="blog-faq-a">
+              In der Praxis sind die Ergebnisse zu 90–95% fertig. Alle Kern-Elemente – Events (Start, Intermediate, End mit Typen), Tasks (User, Service, Script, Business Rule), Gateways (Exclusive XOR, Parallel AND, Inclusive OR), Swimlanes und alle Connecting Objects – werden korrekt platziert, typisiert und im XML-Schema korrekt kodiert. Was gelegentlich noch manueller Nacharbeit bedarf: die visuelle Layout-Optimierung bei sehr komplexen Prozessen mit mehr als 20 Aktivitäten sowie branchen-spezifische BPMN-Erweiterungen (z.B. BPMN for Healthcare oder BPMN for Banking), die über den Kernelement-Set hinausgehen.
+            </div>
+          </div>
+          <div class="blog-faq-item">
+            <div class="blog-faq-q" onclick="toggleFaq(this)">Brauche ich BPMN-Vorkenntnisse?</div>
+            <div class="blog-faq-a">
+              Für die Nutzung des Skills nicht zwingend – Sie können einfach einen Prozess in natürlicher Sprache beschreiben, und der Skill übersetzt ihn in korrektes BPMN. Für die Qualitätssicherung der Ausgabe ist ein Grundverständnis der Notation jedoch hilfreich: zu wissen, wann ein Exclusive Gateway versus ein Parallel Gateway die richtige Wahl ist, macht die Ergebnisse noch besser und reduziert Korrekturschleifen. Das nötige Basis-Wissen kann in einem 90-minütigen Onboarding vermittelt werden – kein BPMN-Zertifikat erforderlich.
+            </div>
+          </div>
+          <div class="blog-faq-item">
+            <div class="blog-faq-q" onclick="toggleFaq(this)">Wie setzt Hermes Agent das in meinem Unternehmen ein?</div>
+            <div class="blog-faq-a">
+              Hermes Agent integriert den BPMN-Skill direkt in Ihren bestehenden Workflow: Prozessbeschreibungen aus Confluence, SharePoint oder Meeting-Transkripten werden automatisch erkannt und in BPMN-Diagramme überführt. Die Ergebnisse werden direkt in Ihr Prozess-Repository geschrieben, kategorisiert und versioniert. Optional können Diagramme vor dem Speichern einem Review-Workflow durchlaufen. Das initiale Setup dauert typischerweise 1–2 Wochen, inklusive SSO-Integration, Berechtigungskonzept und Team-Onboarding. In einem kostenlosen Erstgespräch analysieren wir Ihren spezifischen Use Case und geben eine realistische Aufwandsschätzung.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- Related Articles -->
+      <section>
+        <h2>Weiterführende Artikel</h2>
+        <p>Diese Beiträge vertiefen die hier besprochenen Themen und zeigen, wie KI-Agenten Prozessautomatisierung im Unternehmen vorantreiben.</p>
+        <div class="blog-related-grid">
+          <a href="hermes-agent-fuer-unternehmen.html" class="rc">
+            <div class="blog-rc-type">Plattform</div>
+            <div class="blog-rc-title">Hermes Agent für Unternehmen: Was er kann, wie er integriert wird und für wen er sich lohnt</div>
+          </a>
+          <a href="hermes-agent-vs-n8n-zapier.html" class="rc">
+            <div class="blog-rc-type">Vergleich</div>
+            <div class="blog-rc-title">Hermes Agent vs. n8n vs. Zapier: Welches Automatisierungstool passt für Ihr Unternehmen?</div>
+          </a>
+          <a href="hermes-agent-use-cases-roi-mittelstand.html" class="rc">
+            <div class="blog-rc-type">ROI &amp; Use Cases</div>
+            <div class="blog-rc-title">KI-Agenten im Mittelstand: 12 konkrete Use Cases und ihr messbarer ROI</div>
+          </a>
+          <a href="parallele-ki-agenten-multi-agent-workflow.html" class="rc">
+            <div class="blog-rc-type">Architektur</div>
+            <div class="blog-rc-title">Parallele KI-Agenten: Wie Multi-Agent Workflows komplexe Aufgaben aufteilen und beschleunigen</div>
+          </a>
+        </div>
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<!-- Footer (minimal) -->
+<footer style="background:#0a0a12;border-top:1px solid #252535;padding:2rem 0;margin-top:0;">
+  <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
+    <a href="../index.html" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;">
+      <img src="../assets/logo-hermes.svg" alt="Hermes Agency" width="32" height="32" />
+      <span style="font-family:'Syne',sans-serif;color:#f0f0ff;font-weight:700;">Hermes Agency</span>
+    </a>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+      <a href="../impressum.html" style="color:#606080;font-size:0.85rem;text-decoration:none;">Impressum</a>
+      <a href="../datenschutz.html" style="color:#606080;font-size:0.85rem;text-decoration:none;">Datenschutz</a>
+      <a href="../blog.html" style="color:#606080;font-size:0.85rem;text-decoration:none;">Blog</a>
+    </div>
+    <span style="color:#606080;font-size:0.82rem;">© 2026 Hermes Agency</span>
+  </div>
+</footer>
+
+<script>
+  // ROI Calculator
+  function updateROI() {
+    var count = parseFloat(document.getElementById('bpmn-count').value) || 0;
+    var rate = parseFloat(document.getElementById('hourly-rate').value) || 0;
+    var oldHours = parseFloat(document.getElementById('old-hours').value) || 0;
+    var newMinutes = parseFloat(document.getElementById('new-minutes').value) || 0;
+
+    var newHours = newMinutes / 60;
+    var savedHoursPerDiagram = Math.max(0, oldHours - newHours);
+    var savedHoursMonth = savedHoursPerDiagram * count;
+    var savedCostMonth = savedHoursMonth * rate;
+    var savedCostYear = savedCostMonth * 12;
+
+    document.getElementById('saved-hours').textContent = savedHoursMonth.toFixed(1) + ' h';
+    document.getElementById('saved-month').textContent = formatCurrency(savedCostMonth);
+    document.getElementById('saved-year').textContent = formatCurrency(savedCostYear);
+  }
+
+  function formatCurrency(value) {
+    if (value >= 1000) {
+      return (value / 1000).toFixed(1).replace('.', ',') + ' k€';
+    }
+    return Math.round(value) + ' €';
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    updateROI();
+  });
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    var item = el.parentElement;
+    var wasOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.blog-faq-item').forEach(function(i) {
+      i.classList.remove('open');
+    });
+    // Open if was closed
+    if (!wasOpen) {
+      item.classList.add('open');
+    }
+  }
+
+  // Nav burger
+  var burger = document.getElementById('navBurger');
+  var mobile = document.getElementById('navMobile');
+  if (burger && mobile) {
+    burger.addEventListener('click', function() {
+      var open = mobile.classList.toggle('active');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  // Smooth scroll for TOC links
+  document.querySelectorAll('.blog-ch-item').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) {
+          var offset = 100;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
