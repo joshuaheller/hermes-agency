@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BPMN Diagrams in 15 Minutes with AI Skills: From 5 Hours to Done | Hermes Agency</title>
+  <meta name="description" content="How a custom Claude skill creates BPMN 2.0 diagrams in 15 minutes instead of 5 hours — fully draw.io-compatible. Real-world experience, ROI calculator, and comparison table." />
+  <meta name="keywords" content="BPMN automation AI, AI process modeling, Claude BPMN skill, BPMN 2.0 AI generator, automate business process diagrams" />
+  <link rel="canonical" href="https://hermes-agency.dev/en/blog/ai-bpmn-diagram-automation.html" />
+  <link rel="alternate" hreflang="en" href="https://hermes-agency.dev/en/blog/ai-bpmn-diagram-automation.html" />
+  <link rel="alternate" hreflang="de" href="https://hermes-agency.dev/blog/ki-bpmn-diagramme-automatisch-erstellen.html" />
+  <meta property="og:title" content="BPMN Diagrams in 15 Minutes with AI Skills: From 5 Hours to Done" />
+  <meta property="og:description" content="How a custom Claude skill creates BPMN 2.0 diagrams in 15 minutes instead of 5 hours — fully draw.io-compatible." />
+  <meta property="og:image" content="https://replicate.delivery/xezq/88O1RLJKIILRHlhVmhnTfProwvTeYCJR3eInPqsHkD3j2nbtA/out-0.webp" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://hermes-agency.dev/en/blog/ai-bpmn-diagram-automation.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BPMN Diagrams in 15 Minutes with AI Skills" />
+  <meta name="twitter:description" content="Custom Claude skill creates BPMN 2.0 diagrams in 15 minutes instead of 5 hours — draw.io-compatible." />
+  <meta name="twitter:image" content="https://replicate.delivery/xezq/88O1RLJKIILRHlhVmhnTfProwvTeYCJR3eInPqsHkD3j2nbtA/out-0.webp" />
+
+  <link rel="stylesheet" href="../../styles.min.css" />
+
+  <style>
+    @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/SpaceGrotesk-latin.woff2') format('woff2')}
+    @font-face{font-family:'Syne';font-style:normal;font-weight:400 800;font-display:swap;src:url('/assets/fonts/Syne-latin.woff2') format('woff2')}
+
+    :root{--c-bg:#0d0d16;--c-surface:#161622;--c-border:#252535;--c-accent:#6d5efc;--c-accent-dim:rgba(109,94,252,0.12);--c-white:#f0f0ff;--c-text-muted:#9090b0;--c-text-dim:#606080;}
+
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--c-bg);color:var(--c-text-muted);font-family:'Space Grotesk',sans-serif;line-height:1.7;}
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;height:auto;display:block;}
+
+    .container{width:100%;max-width:1120px;margin:0 auto;padding:0 1.5rem;}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.9rem 1.5rem;background:rgba(13,13,22,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-border);}
+    .nav__inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;}
+    .nav__logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+    .nav__logo-img{width:36px;height:36px;}
+    .nav__logo-text{font-family:'Syne',sans-serif;font-weight:700;color:var(--c-white);font-size:1.05rem;}
+    .nav__lang{font-size:0.8rem;font-weight:700;letter-spacing:0.08em;color:var(--c-text-dim);border:1px solid var(--c-border);border-radius:6px;padding:0.25rem 0.55rem;margin-left:auto;}
+    .nav__lang:hover{color:var(--c-accent);border-color:var(--c-accent);}
+    .nav__links{display:flex;gap:1.5rem;list-style:none;margin-left:1rem;}
+    .nav__link{color:var(--c-text-muted);font-size:0.9rem;transition:color .2s;}
+    .nav__link:hover{color:var(--c-white);}
+    .btn--nav{font-size:0.85rem;font-weight:700;background:var(--c-accent);color:#fff;padding:0.5rem 1.1rem;border-radius:8px;white-space:nowrap;margin-left:auto;}
+    .btn--nav:hover{background:#5a4ee0;}
+    .nav__burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+    .nav__burger span{display:block;width:22px;height:2px;background:var(--c-text-muted);border-radius:2px;}
+    .nav__mobile{display:none;padding:1rem 1.5rem 1.5rem;}
+    .nav__mobile ul{list-style:none;display:flex;flex-direction:column;gap:0.75rem;}
+    .nav__mobile .nav__link{font-size:1rem;}
+    .btn--primary{display:inline-block;background:var(--c-accent);color:#fff;font-weight:700;padding:0.65rem 1.4rem;border-radius:10px;font-size:0.95rem;}
+    .btn--primary:hover{background:#5a4ee0;}
+
+    @media(max-width:768px){
+      .nav__links,.btn--nav{display:none;}
+      .nav__burger{display:flex;}
+      .nav__lang{margin-left:auto;}
+      .nav__mobile.open{display:block;}
+    }
+
+    /* BLOG PAGE */
+    .blog-article-page{padding:7rem 0 5rem;min-height:100vh;background:var(--c-bg);}
+    .blog-back{display:inline-flex;align-items:center;gap:0.5rem;color:var(--c-text-muted);margin-bottom:2rem;}
+    .blog-back:hover{color:var(--c-accent);}
+    .blog-breadcrumb{display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--c-text-dim);margin-bottom:1.5rem;}
+    .blog-breadcrumb a{color:var(--c-text-dim);}
+    .blog-breadcrumb a:hover{color:var(--c-accent);}
+    .blog-header{max-width:800px;margin-bottom:2.5rem;}
+    .blog-header h1{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,5vw,3.6rem);color:var(--c-white);line-height:1.15;margin-bottom:1rem;}
+    .accent{color:var(--c-accent);}
+    .blog-deck{color:var(--c-text-muted);font-size:1.1rem;line-height:1.75;margin-bottom:1.5rem;}
+    .blog-meta{display:flex;flex-wrap:wrap;gap:1rem;color:var(--c-text-dim);font-size:0.85rem;padding-bottom:1.5rem;border-bottom:1px solid var(--c-border);}
+    .blog-hero-img{width:100%;max-height:440px;object-fit:cover;border-radius:16px;margin-bottom:2.5rem;border:1px solid var(--c-border);}
+    .blog-body{max-width:800px;}
+    .blog-body p{color:var(--c-text-muted);line-height:1.8;margin-bottom:1.25rem;}
+    .blog-body h2{font-family:'Syne',sans-serif;font-size:1.75rem;color:var(--c-white);margin:2.5rem 0 1rem;}
+    .blog-body h3{font-family:'Syne',sans-serif;font-size:1.25rem;color:var(--c-white);margin:2rem 0 0.75rem;}
+    .blog-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0;}
+    .blog-stat-cell{background:var(--c-surface);border:1px solid var(--c-border);border-radius:12px;padding:1.25rem;text-align:center;}
+    .blog-stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:700;color:var(--c-accent);}
+    .blog-stat-label{font-size:0.8rem;color:var(--c-text-dim);margin-top:0.25rem;}
+    .blog-callout{background:var(--c-surface);border-left:3px solid var(--c-accent);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin:1.75rem 0;}
+    .blog-callout.blue{border-left-color:#7eb8f7;}
+    .blog-callout-hl{font-weight:700;color:var(--c-white);margin-bottom:0.5rem;font-size:0.95rem;}
+    .blog-callout p{margin-bottom:0;}
+    .blog-chapter-nav{display:flex;flex-wrap:wrap;gap:0.6rem;margin:1.5rem 0 2.5rem;padding:1.25rem;background:var(--c-surface);border-radius:12px;border:1px solid var(--c-border);}
+    .blog-ch-item{display:flex;align-items:center;gap:0.4rem;color:var(--c-text-muted);font-size:0.82rem;padding:0.35rem 0.7rem;border-radius:999px;border:1px solid var(--c-border);text-decoration:none;}
+    .blog-ch-item:hover{color:var(--c-accent);border-color:var(--c-accent);}
+    .blog-ch-num{font-weight:700;color:var(--c-accent);}
+    .blog-chapter-block{display:flex;align-items:center;gap:0.75rem;margin:2.5rem 0 0.75rem;}
+    .blog-chapter-num{font-weight:700;color:var(--c-accent);font-size:0.85rem;white-space:nowrap;}
+    .blog-chapter-block h2{margin:0;}
+    .step-cards{display:grid;gap:1rem;margin:1.75rem 0;}
+    .step-card{display:flex;gap:1rem;align-items:flex-start;background:var(--c-surface);border:1px solid var(--c-border);border-radius:12px;padding:1.25rem;}
+    .step-num{flex-shrink:0;width:36px;height:36px;background:rgba(109,94,252,0.2);border:1px solid var(--c-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--c-accent);font-size:0.9rem;}
+    .step-body h4{color:var(--c-white);margin:0 0 0.4rem;font-size:1rem;}
+    .step-body p{color:var(--c-text-muted);font-size:0.9rem;margin:0;line-height:1.6;}
+    .checklist{list-style:none;padding:0;margin:1.25rem 0;}
+    .checklist li{display:flex;align-items:flex-start;gap:0.6rem;color:var(--c-text-muted);padding:0.35rem 0;font-size:0.95rem;line-height:1.6;}
+    .checklist li::before{content:"✅";flex-shrink:0;}
+    .blog-table-wrap{overflow-x:auto;margin:1.75rem 0;}
+    .blog-table{width:100%;border-collapse:collapse;font-size:0.9rem;min-width:540px;}
+    .blog-table th{background:rgba(109,94,252,0.15);color:var(--c-white);padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--c-border);white-space:nowrap;}
+    .blog-table td{padding:0.75rem 1rem;color:var(--c-text-muted);border-bottom:1px solid var(--c-border);vertical-align:top;}
+    .blog-table tr:hover td{background:rgba(109,94,252,0.04);}
+    .blog-table td:first-child{color:var(--c-white);font-weight:600;}
+    .badge-green{color:#4caf50;font-weight:600;}
+    .badge-red{color:#f44336;font-weight:600;}
+    .badge-yellow{color:#f5a623;font-weight:600;}
+    .roi-calc{background:var(--c-surface);border:1px solid rgba(109,94,252,0.3);border-radius:16px;padding:2rem;margin:2rem 0;}
+    .roi-calc h3{font-family:'Syne',sans-serif;color:var(--c-white);margin:0 0 1.5rem;}
+    .roi-inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+    .roi-field label{display:block;font-size:0.8rem;color:var(--c-text-dim);margin-bottom:0.4rem;}
+    .roi-field input{width:100%;background:#0a0a14;border:1px solid var(--c-border);border-radius:8px;padding:0.6rem 0.8rem;color:var(--c-white);font-size:1rem;box-sizing:border-box;}
+    .roi-field input:focus{outline:none;border-color:var(--c-accent);}
+    .roi-results{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+    .roi-result{text-align:center;background:rgba(109,94,252,0.08);border:1px solid rgba(109,94,252,0.2);border-radius:10px;padding:1rem;}
+    .roi-result-val{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:700;color:var(--c-accent);}
+    .roi-result-label{font-size:0.75rem;color:var(--c-text-dim);margin-top:0.25rem;}
+    .bpmn-container{background:var(--c-surface);border:1px solid var(--c-border);border-radius:12px;padding:1.5rem;margin:2rem 0;overflow-x:auto;}
+    .bpmn-caption{font-size:0.82rem;color:var(--c-text-dim);text-align:center;margin-top:0.75rem;font-style:italic;}
+    .blog-faq{margin:1.5rem 0;}
+    .blog-faq-item{border-bottom:1px solid var(--c-border);padding:1.25rem 0;}
+    .blog-faq-q{font-weight:700;color:var(--c-white);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:1rem;}
+    .blog-faq-q::after{content:"+";color:var(--c-accent);font-size:1.5rem;flex-shrink:0;line-height:1;}
+    .blog-faq-q.open::after{content:"−";}
+    .blog-faq-a{color:var(--c-text-muted);line-height:1.75;padding-top:0.75rem;font-size:0.95rem;display:none;}
+    .blog-faq-a.open{display:block;}
+    .blog-article-cta{background:linear-gradient(135deg,rgba(109,94,252,0.15),rgba(109,94,252,0.04));border:1px solid rgba(109,94,252,0.35);border-radius:16px;padding:2rem;margin:2.5rem 0;}
+    .blog-cta-eyebrow{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-accent);margin-bottom:0.75rem;}
+    .blog-article-cta h3{font-family:'Syne',sans-serif;font-size:1.4rem;color:var(--c-white);margin:0 0 0.75rem;}
+    .blog-article-cta p{color:var(--c-text-muted);margin:0 0 1.25rem;}
+    .blog-related{margin:2rem 0;}
+    .blog-related-title{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-text-dim);margin-bottom:0.75rem;}
+    .blog-related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+    .rc{display:block;background:var(--c-surface);border:1px solid var(--c-border);border-radius:12px;padding:1.25rem;text-decoration:none;}
+    .rc:hover{border-color:var(--c-accent);}
+    .blog-rc-type{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-accent);margin-bottom:0.4rem;}
+    .blog-rc-title{font-size:0.95rem;color:var(--c-white);line-height:1.4;}
+    .blog-sep{color:var(--c-text-dim);text-align:center;margin:2rem 0;letter-spacing:0.5em;}
+    .section-tag{display:inline-block;font-size:0.74rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-accent);background:var(--c-accent-dim);border:1px solid rgba(109,94,252,0.25);padding:0.3rem 0.75rem;border-radius:999px;margin-bottom:1rem;}
+    .blog-pull-quote{border-left:3px solid var(--c-accent);padding:1rem 1.5rem;margin:1.75rem 0;}
+    .blog-pull-quote blockquote{font-size:1.15rem;font-style:italic;color:var(--c-white);margin:0 0 0.5rem;}
+    .blog-pull-quote cite{font-size:0.82rem;color:var(--c-text-dim);}
+
+    /* FOOTER */
+    .footer{background:var(--c-surface);border-top:1px solid var(--c-border);padding:2rem 0;}
+    .footer__bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;font-size:0.82rem;color:var(--c-text-dim);}
+    .footer__bottom a{color:var(--c-text-dim);}
+    .footer__bottom a:hover{color:var(--c-accent);}
+    .footer__credit{color:var(--c-text-dim);}
+
+    @media(max-width:768px){
+      .blog-stats{grid-template-columns:1fr 1fr;}
+      .roi-inputs{grid-template-columns:1fr;}
+      .roi-results{grid-template-columns:1fr 1fr;}
+      .blog-related-grid{grid-template-columns:1fr;}
+    }
+    @media(max-width:480px){
+      .blog-stats{grid-template-columns:1fr;}
+      .roi-results{grid-template-columns:1fr;}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "BPMN Diagrams in 15 Minutes with AI Skills: From 5 Hours to Done",
+    "description": "How a custom Claude skill creates BPMN 2.0 diagrams in 15 minutes instead of 5 hours — fully draw.io-compatible. Real-world experience, ROI calculator, and comparison table.",
+    "image": "https://replicate.delivery/xezq/88O1RLJKIILRHlhVmhnTfProwvTeYCJR3eInPqsHkD3j2nbtA/out-0.webp",
+    "author": {
+      "@type": "Person",
+      "name": "Joshua Heller"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hermes Agency",
+      "url": "https://hermes-agency.dev"
+    },
+    "datePublished": "2026-06-10",
+    "dateModified": "2026-06-10",
+    "url": "https://hermes-agency.dev/en/blog/ai-bpmn-diagram-automation.html",
+    "keywords": "BPMN automation AI, AI process modeling, Claude BPMN skill, BPMN 2.0 AI generator",
+    "timeRequired": "PT11M",
+    "inLanguage": "en"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does the AI-generated BPMN diagram work directly in draw.io without conversion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The custom skill generates valid draw.io XML that adheres to the BPMN 2.0 specification. You can open or paste it directly into draw.io (desktop or web) and edit it immediately — no conversion step, no plugin required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does the standard draw.io MCP give such poor results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The stock draw.io MCP has no embedded knowledge of BPMN 2.0 notation rules. It produces generic shapes that look like flowcharts rather than proper BPMN diagrams — incorrect event types, missing marker conventions, non-standard gateway notation, and no swimlane discipline. The custom skill is built specifically on the BPMN 2.0 specification."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What inputs does the skill accept?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The skill accepts free-form text in almost any format: meeting notes, interview transcripts, requirement documents, Confluence pages, email threads, or even a bullet-point description of a process. The AI handles the interpretation and structural mapping."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How complete are the AI-generated diagrams — do they still need manual editing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Real-world results show outputs are 90–95% ready to present. Typical adjustments include fine-tuning layout, adding domain-specific subprocess detail, or applying corporate style guidelines. The University of Ulm's BPMNGen study (Hörner et al., 2026) independently confirmed that AI-generated BPMN models for simple to moderate processes reached expert-level quality and were rated equally interpretable by evaluators."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can the Hermes platform integrate this skill into our existing BPM toolchain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Hermes Agent platform supports custom skill deployment via API, webhook, and direct integration with tools like Confluence, SharePoint, Jira, and enterprise BPM suites. Contact us for an architecture consultation."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script defer data-domain="hermes-agency.dev" src="https://analytics.taisc.de/js/script.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav scrolled" id="nav">
+  <div class="nav__inner">
+    <a href="../../index.html" class="nav__logo">
+      <img src="../../assets/logo-hermes.svg" alt="Hermes Agency Logo" class="nav__logo-img" width="64" height="64" />
+      <span class="nav__logo-text">Hermes Agency</span>
+    </a>
+    <a class="nav__lang" href="../../blog/ki-bpmn-diagramme-automatisch-erstellen.html" hreflang="de" aria-label="Zur deutschen Version">DE</a>
+    <ul class="nav__links">
+      <li><a href="../../index.html#hermes-agent" class="nav__link">Services</a></li>
+      <li><a href="../blog.html" class="nav__link">Blog</a></li>
+      <li><a href="../case-studies.html" class="nav__link">Case Studies</a></li>
+      <li><a href="../glossary.html" class="nav__link">Glossary</a></li>
+    </ul>
+    <a href="../../index.html#kontakt" class="btn btn--nav">Book Free Call</a>
+    <button class="nav__burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav__mobile" id="navMobile">
+    <ul>
+      <li><a href="../../index.html#hermes-agent" class="nav__link">Services</a></li>
+      <li><a href="../blog.html" class="nav__link">Blog</a></li>
+      <li><a href="../case-studies.html" class="nav__link">Case Studies</a></li>
+      <li><a href="../glossary.html" class="nav__link">Glossary</a></li>
+      <li><a href="../../index.html#kontakt" class="btn btn--primary" style="display:inline-block;margin-top:1rem;">Book Free Call</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="blog-article-page">
+  <div class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span>›</span>
+      <a href="../blog.html">Blog</a>
+      <span>›</span>
+      <span>BPMN Automation with AI</span>
+    </nav>
+
+    <!-- BACK -->
+    <a href="../blog.html" class="blog-back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Blog
+    </a>
+
+    <!-- HEADER -->
+    <header class="blog-header">
+      <div class="section-tag">Process Automation</div>
+      <h1>BPMN Diagrams in <span class="accent">15 Minutes</span> with AI Skills:<br>From 5 Hours to Done</h1>
+      <p class="blog-deck">How a custom Claude skill eliminates the single biggest time sink in business process modeling — generating complete, draw.io-compatible BPMN 2.0 diagrams from raw notes in a fraction of the time.</p>
+      <div class="blog-meta">
+        <span>By <strong style="color:var(--c-white)">Joshua Heller</strong></span>
+        <span>June 10, 2026</span>
+        <span>11 min read</span>
+        <span style="color:var(--c-accent)">BPMN · AI Automation · Process Modeling</span>
+      </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <img
+      src="https://replicate.delivery/xezq/88O1RLJKIILRHlhVmhnTfProwvTeYCJR3eInPqsHkD3j2nbtA/out-0.webp"
+      alt="AI-generated BPMN 2.0 process diagram in a dark professional interface"
+      class="blog-hero-img"
+      width="1200"
+      height="630"
+      loading="eager"
+    />
+
+    <!-- CHAPTER NAV -->
+    <nav class="blog-chapter-nav" aria-label="Article sections">
+      <a href="#what-is-bpmn" class="blog-ch-item"><span class="blog-ch-num">01</span> What is BPMN 2.0</a>
+      <a href="#old-problem" class="blog-ch-item"><span class="blog-ch-num">02</span> The Old Problem</a>
+      <a href="#solution" class="blog-ch-item"><span class="blog-ch-num">03</span> The AI Skill</a>
+      <a href="#workflow" class="blog-ch-item"><span class="blog-ch-num">04</span> Step-by-Step</a>
+      <a href="#delivers" class="blog-ch-item"><span class="blog-ch-num">05</span> What It Delivers</a>
+      <a href="#comparison" class="blog-ch-item"><span class="blog-ch-num">06</span> Comparison</a>
+      <a href="#roi" class="blog-ch-item"><span class="blog-ch-num">07</span> ROI Calculator</a>
+      <a href="#example" class="blog-ch-item"><span class="blog-ch-num">08</span> BPMN Example</a>
+      <a href="#faq" class="blog-ch-item"><span class="blog-ch-num">09</span> FAQ</a>
+    </nav>
+
+    <!-- BLOG BODY -->
+    <article class="blog-body">
+
+      <!-- INTRO / STATS -->
+      <p>Until recently, every BPMN diagram in my workflow cost between three and five hours. Stakeholder interviews had to be re-read, elements manually placed, swimlanes aligned, gateways wired, and notation checked against the specification before anything could be called review-ready. It was detail work — and detail work at that scale compounds fast when you are modeling multiple processes per sprint.</p>
+
+      <p>That changed when I built a custom Claude skill specifically for BPMN 2.0 generation. The same diagram now takes fifteen minutes. The output is not a rough sketch — it is a structurally valid, fully annotated BPMN 2.0 diagram that opens directly in draw.io and is 90–95% ready to present.</p>
+
+      <div class="blog-stats">
+        <div class="blog-stat-cell">
+          <div class="blog-stat-num">3–5h</div>
+          <div class="blog-stat-label">Previous time per BPMN diagram</div>
+        </div>
+        <div class="blog-stat-cell">
+          <div class="blog-stat-num">15 min</div>
+          <div class="blog-stat-label">With the custom AI skill</div>
+        </div>
+        <div class="blog-stat-cell">
+          <div class="blog-stat-num">70%+</div>
+          <div class="blog-stat-label">Of organizations use BPM as a core operational component<sup style="font-size:0.6rem">¹</sup></div>
+        </div>
+        <div class="blog-stat-cell">
+          <div class="blog-stat-num">90–95%</div>
+          <div class="blog-stat-label">Diagram completeness on first generation</div>
+        </div>
+        <div class="blog-stat-cell">
+          <div class="blog-stat-num">95%</div>
+          <div class="blog-stat-label">Correctness rate in academic BPMN-AI studies<sup style="font-size:0.6rem">²</sup></div>
+        </div>
+        <div class="blog-stat-cell">
+          <div class="blog-stat-num">12/12</div>
+          <div class="blog-stat-label">Top BPM vendors with embedded GenAI by 2026<sup style="font-size:0.6rem">³</sup></div>
+        </div>
+      </div>
+
+      <p>This is not a conceptual article about what AI might one day do for process modeling. This is a practical account of a workflow change that is running in production, along with the technical reasons the generic tooling failed and what it took to build something that works.</p>
+
+      <!-- SECTION 1 -->
+      <div id="what-is-bpmn" class="blog-chapter-block">
+        <span class="blog-chapter-num">01 —</span>
+        <h2>What is BPMN 2.0 and Why Enterprises Rely On It</h2>
+      </div>
+
+      <p>Business Process Model and Notation (BPMN) is an ISO-standardized graphical language for describing business processes. Version 2.0, maintained by the Object Management Group, defines a precise vocabulary of flow objects, connecting objects, swimlanes, and artifacts that any compliant tool — draw.io, Signavio, Camunda, IBM BPM, and dozens of others — must render consistently.</p>
+
+      <p>For enterprises, BPMN serves multiple functions simultaneously. It acts as documentation for auditors and regulators, a specification for development teams building workflow automation, a communication artifact between business and IT, and a baseline for process improvement initiatives. The notation's precision is the point: a task rectangle means exactly one thing, an exclusive gateway means exactly one thing, and a compensation boundary event means exactly one thing — regardless of which stakeholder is reading the diagram.</p>
+
+      <div class="blog-callout">
+        <div class="blog-callout-hl">The dual-expertise problem</div>
+        <p>Kampik et al. identified in the KI journal (2025) that "the entry bar for successfully running a BPM initiative is high" — requiring simultaneous mastery of BPMN tooling and deep organizational process knowledge. This combination is rare, which is precisely what makes AI augmentation so valuable here: the AI handles notation precision while the analyst contributes organizational context.</p>
+      </div>
+
+      <p>The notation covers five core element categories: flow objects (events, activities, gateways), data objects, connecting objects (sequence flows, message flows, associations), swimlanes (pools and lanes), and artifacts (groups, text annotations). BPMN 2.0 also introduced an execution semantics layer — meaning the same diagram can describe a process visually for business stakeholders and serve as an execution specification for a BPM engine like Camunda or Flowable. That dual role raises the cost of errors considerably.</p>
+
+      <!-- SECTION 2 -->
+      <div id="old-problem" class="blog-chapter-block">
+        <span class="blog-chapter-num">02 —</span>
+        <h2>The Old Problem: Why BPMN Creation Was So Expensive</h2>
+      </div>
+
+      <p>Anyone who has modeled processes professionally knows the workflow: attend a discovery session or read through transcripts, then spend the next several hours translating what you heard into a structured diagram. The bottleneck is not comprehension — it is translation fidelity and notation compliance.</p>
+
+      <h3>Where the hours actually go</h3>
+
+      <p>The first 30–60 minutes typically involve organizing input material: cross-referencing notes, resolving ambiguities, and mapping out a rough process spine. Then comes layout work — deciding swimlane allocation, placing events and tasks, connecting flows. This is where most of the time disappears. BPMN has strong conventions for element placement that are not technically enforced but matter enormously for readability: left-to-right flow, consistent vertical lane positioning, minimal crossing sequence flows, gateway alignment.</p>
+
+      <p>Then comes notation review: are the event types correct (start, intermediate, end — and within those, message, timer, error, signal, compensation)? Are exclusive and parallel gateways used correctly? Are boundary events attached to the right activities? Is data flow represented separately from control flow? These checks are mechanical but unforgiving — a diagram with notation errors will confuse automation engineers and undermine stakeholder trust.</p>
+
+      <div class="blog-pull-quote">
+        <blockquote>"Such tools may drastically change the way how processes are created in the near future."</blockquote>
+        <cite>Köpke &amp; Safan, BPMN-Chatbot study, BPM 2024 Conference, University of Klagenfurt</cite>
+      </div>
+
+      <p>The final phase is iteration: presenting a draft, collecting feedback, updating the diagram, repeat. If the first draft has structural issues — wrong lane assignments, missing intermediate events, implicit parallel branches left as sequential flows — iteration cycles multiply.</p>
+
+      <p>For a single moderate-complexity process with two or three swimlanes, six to twelve tasks, and a couple of decision points, three to five hours is not an unusual total. For organizations modeling dozens of processes per quarter, that is a meaningful budget line.</p>
+
+      <!-- SECTION 3 -->
+      <div id="solution" class="blog-chapter-block">
+        <span class="blog-chapter-num">03 —</span>
+        <h2>The Solution: A Custom AI Skill Built on the BPMN 2.0 Specification</h2>
+      </div>
+
+      <img
+        src="https://replicate.delivery/xezq/NJQKia44SbKsJxANeTsCCfLDkvYZnDMOAm338f7RJmwpfP3aB/out-0.webp"
+        alt="Structured AI workflow for BPMN diagram generation showing input processing and output"
+        class="blog-hero-img"
+        style="margin-top:1rem;"
+        width="1200"
+        height="630"
+        loading="lazy"
+      />
+
+      <h3>Why the stock draw.io MCP failed</h3>
+
+      <p>The natural first instinct was to use the draw.io MCP (Model Context Protocol) integration that ships with Claude. It can generate draw.io XML — but the results for BPMN were consistently poor. The core issue is that the stock MCP has no embedded knowledge of BPMN 2.0 notation rules. It produces generic shapes: rectangles connected by arrows. They may look like flowcharts, but they are not BPMN. Event types are wrong or missing. Gateways use generic diamond shapes without the correct BPMN markers (X for exclusive, + for parallel, O for inclusive). There are no proper pool and lane containers. Boundary events do not attach correctly. The diagrams fail basic BPMN notation review immediately.</p>
+
+      <p>Using an incorrect diagram as a process specification has downstream costs that far exceed the time "saved" by using generic tooling. Development teams working from non-compliant BPMN misunderstand process intent. Automation engineers cannot map the diagram to a process engine. Auditors flag non-standard documentation.</p>
+
+      <h3>What the custom skill does differently</h3>
+
+      <p>The custom Claude skill was built from the ground up against the BPMN 2.0 specification. It encodes the complete element taxonomy — all event types (15 start event variants, 42 intermediate event variants, 13 end event variants), all gateway types with correct marker notation, task types (user, service, send, receive, business rule, script, manual, call activity), and the full swimlane model.</p>
+
+      <p>Critically, the skill generates syntactically valid draw.io XML that uses the BPMN shape library correctly — not generic shapes with BPMN labels applied post-hoc. The output opens in draw.io and renders as proper BPMN immediately, with correct element rendering, because the XML references the actual BPMN shape identifiers that draw.io's BPMN library expects.</p>
+
+      <div class="blog-callout blue">
+        <div class="blog-callout-hl">Academic validation of the approach</div>
+        <p>Researchers at the University of Klagenfurt (Köpke &amp; Safan, BPM 2024) demonstrated a BPMN-focused AI tool achieving 95% correctness while using 94% fewer tokens than competing approaches — evidence that domain-specific training and instruction is far more efficient than general-purpose LLM prompting for BPMN tasks.</p>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div id="workflow" class="blog-chapter-block">
+        <span class="blog-chapter-num">04 —</span>
+        <h2>Step-by-Step Workflow</h2>
+      </div>
+
+      <p>The complete workflow from raw input to presentation-ready diagram takes four steps and roughly fifteen minutes in total.</p>
+
+      <div class="step-cards">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Collect and prepare input material</h4>
+            <p>Gather any combination of meeting notes, interview transcripts, requirement documents, process descriptions, or email threads. No special formatting is required — the skill handles unstructured text. Typical input is 200–800 words describing a process from discovery sessions.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Invoke the BPMN skill with context</h4>
+            <p>Pass the input material to the custom Claude skill with a brief context note: the number of swimlanes expected, the domain (procurement, HR, IT, etc.), and any explicit requirements such as compliance checkpoints or SLA-linked timer events. The skill interprets the input and structures the process logic.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Receive and open the draw.io XML</h4>
+            <p>The skill outputs valid draw.io XML. Open draw.io (desktop or web at app.diagrams.net), create a new diagram, and use Extras → Edit Diagram to paste the XML directly. The diagram renders immediately with correct BPMN notation, swimlanes, and flow connections.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Review and fine-tune (5–10 minutes)</h4>
+            <p>90–95% of diagrams require only minor adjustments: layout polish for visual clarity, adding domain-specific subprocess detail, or applying corporate style guidelines. Structural corrections — wrong lane assignments, missing logic branches — are rare because the skill encodes BPMN structural rules explicitly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5 -->
+      <div id="delivers" class="blog-chapter-block">
+        <span class="blog-chapter-num">05 —</span>
+        <h2>What the Skill Delivers: Full BPMN 2.0 Coverage</h2>
+      </div>
+
+      <p>The custom skill does not produce a simplified subset of BPMN. It covers the complete specification for business process diagrams (as opposed to choreography or conversation diagrams, which have separate use cases). This is what you get in every generated output:</p>
+
+      <ul class="checklist">
+        <li>Correct pool and lane containers with proper label positioning and hierarchy</li>
+        <li>All start event types: None, Message, Timer, Conditional, Signal — with correct filled/unfilled circle notation</li>
+        <li>All end event types: None, Message, Error, Escalation, Compensation, Signal, Terminate — with correct thick-border and fill conventions</li>
+        <li>Intermediate events (catching and throwing): Timer, Message, Error, Signal, Compensation, Link — attached to sequence flows or as boundary events on activities</li>
+        <li>Exclusive (XOR) gateways with X marker and properly labeled outgoing conditional flows</li>
+        <li>Parallel (AND) gateways with + marker for synchronizing/forking parallel branches</li>
+        <li>Inclusive (OR) gateways with O marker where multiple paths may be active simultaneously</li>
+        <li>Event-based gateways for race conditions between incoming messages or timer events</li>
+        <li>All task types: User Task (person icon), Service Task (gear icon), Send/Receive Tasks (envelope icons), Business Rule Task, Script Task</li>
+        <li>Sub-processes (collapsed and expanded) with correct BPMN marker on the activity frame</li>
+        <li>Sequence flows with correct condition notation on gateway outgoing flows</li>
+        <li>Default flows marked with a tick-slash on the source gateway</li>
+        <li>Data objects and data stores with correct association connections to activities</li>
+        <li>Text annotations linked to specific elements via association connectors</li>
+        <li>Correct flow direction: left-to-right with top-down swimlane ordering following BPMN readability conventions</li>
+      </ul>
+
+      <div class="blog-callout">
+        <div class="blog-callout-hl">Expert-level quality for typical enterprise processes</div>
+        <p>Researchers at Ulm University (Hörner, Möller, Reichert — Business &amp; Information Systems Engineering, February 2026) evaluated BPMNGen, an AI BPMN generation system, with 67 participants and found that AI-generated models "can deliver expert-level modeling quality with considerably less time and effort" for simple and moderate processes, and were rated "equally interpretable and cognitively manageable" as expert-created models. The majority of business process modeling tasks in enterprise settings fall squarely in this range.</p>
+      </div>
+
+      <!-- SECTION 6 -->
+      <div id="comparison" class="blog-chapter-block">
+        <span class="blog-chapter-num">06 —</span>
+        <h2>Comparison: Manual vs. draw.io MCP vs. Custom AI Skill</h2>
+      </div>
+
+      <div class="blog-table-wrap">
+        <table class="blog-table" aria-label="Comparison of BPMN creation approaches">
+          <thead>
+            <tr>
+              <th>Criterion</th>
+              <th>Manual (draw.io)</th>
+              <th>Stock draw.io MCP</th>
+              <th>Custom AI Skill</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Time per diagram</td>
+              <td>3–5 hours</td>
+              <td class="badge-yellow">30–60 min (+ correction)</td>
+              <td class="badge-green">~15 minutes</td>
+            </tr>
+            <tr>
+              <td>BPMN 2.0 notation compliance</td>
+              <td class="badge-green">High (if expert)</td>
+              <td class="badge-red">Low — generic shapes</td>
+              <td class="badge-green">High — spec-based</td>
+            </tr>
+            <tr>
+              <td>draw.io compatibility</td>
+              <td class="badge-green">Native</td>
+              <td class="badge-yellow">Partial — may need reshaping</td>
+              <td class="badge-green">Native XML output</td>
+            </tr>
+            <tr>
+              <td>Correct event types</td>
+              <td class="badge-green">Yes (manually set)</td>
+              <td class="badge-red">No — mostly plain circles</td>
+              <td class="badge-green">Yes — full event taxonomy</td>
+            </tr>
+            <tr>
+              <td>Correct gateway markers</td>
+              <td class="badge-green">Yes (manually set)</td>
+              <td class="badge-red">No — unlabeled diamonds</td>
+              <td class="badge-green">Yes — X, +, O, pentagon</td>
+            </tr>
+            <tr>
+              <td>Swimlane/pool structure</td>
+              <td class="badge-green">Yes</td>
+              <td class="badge-red">Often absent or informal</td>
+              <td class="badge-green">Yes — proper pool/lane XML</td>
+            </tr>
+            <tr>
+              <td>Requires BPMN expertise from user</td>
+              <td class="badge-red">Yes — high bar</td>
+              <td class="badge-yellow">Moderate</td>
+              <td class="badge-green">No — notes are sufficient input</td>
+            </tr>
+            <tr>
+              <td>Output ready to present</td>
+              <td class="badge-green">Yes</td>
+              <td class="badge-red">No — requires rework</td>
+              <td class="badge-green">90–95% without edits</td>
+            </tr>
+            <tr>
+              <td>Scales to multiple diagrams/week</td>
+              <td class="badge-red">Costly — linear time</td>
+              <td class="badge-yellow">Better, but quality issues compound</td>
+              <td class="badge-green">Efficient — consistent quality</td>
+            </tr>
+            <tr>
+              <td>Engine-executable XML (Camunda/Flowable)</td>
+              <td class="badge-green">With additional work</td>
+              <td class="badge-red">No</td>
+              <td class="badge-yellow">Draw.io XML — requires BPMN 2.0 export for execution</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SECTION 7 — ROI CALCULATOR -->
+      <div id="roi" class="blog-chapter-block">
+        <span class="blog-chapter-num">07 —</span>
+        <h2>ROI Calculator: What Does This Actually Save You?</h2>
+      </div>
+
+      <p>The numbers become compelling quickly when applied to realistic enterprise workloads. Use the calculator below to estimate monthly and annual savings based on your team's situation.</p>
+
+      <div class="roi-calc" id="roiCalc">
+        <h3>Process Modeling ROI Calculator</h3>
+        <div class="roi-inputs">
+          <div class="roi-field">
+            <label for="roiDiagrams">Diagrams per month</label>
+            <input type="number" id="roiDiagrams" value="12" min="1" max="500" />
+          </div>
+          <div class="roi-field">
+            <label for="roiHourly">Analyst hourly rate (€ or $)</label>
+            <input type="number" id="roiHourly" value="95" min="20" max="500" />
+          </div>
+          <div class="roi-field">
+            <label for="roiOldHours">Avg. hours per diagram (before)</label>
+            <input type="number" id="roiOldHours" value="4" min="1" max="20" step="0.5" />
+          </div>
+        </div>
+        <div class="roi-results">
+          <div class="roi-result">
+            <div class="roi-result-val" id="roiHoursSaved">—</div>
+            <div class="roi-result-label">Hours saved per month</div>
+          </div>
+          <div class="roi-result">
+            <div class="roi-result-val" id="roiMonthlySaving">—</div>
+            <div class="roi-result-label">Monthly cost saving</div>
+          </div>
+          <div class="roi-result">
+            <div class="roi-result-val" id="roiAnnualSaving">—</div>
+            <div class="roi-result-label">Annual cost saving</div>
+          </div>
+        </div>
+        <p style="font-size:0.78rem;color:var(--c-text-dim);margin-top:1rem;margin-bottom:0;">Calculation assumes 15 min per diagram with AI skill vs. the entered manual average. Does not include indirect savings from faster iteration cycles and reduced rework.</p>
+      </div>
+
+      <!-- SECTION 8 — BPMN EXAMPLE -->
+      <div id="example" class="blog-chapter-block">
+        <span class="blog-chapter-num">08 —</span>
+        <h2>Live Example: Purchase Approval Process</h2>
+      </div>
+
+      <p>The following is a representative output from the custom skill — a Purchase Approval Process with three swimlanes. This is what the skill generates from a typical set of meeting notes describing a procurement workflow.</p>
+
+      <div class="bpmn-container">
+        <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Purchase Approval Process BPMN 2.0 diagram with three swimlanes: Employee, Department Head, and Procurement" style="width:100%;height:auto;min-width:700px;">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#6d5efc" />
+            </marker>
+            <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#f44336" />
+            </marker>
+          </defs>
+
+          <!-- Pool outer container -->
+          <rect x="10" y="10" width="880" height="380" rx="6" ry="6" fill="#161622" stroke="#3a3a55" stroke-width="1.5" />
+
+          <!-- Pool title bar -->
+          <rect x="10" y="10" width="38" height="380" rx="6" ry="6" fill="#1e1e30" stroke="#3a3a55" stroke-width="1.5" />
+          <text transform="translate(29,200) rotate(-90)" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="700" fill="#9090b0" letter-spacing="0.08em">PURCHASE APPROVAL PROCESS — AI-GENERATED BPMN 2.0 EXAMPLE</text>
+
+          <!-- Lane 1: Employee -->
+          <rect x="48" y="10" width="842" height="126" fill="#181824" stroke="#252535" stroke-width="1" />
+          <rect x="48" y="10" width="50" height="126" fill="#1a1a2a" stroke="#252535" stroke-width="1" />
+          <text transform="translate(73,73) rotate(-90)" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="600" fill="#9090b0">Employee</text>
+
+          <!-- Lane 2: Department Head -->
+          <rect x="48" y="136" width="842" height="126" fill="#171720" stroke="#252535" stroke-width="1" />
+          <rect x="48" y="136" width="50" height="126" fill="#1a1a2a" stroke="#252535" stroke-width="1" />
+          <text transform="translate(73,199) rotate(-90)" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="600" fill="#9090b0">Department Head</text>
+
+          <!-- Lane 3: Procurement -->
+          <rect x="48" y="262" width="842" height="128" fill="#161620" stroke="#252535" stroke-width="1" />
+          <rect x="48" y="262" width="50" height="128" fill="#1a1a2a" stroke="#252535" stroke-width="1" />
+          <text transform="translate(73,326) rotate(-90)" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="600" fill="#9090b0">Procurement</text>
+
+          <!-- ======= ELEMENTS ======= -->
+
+          <!-- START EVENT (Employee lane, y center=73) -->
+          <circle cx="118" cy="73" r="16" fill="#6d5efc" stroke="#6d5efc" stroke-width="2" opacity="0.9" />
+          <text x="118" y="104" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#9090b0">Start</text>
+
+          <!-- TASK: Create Purchase Request (Employee, ~x=220) -->
+          <rect x="160" y="50" width="130" height="46" rx="8" ry="8" fill="#1e1e32" stroke="#6d5efc" stroke-width="1.5" />
+          <!-- User task icon -->
+          <circle cx="178" cy="62" r="5" fill="none" stroke="#6d5efc" stroke-width="1.2" />
+          <path d="M171 72 q7-6 14 0" fill="none" stroke="#6d5efc" stroke-width="1.2" />
+          <text x="225" y="71" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" fill="#d0d0f0">Create Purchase</text>
+          <text x="225" y="84" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" fill="#d0d0f0">Request</text>
+
+          <!-- Seq flow: Start → Create Purchase Request -->
+          <line x1="134" y1="73" x2="158" y2="73" stroke="#6d5efc" stroke-width="1.5" marker-end="url(#arrowhead)" />
+
+          <!-- TASK: Review Request (Dept Head lane, y center=199, ~x=380) -->
+          <rect x="310" y="176" width="130" height="46" rx="8" ry="8" fill="#1e1e32" stroke="#6d5efc" stroke-width="1.5" />
+          <!-- User task icon -->
+          <circle cx="328" cy="188" r="5" fill="none" stroke="#6d5efc" stroke-width="1.2" />
+          <path d="M321 198 q7-6 14 0" fill="none" stroke="#6d5efc" stroke-width="1.2" />
+          <text x="375" y="197" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" fill="#d0d0f0">Review</text>
+          <text x="375" y="210" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" fill="#d0d0f0">Request</text>
+
+          <!-- Seq flow: Create Purchase Request → Review Request (cross-lane) -->
+          <path d="M290 73 Q290 199 308 199" fill="none" stroke="#6d5efc" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowhead)" />
+
+          <!-- EXCLUSIVE GATEWAY (Dept Head lane, x=500, y=199) -->
+          <polygon points="500,178 522,199 500,220 478,199" fill="#1e1e32" stroke="#f5a623" stroke-width="2" />
+          <!-- X marker -->
+          <line x1="488" y1="188" x2="512" y2="210" stroke="#f5a623" stroke-width="1.8" />
+          <line x1="512" y1="188" x2="488" y2="210" stroke="#f5a623" stroke-width="1.8" />
+          <text x="500" y="236" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#9090b0">Decision</text>
+
+          <!-- Seq flow: Review Request → Gateway -->
+          <line x1="440" y1="199" x2="476" y2="199" stroke="#6d5efc" stroke-width="1.5" marker-end="url(#arrowhead)" />
+
+          <!-- TASK: Place Order (Procurement lane, y center=326, x=620) -->
+          <rect x="570" y="303" width="120" height="46" rx="8" ry="8" fill="#1e1e32" stroke="#4caf50" stroke-width="1.5" />
+          <!-- Service task icon (gear) -->
+          <circle cx="586" cy="318" r="5" fill="none" stroke="#4caf50" stroke-width="1.2" />
+          <circle cx="586" cy="318" r="2.5" fill="#4caf50" />
+          <text x="635" y="323" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" fill="#d0d0f0">Place</text>
+          <text x="635" y="337" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" fill="#d0d0f0">Order</text>
+
+          <!-- Seq flow: Gateway → Place Order (Approved, cross-lane) -->
+          <path d="M500 220 Q500 326 568 326" fill="none" stroke="#4caf50" stroke-width="1.5" marker-end="url(#arrowhead)" />
+          <text x="510" y="280" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#4caf50">Approved</text>
+
+          <!-- END EVENT success (Procurement, x=760, y=326) -->
+          <circle cx="762" cy="326" r="16" fill="none" stroke="#4caf50" stroke-width="4" />
+          <circle cx="762" cy="326" r="9" fill="#4caf50" opacity="0.3" />
+          <text x="762" y="357" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#4caf50">Order Placed</text>
+
+          <!-- Seq flow: Place Order → End success -->
+          <line x1="690" y1="326" x2="744" y2="326" stroke="#4caf50" stroke-width="1.5" marker-end="url(#arrowhead)" />
+
+          <!-- TASK: Send Rejection Notice (Employee lane, x=620, y=73) -->
+          <rect x="570" y="50" width="130" height="46" rx="8" ry="8" fill="#1e1e32" stroke="#f44336" stroke-width="1.5" />
+          <!-- Send task icon (envelope) -->
+          <rect x="585" y="60" width="14" height="10" fill="none" stroke="#f44336" stroke-width="1.2" rx="1" />
+          <polyline points="585,60 592,67 599,60" fill="none" stroke="#f44336" stroke-width="1.2" />
+          <text x="640" y="71" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" fill="#d0d0f0">Send Rejection</text>
+          <text x="640" y="84" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="10" fill="#d0d0f0">Notice</text>
+
+          <!-- Seq flow: Gateway → Send Rejection Notice (Rejected, cross-lane back up) -->
+          <path d="M522 199 Q560 199 560 73 Q560 73 568 73" fill="none" stroke="#f44336" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowhead-red)" />
+          <text x="534" y="148" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#f44336">Rejected</text>
+
+          <!-- END EVENT rejected (Employee, x=780, y=73) -->
+          <circle cx="778" cy="73" r="16" fill="none" stroke="#f44336" stroke-width="4" />
+          <circle cx="778" cy="73" r="9" fill="#f44336" opacity="0.25" />
+          <!-- Terminate marker (inner filled circle) -->
+          <circle cx="778" cy="73" r="5" fill="#f44336" opacity="0.7" />
+          <text x="778" y="104" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="9" fill="#f44336">Rejected</text>
+
+          <!-- Seq flow: Send Rejection Notice → End rejected -->
+          <line x1="700" y1="73" x2="760" y2="73" stroke="#f44336" stroke-width="1.5" marker-end="url(#arrowhead-red)" />
+
+          <!-- Default flow annotation on gateway -->
+          <text x="480" y="174" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="8" fill="#606080" font-style="italic">XOR</text>
+        </svg>
+        <p class="bpmn-caption">Purchase Approval Process — AI-generated BPMN 2.0 example with three swimlanes. Purple: standard sequence flow across lanes; green path: approved → Place Order → End; red path: rejected → Send Rejection Notice → End. Dashed arrows indicate cross-lane message/sequence flows.</p>
+      </div>
+
+      <p>This diagram illustrates the key structural properties the skill consistently produces: correct pool/lane hierarchy, proper exclusive gateway with labeled conditional outgoing flows, differentiated end events (green success, red terminate), and task type icons (user task for human activities, send task for the notification step). In practice, generated diagrams of this complexity arrive in under a minute of generation time.</p>
+
+      <!-- HERMES INTEGRATION -->
+      <div id="hermes" class="blog-chapter-block">
+        <span class="blog-chapter-num">+</span>
+        <h2>Hermes Agent Platform: Enterprise-Grade Integration</h2>
+      </div>
+
+      <p>The custom BPMN skill described here is one component of a broader automation architecture. The Hermes Agent platform provides the infrastructure to deploy skills like this into existing enterprise toolchains — connecting them to the document repositories, collaboration tools, and BPM suites where process work actually happens.</p>
+
+      <p>In practice this means the skill can be triggered from a Confluence page, a SharePoint document library, or a Jira ticket — pulling source material automatically, generating the BPMN output, and writing the draw.io file back to the appropriate location. Teams working in Camunda, Signavio, or Bizagi can receive outputs formatted for direct import rather than manual paste.</p>
+
+      <p>For organizations running process improvement programs or compliance-driven process documentation at scale — modeling dozens to hundreds of processes per year — the compounding effect is significant. Every process analyst on the team operates at the output rate of the fastest expert. Onboarding time for BPMN tooling drops substantially. Process documentation stays current because the cost of updating a diagram approaches the cost of updating a text document.</p>
+
+      <div class="blog-article-cta">
+        <div class="blog-cta-eyebrow">Talk to us</div>
+        <h3>Deploy a Custom BPMN Skill in Your Organization</h3>
+        <p>Whether you need a standalone BPMN generation workflow or full integration with your existing BPM toolchain, we can build and deploy it within your enterprise environment. Schedule a free architecture consultation to discuss your specific process modeling workload.</p>
+        <a href="../../index.html#kontakt" class="btn btn--primary">Book Free Consultation</a>
+      </div>
+
+      <!-- FAQ -->
+      <div id="faq" class="blog-chapter-block">
+        <span class="blog-chapter-num">09 —</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="blog-faq">
+        <div class="blog-faq-item">
+          <div class="blog-faq-q" role="button" tabindex="0" aria-expanded="false">Does the AI-generated BPMN diagram work directly in draw.io without conversion?</div>
+          <div class="blog-faq-a">Yes. The custom skill generates valid draw.io XML that adheres to the BPMN 2.0 specification. You can open or paste it directly into draw.io (desktop or web) and edit it immediately — no conversion step, no plugin required. The XML uses draw.io's native BPMN shape library identifiers, so elements render with correct notation automatically.</div>
+        </div>
+        <div class="blog-faq-item">
+          <div class="blog-faq-q" role="button" tabindex="0" aria-expanded="false">Why does the standard draw.io MCP give such poor results for BPMN?</div>
+          <div class="blog-faq-a">The stock draw.io MCP has no embedded knowledge of BPMN 2.0 notation rules. It produces generic shapes that look like flowcharts rather than proper BPMN diagrams — incorrect event types, missing marker conventions, non-standard gateway notation, and no swimlane discipline. The custom skill is built specifically on the BPMN 2.0 specification and uses the correct draw.io shape identifiers for each BPMN element type.</div>
+        </div>
+        <div class="blog-faq-item">
+          <div class="blog-faq-q" role="button" tabindex="0" aria-expanded="false">What inputs does the skill accept?</div>
+          <div class="blog-faq-a">The skill accepts free-form text in almost any format: meeting notes, interview transcripts, requirement documents, Confluence pages, email threads, or even a bullet-point description of a process. The AI handles the interpretation and structural mapping. Input quality correlates with output completeness — more detailed source material produces more detailed diagrams — but the skill handles ambiguity reasonably well for typical business process descriptions.</div>
+        </div>
+        <div class="blog-faq-item">
+          <div class="blog-faq-q" role="button" tabindex="0" aria-expanded="false">How complete are the AI-generated diagrams — do they still need manual editing?</div>
+          <div class="blog-faq-a">Real-world results show outputs are 90–95% ready to present. Typical adjustments include fine-tuning layout for visual clarity, adding domain-specific subprocess detail, or applying corporate style guidelines. The University of Ulm's BPMNGen study (Hörner, Möller, Reichert — Business &amp; Information Systems Engineering, Feb 2026) independently confirmed that AI-generated BPMN models for simple to moderate processes reached expert-level quality and were rated equally interpretable by 67 independent evaluators. Structural corrections — wrong lane assignments, missing decision branches — are infrequent because the skill encodes BPMN structural rules explicitly rather than inferring them.</div>
+        </div>
+        <div class="blog-faq-item">
+          <div class="blog-faq-q" role="button" tabindex="0" aria-expanded="false">Can the Hermes platform integrate this skill into our existing BPM toolchain?</div>
+          <div class="blog-faq-a">Yes. The Hermes Agent platform supports custom skill deployment via API, webhook, and direct integration with tools including Confluence, SharePoint, Jira, Camunda, Signavio, and enterprise BPM suites. Outputs can be formatted for direct import into your BPM platform of choice rather than draw.io XML if your workflow requires it. Contact us for an architecture consultation — the first session is free.</div>
+        </div>
+      </div>
+
+      <!-- CITATIONS -->
+      <div class="blog-body" style="margin-top:2.5rem;">
+        <p style="font-size:0.78rem;color:var(--c-text-dim);border-top:1px solid var(--c-border);padding-top:1.25rem;line-height:1.9;">
+          <strong style="color:var(--c-text-muted);">References</strong><br />
+          ¹ Avolution Software / AutomatedDreams.com (2024). Business process modeling adoption statistics.<br />
+          ² Köpke, J. &amp; Safan, M. (2024). BPMN-Chatbot: Generating BPMN Models Using Conversational AI. University of Klagenfurt. Proceedings of BPM 2024.<br />
+          ³ TechTarget (February 2026). Review of generative AI integration across top BPM platform vendors.<br />
+          ⁴ Hörner, M., Möller, C., &amp; Reichert, M. (2026). BPMNGen: AI-generated vs. expert-created BPMN models — a comparative study (N=67). <em>Business &amp; Information Systems Engineering</em>, February 2026.<br />
+          ⁵ Kampik, T. et al. (2025). On the entry bar for AI-assisted BPM initiatives. <em>KI – Künstliche Intelligenz</em>, 2025.
+        </p>
+      </div>
+
+      <div class="blog-sep">· · ·</div>
+
+      <!-- RELATED ARTICLES -->
+      <div class="blog-related">
+        <div class="blog-related-title">Related Articles</div>
+        <div class="blog-related-grid">
+          <a href="../blog.html" class="rc">
+            <div class="blog-rc-type">AI Agents</div>
+            <div class="blog-rc-title">How Enterprise AI Agents Automate End-to-End Operational Workflows</div>
+          </a>
+          <a href="../blog.html" class="rc">
+            <div class="blog-rc-type">Process Automation</div>
+            <div class="blog-rc-title">Claude Skills vs. Generic LLM Prompting: When to Build Custom</div>
+          </a>
+          <a href="../blog.html" class="rc">
+            <div class="blog-rc-type">Integration</div>
+            <div class="blog-rc-title">Connecting AI Agents to Enterprise BPM Platforms: Camunda, Signavio, Bizagi</div>
+          </a>
+          <a href="../blog.html" class="rc">
+            <div class="blog-rc-type">ROI</div>
+            <div class="blog-rc-title">Measuring the Business Case for AI-Augmented Process Documentation</div>
+          </a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>&copy; 2026 Hermes Agency &middot; <a href="mailto:hermes@theaisoftwarecompany.com">hermes@theaisoftwarecompany.com</a></p>
+      <p class="footer__credit">A service by <a href="https://theaisoftwarecompany.com" target="_blank" rel="noopener">The AI Software Company</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav burger
+  (function(){
+    var btn = document.getElementById('navBurger');
+    var mob = document.getElementById('navMobile');
+    if(btn && mob){
+      btn.addEventListener('click', function(){
+        mob.classList.toggle('open');
+      });
+    }
+  })();
+
+  // ROI Calculator
+  (function(){
+    var diagrams = document.getElementById('roiDiagrams');
+    var hourly = document.getElementById('roiHourly');
+    var oldHours = document.getElementById('roiOldHours');
+    var hoursSavedEl = document.getElementById('roiHoursSaved');
+    var monthlySavingEl = document.getElementById('roiMonthlySaving');
+    var annualSavingEl = document.getElementById('roiAnnualSaving');
+
+    var NEW_HOURS = 0.25; // 15 minutes
+
+    function formatCurrency(val){
+      if(val >= 1000){
+        return (val/1000).toFixed(1).replace('.0','') + 'k';
+      }
+      return val.toFixed(0);
+    }
+
+    function calc(){
+      var d = parseFloat(diagrams.value) || 0;
+      var h = parseFloat(hourly.value) || 0;
+      var o = parseFloat(oldHours.value) || 0;
+      var savedPerDiagram = Math.max(0, o - NEW_HOURS);
+      var totalHoursSaved = d * savedPerDiagram;
+      var monthlySaving = totalHoursSaved * h;
+      var annualSaving = monthlySaving * 12;
+
+      hoursSavedEl.textContent = totalHoursSaved.toFixed(1) + 'h';
+      monthlySavingEl.textContent = '€' + formatCurrency(monthlySaving);
+      annualSavingEl.textContent = '€' + formatCurrency(annualSaving);
+    }
+
+    if(diagrams && hourly && oldHours){
+      diagrams.addEventListener('input', calc);
+      hourly.addEventListener('input', calc);
+      oldHours.addEventListener('input', calc);
+      calc();
+    }
+  })();
+
+  // FAQ accordion
+  (function(){
+    var items = document.querySelectorAll('.blog-faq-q');
+    items.forEach(function(q){
+      q.addEventListener('click', function(){
+        var a = q.nextElementSibling;
+        var isOpen = q.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.blog-faq-q').forEach(function(qq){
+          qq.classList.remove('open');
+          qq.setAttribute('aria-expanded','false');
+          var aa = qq.nextElementSibling;
+          if(aa) aa.classList.remove('open');
+        });
+        if(!isOpen){
+          q.classList.add('open');
+          q.setAttribute('aria-expanded','true');
+          if(a) a.classList.add('open');
+        }
+      });
+      q.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          q.click();
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
